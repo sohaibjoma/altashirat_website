@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useCookie } from "#app";
 
-// Create the Axios instance
 const api = axios.create({
   baseURL: "https://intern.api.altashirat.solutionplus.net/api",
 });
