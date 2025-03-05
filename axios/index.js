@@ -6,10 +6,9 @@ const api = axios.create({
   baseURL: "https://intern.api.altashirat.solutionplus.net/api",
 });
 
-// Request Interceptor
 api.interceptors.request.use(
   (config) => {
-    if (import.meta.client) { // Ensure this runs only on the client side
+    if (import.meta.client) { 
       const token = useCookie("userToken")?.value || null;
       const locale = useCookie("locale")?.value;
 
