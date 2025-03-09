@@ -1,4 +1,15 @@
 {
   "hello": "مرحبا",
-  "language": "اللغة"
+  "language": "اللغة",
+  "phoneNumber": "رقم الهاتف",
+  "password": "كلمة المرور",
+  "countryCode": "رمز الدولة",
+  "selectCountryCode": "اختر رمز الدولة",
+  "enterNumber": "ادخل رقم",
+  "enterPassword": "ادخل كلمة المرور للمتابعة",
+  "login": "قم بتسجيل الدخول",
+  "noAccount": "ليس لديك حساب؟",
+  "registerAccount": "تسجيل حساب جديد",
+  "forgotPassword": "نسيت كلمة المرور؟",
+  "enterPhoneNumber": "أدخل رقم جوالك لتسجيل الدخول"
 }

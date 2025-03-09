@@ -1,4 +1,22 @@
 {
   "hello": "Hello",
-  "language": "Language"
+  "language": "Language",
+  "phoneNumber": "Phone Number",
+  "password": "Password",
+  "countryCode": "Country Code",
+  "selectCountryCode": "Select Country Code",
+  "enterNumber": "Enter Number",
+  "enterPassword": "Enter Password to login",
+  "login": "Login",
+  "phoneLabel": "Phone",
+  "passwordLabel": "Password",
+  "countryCodeLabel": "Country Code",
+  "countryCodePlaceholder": "Country Code",
+  "numberPlaceholder": "Number",
+  "numberLabel": "Number",
+  "passwordPlaceholder": "Password",
+  "noAccount": "No Account?",
+  "registerAccount": "Register Account",
+  "forgotPassword": "Forgot Password",
+  "enterPhoneNumber": "Enter Your Phone Number"
 }
