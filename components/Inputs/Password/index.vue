@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="title" class="mb-2">
+    <div v-if="title" class="mb-2 text-h6 font-weight-bold text-text">
       {{ $t(title) }}
     </div>
 
@@ -16,6 +16,7 @@
         ]"
         rounded
         variant="solo-filled"
+        clearable
         prepend-inner-icon="mdi-lock"
         :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
         @click:append-inner="togglePasswordVisibility"
@@ -24,7 +25,6 @@
     </Field>
   </div>
 </template>
-
 
 <script setup>
 import { Field } from "vee-validate";
