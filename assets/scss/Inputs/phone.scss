@@ -1,0 +1,21 @@
+.country-code-select :deep(.v-field) {
+  background-color: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.country-code-select :deep(.v-field__input) {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.country-code-select :deep(.v-field__append-inner) {
+  color: white;
+}
+
+:deep(.v-input__details) {
+  display: none;
+}
