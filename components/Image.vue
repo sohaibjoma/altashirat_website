@@ -30,20 +30,22 @@ const props = defineProps({
   },
   fallbackSrc: {
     type: String,
-    default: "/images/logo.png",
+    default: "logo.png",
   },
 });
 
+// Check if the image is dynamic (URL) or local
 const isDynamicImage = computed(() => {
   return props.src.startsWith("http://") || props.src.startsWith("https://");
 });
 
+// Compute the correct image source
 const imageSrc = computed(() => {
   if (isDynamicImage.value) {
     return props.src;
   } else {
     try {
-      return new URL(`~/assets/img/${props.src}`, import.meta.url).href;
+      return require(`@/assets/img/${props.src}`);
     } catch (error) {
       console.error(`Failed to load image: ${props.src}`, error);
       return props.fallbackSrc;

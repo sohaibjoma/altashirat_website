@@ -1,10 +1,5 @@
 <template>
-  <div>
-    <div v-if="title" class="mb-2">
-      {{ $t(title) }}
-    </div>
-
-    <Field v-slot="{ field, errors }" :name="name" :rules="rules">
+    <VeeField v-slot="{ field, errors }" :name="name" :rules="rules">
       <v-select
         v-bind="field"
         :model-value="modelValue"
@@ -14,23 +9,19 @@
           ...errors.map((error) => $t(error)),
           ...backendErrors,
         ]"
-        variant="solo-filled"
-        persistent-hint
+        variant="default"
         item-title="text"
         item-value="value"
-        rounded
         @update:model-value="emit('update:modelValue', $event)"
       >
         <template v-slot:selection="slotProps" v-if="$slots.selection">
           <slot name="selection" v-bind="slotProps"></slot>
         </template>
       </v-select>
-    </Field>
-  </div>
+    </VeeField>
 </template>
 
 <script setup>
-import { Field } from "vee-validate";
 import { computed } from "vue";
 import { useErrorStore } from "@/stores/error";
 

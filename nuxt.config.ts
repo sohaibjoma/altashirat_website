@@ -1,27 +1,27 @@
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
   experimental: {
-    asyncContext: true
+    asyncContext: true,
   },
   components: [
     {
-      path: '~/components',
+      path: "~/components",
       pathPrefix: false,
     },
   ],
   build: {
-    transpile: ['vuetify'],
+    transpile: ["vuetify"],
   },
 
   modules: [
     (_options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) => {
+      nuxt.hooks.hook("vite:extendConfig", (config) => {
         // @ts-expect-error
-        config.plugins.push(vuetify({ autoImport: true }))
-      })
+        config.plugins.push(vuetify({ autoImport: true }));
+      });
     },
-    '@pinia/nuxt',
-    '@vee-validate/nuxt',
+    "@pinia/nuxt",
+    "@vee-validate/nuxt",
   ],
 
   veeValidate: {
@@ -29,10 +29,10 @@ export default defineNuxtConfig({
     autoImports: true,
     // Use different names for components
     componentNames: {
-      Form: 'VeeForm',
-      Field: 'VeeField',
-      FieldArray: 'VeeFieldArray',
-      ErrorMessage: 'VeeErrorMessage',
+      Form: "VeeForm",
+      Field: "VeeField",
+      FieldArray: "VeeFieldArray",
+      ErrorMessage: "VeeErrorMessage",
     },
   },
 
@@ -43,9 +43,9 @@ export default defineNuxtConfig({
       },
     },
   },
-  plugins: ['~/plugins/vuetify/index.js'],
+  plugins: ["~/plugins/vuetify/index.js"],
 
-  compatibilityDate: '2025-03-05',
+  compatibilityDate: "2025-03-05",
   devtools: { enabled: true },
-  css: ["@/assets/Scss/main.scss"]
-})
+  css: ["@/assets/scss/main.scss"],
+});
