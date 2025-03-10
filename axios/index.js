@@ -1,37 +1,54 @@
 import axios from "axios";
-import { useCookie } from "#app";
+import { useAuthStore } from "@/stores/auth";
+import { useNotificationStore } from "@/stores/notifications";
+import { useErrorStore } from "@/stores/error";
 
-// Create the Axios instance
-const api = axios.create({
+const axiosInstance = axios.create({
   baseURL: "https://intern.api.altashirat.solutionplus.net/api",
 });
 
-// Request Interceptor
-api.interceptors.request.use(
-  (config) => {
-    if (import.meta.client) { // Ensure this runs only on the client side
-      const token = useCookie("userToken")?.value || null;
-      const locale = useCookie("locale")?.value;
+axiosInstance.interceptors.request.use((config) => {
+  const authStore = useAuthStore();
+  const token = authStore.token;
 
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      if (locale) {
-        config.headers["x-locale"] = locale;
-      }
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+  if (token) {
+    config.headers["Authorization"] = `Bearer ${token}`;
+  }
+  return config;
+});
 
-// Response Interceptor
-api.interceptors.response.use(
+axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error("Axios Error:", error);
+    const notificationStore = useNotificationStore();
+    const errorStore = useErrorStore();
+
+    errorStore.clearErrors();
+
+    if (error.response) {
+      if (error.response.status === 409 || error.response.status === 422) {
+        errorStore.setErrors(error.response.data.errors);
+        notificationStore.setNotification(
+          "Please fix the errors in the form.",
+          "error"
+        );
+      } else {
+        console.error("API Error:", error.response);
+        notificationStore.setNotification(
+          "An unexpected error occurred.",
+          "error"
+        );
+      }
+    } else {
+      console.error("Network Error:", error);
+      notificationStore.setNotification(
+        "Network issue. Please try again later.",
+        "error"
+      );
+    }
+
     return Promise.reject(error);
   }
 );
 
-export default api; 
+export default axiosInstance;

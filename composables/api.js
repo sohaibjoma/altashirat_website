@@ -1,7 +1,7 @@
 
 
 import { ref } from "vue";
-import api from "~/axios/index"; // Ensure correct import path
+import api from "~/axios/index";
 
 export function useApi() {
   const loading = ref(false);
