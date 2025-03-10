@@ -8,5 +8,16 @@
   "noAccount": "No Account?",
   "registerAccount": "Register Account",
   "forgotPassword": "Forgot Your Password",
-  "enterPhoneNumber": "Enter Your Phone Number"
+  "enterPhoneNumber": "Enter Your Phone Number",
+  "register": "Register Account",
+  "haveAccount": "Have an account?",
+  "firstName": "First Name",
+  "enterFirstName": "Insert firstname",
+  "enterLastName": "Insert lastname",
+  "lastName": "Last Name",
+  "email": "Email",
+  "enterEmail": "Enter Email",
+  "country": "Country",
+  "confirmPassword": "Confirm Password",
+  "confirmPasswordDescription": "Confirm Password"
 }

@@ -8,5 +8,16 @@
   "noAccount": "ليس لديك حساب؟",
   "registerAccount": "تسجيل حساب جديد",
   "forgotPassword": "نسيت كلمة المرور؟",
-  "enterPhoneNumber": "أدخل رقم جوالك لتسجيل الدخول"
+  "enterPhoneNumber": "أدخل رقم جوالك لتسجيل الدخول",
+  "register": "قم بتسجيل حساب جديد",
+  "haveAccount": "لديك حساب بالفعل؟",
+  "firstName": "الاسم الأول",
+  "enterFirstName": "أدخل الاسم الأول",
+  "enterLastName": "أدخل الاسم الأخير",
+  "lastName": "الاسم الأخير",
+  "email": "البريد الالكتروني",
+  "enterEmail": "أدخل البريد الالكتروني",
+  "country": "الدولة",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "confirmPasswordDescription": "تأكيد كلمة المرور"
 }
