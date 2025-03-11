@@ -19,5 +19,12 @@
   "enterEmail": "Enter Email",
   "country": "Country",
   "confirmPassword": "Confirm Password",
-  "confirmPasswordDescription": "Confirm Password"
+  "confirmPasswordDescription": "Confirm Password",
+  "home":"Home",
+  "about":"About Us",
+  "contact":"Contact Us",
+  "terms":"Terms and Conditions",
+  "privacy":"Privacy Policy",
+  "offerViza":"Offer Viza",
+  "profile":"Profile"
 }

@@ -202,6 +202,10 @@ const submitForm = async () => {
     isLoading.value = false;
   }
 };
+
+definePageMeta({
+  layout: "minimal",
+});
 </script>
 
 <style scoped>
