@@ -110,7 +110,6 @@ const { GET, POST } = useApi();
 const authStore = useAuthStore();
 const errorStore = useErrorStore();
 const notificationStore = useNotificationStore();
-const router = useRouter();
 
 onMounted(async () => {
   try {
@@ -205,6 +204,7 @@ const submitForm = async () => {
 
 definePageMeta({
   layout: "minimal",
+  middleware: "auth",
 });
 </script>
 

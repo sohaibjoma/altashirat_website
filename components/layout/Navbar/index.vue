@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-container w-50 mx-auto d-flex justify-center">
+  <div class="navbar-container w-50 mx-auto d-flex justify-center align-center">
     <v-layout class="overflow-visible" style="height: 56px">
       <v-bottom-navigation
         class="rounded-xl navbar"

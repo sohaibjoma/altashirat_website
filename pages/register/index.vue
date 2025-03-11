@@ -301,6 +301,7 @@ const submitForm = async () => {
 
 definePageMeta({
   layout: "minimal",
+  middleware: "auth",
 });
 </script>
 

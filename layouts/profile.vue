@@ -1,4 +1,4 @@
-// layouts/default.vue
+// layouts/profile.vue
 <template>
   <v-app>
     <div class="app-layout">
@@ -12,13 +12,13 @@
         <AppNavbar />
       </div>
       
-      <!-- Sidebar is conditionally shown and doesn't overlay -->
+      <!-- Sidebar is always shown in profile layout -->
       <Sidebar />
       
       <!-- Main Content Area -->
-      <div class="content-container" :class="{ 'with-sidebar': drawerStore.isOpen && showSidebar }">
+      <div class="content-container" :class="{ 'with-sidebar': drawerStore.isOpen }">
         <v-main>
-          <div>
+          <div class="pa-4">
             <slot />
           </div>
         </v-main>
@@ -33,9 +33,8 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { onMounted } from 'vue';
 import { useDisplay } from 'vuetify';
-import { useRoute } from 'vue-router';
 import { useDrawerStore } from '~/stores/drawer';
 import AppHeader from "~/components/layout/Header/index.vue";
 import AppNavbar from "~/components/layout/Navbar/index.vue";
@@ -44,10 +43,9 @@ import Sidebar from "~/components/layout/Sidebar/index.vue";
 
 const { mobile } = useDisplay();
 const drawerStore = useDrawerStore();
-const route = useRoute();
 
-const showSidebar = computed(() => {
-  return route.path.startsWith('/profile');
+onMounted(() => {
+  drawerStore.open();
 });
 </script>
 
@@ -55,6 +53,7 @@ const showSidebar = computed(() => {
 .app-layout {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .header-container {
@@ -66,14 +65,18 @@ const showSidebar = computed(() => {
 }
 
 .navbar-container {
-  margin-top: 54px;
+  margin-top: 80px;
   z-index: 5;
 }
 
 .content-container {
-  margin-top: 100px;
+  margin-top: 80px;
   flex: 1;
   transition: padding 0.3s ease;
+}
+
+.content-container.with-sidebar {
+  padding-right: 240px;
 }
 
 .footer-container {
