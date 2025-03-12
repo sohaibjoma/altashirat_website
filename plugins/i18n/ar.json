@@ -19,5 +19,12 @@
   "enterEmail": "أدخل البريد الالكتروني",
   "country": "الدولة",
   "confirmPassword": "تأكيد كلمة المرور",
-  "confirmPasswordDescription": "تأكيد كلمة المرور"
+  "confirmPasswordDescription": "تأكيد كلمة المرور",
+  "home":"الرئيسية",
+  "about":"عن منصة تأشيرات",
+  "contact":"تواصل معنا",
+  "terms":"الشروط والأحكام",
+  "privacy":"سياسة الخصوصية",
+  "offerViza":"عرض فيزا",
+  "profile":"الملف الشخصي"
 }

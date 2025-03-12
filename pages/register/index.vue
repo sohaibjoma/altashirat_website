@@ -19,7 +19,9 @@
             <v-img src="assets/img/logo.png" max-width="120" alt="Logo" />
           </div>
 
-          <v-card-title class="text-center text-h5 font-weight-bold text-text mb-4">
+          <v-card-title
+            class="text-center text-h5 font-weight-bold text-text mb-4"
+          >
             {{ $t("register") }}
           </v-card-title>
 
@@ -296,6 +298,11 @@ const submitForm = async () => {
     isLoading.value = false;
   }
 };
+
+definePageMeta({
+  layout: "minimal",
+  middleware: "auth",
+});
 </script>
 
 <style scoped>
