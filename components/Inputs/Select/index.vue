@@ -1,24 +1,23 @@
 <template>
-    <VeeField v-slot="{ field, errors }" :name="name" :rules="rules">
-      <v-select
-        v-bind="field"
-        :model-value="modelValue"
-        :items="items"
-        :placeholder="$t(placeholder)"
-        :error-messages="[
-          ...errors.map((error) => $t(error)),
-          ...backendErrors,
-        ]"
-        variant="default"
-        item-title="text"
-        item-value="value"
-        @update:model-value="emit('update:modelValue', $event)"
-      >
-        <template v-slot:selection="slotProps" v-if="$slots.selection">
-          <slot name="selection" v-bind="slotProps"></slot>
-        </template>
-      </v-select>
-    </VeeField>
+  <div v-if="title" class="mb-2 text-h6 font-weight-bold text-text">
+    {{ $t(title) }}
+  </div>
+  <VeeField v-slot="{ field, errors }" :name="name" :rules="rules">
+    <v-select
+      v-bind="field"
+      :model-value="modelValue"
+      :items="items"
+      :placeholder="$t(placeholder)"
+      :error-messages="[...errors.map((error) => $t(error)), ...backendErrors]"
+      item-title="text"
+      item-value="value"
+      @update:model-value="emit('update:modelValue', $event)"
+    >
+      <template v-slot:selection="slotProps" v-if="$slots.selection">
+        <slot name="selection" v-bind="slotProps"></slot>
+      </template>
+    </v-select>
+  </VeeField>
 </template>
 
 <script setup>

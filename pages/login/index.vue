@@ -110,7 +110,6 @@ const { GET, POST } = useApi();
 const authStore = useAuthStore();
 const errorStore = useErrorStore();
 const notificationStore = useNotificationStore();
-const router = useRouter();
 
 onMounted(async () => {
   try {
@@ -202,6 +201,11 @@ const submitForm = async () => {
     isLoading.value = false;
   }
 };
+
+definePageMeta({
+  layout: "minimal",
+  middleware: "auth",
+});
 </script>
 
 <style scoped>

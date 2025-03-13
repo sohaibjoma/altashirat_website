@@ -7,6 +7,8 @@
   --text: #0e0063;
   --bg-input: #f1f4fb;
   --text-icon-input: #b2aecc;
+  --bg-header: #d1d1d180;
+  --bg-footer: #eaeaea80;
 
   /* Gradient Variable */
   --gradient-button: linear-gradient(
@@ -21,5 +23,12 @@
     rgba(176, 211, 255, 0.41) 0%,
     rgba(173, 220, 253, 0.41) 50%,
     rgba(192, 249, 212, 0.41) 100%
+  );
+
+  --gradient-nav: linear-gradient(
+    190deg,
+    rgba(68, 38, 245, 1) 0%,
+    rgba(101, 188, 249, 1) 50%,
+    rgba(142, 231, 173, 1) 100%
   );
 }

@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <v-app>
     <div :dir="$vuetify.locale.isRtl ? 'rtl' : 'ltr'">
       <Notifications />
-      <NuxtPage />
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
     </div>
-  </div>
-  </div>
+  </v-app>
 </template>
