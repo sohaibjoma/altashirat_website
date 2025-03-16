@@ -40,7 +40,15 @@ export default defineNuxtConfig({
     },
     "@pinia/nuxt",
     "@vee-validate/nuxt",
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    locales: ['en', 'ar'], 
+    defaultLocale: 'ar', 
+    vueI18n: './plugins/i18n/index.ts', 
+  },
+
   veeValidate: {
     autoImports: true,
     componentNames: {
