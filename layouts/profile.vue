@@ -36,10 +36,7 @@
 import { onMounted } from 'vue';
 import { useDisplay } from 'vuetify';
 import { useDrawerStore } from '~/stores/drawer';
-import AppHeader from "~/components/layout/Header/index.vue";
-import AppNavbar from "~/components/layout/Navbar/index.vue";
-import AppFooter from "~/components/layout/Footer/index.vue";
-import Sidebar from "~/components/layout/Sidebar/index.vue";
+
 
 const { mobile } = useDisplay();
 const drawerStore = useDrawerStore();

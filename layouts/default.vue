@@ -37,10 +37,6 @@ import { computed } from 'vue';
 import { useDisplay } from 'vuetify';
 import { useRoute } from 'vue-router';
 import { useDrawerStore } from '~/stores/drawer';
-import AppHeader from "~/components/layout/Header/index.vue";
-import AppNavbar from "~/components/layout/Navbar/index.vue";
-import AppFooter from "~/components/layout/Footer/index.vue";
-import Sidebar from "~/components/layout/Sidebar/index.vue";
 
 const { mobile } = useDisplay();
 const drawerStore = useDrawerStore();
@@ -52,31 +48,5 @@ const showSidebar = computed(() => {
 </script>
 
 <style scoped>
-.app-layout {
-  display: flex;
-  flex-direction: column;
-}
 
-.header-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
-.navbar-container {
-  margin-top: 54px;
-  z-index: 5;
-}
-
-.content-container {
-  margin-top: 100px;
-  flex: 1;
-  transition: padding 0.3s ease;
-}
-
-.footer-container {
-  z-index: 1;
-}
 </style>

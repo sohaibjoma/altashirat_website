@@ -35,6 +35,9 @@ export default defineNuxtPlugin((app) => {
           text: '#0E0063',
           'bg-input': '#F1F4FB',
           'text-icon-input': '#B2AECC',
+          nav: '#64BAF9',
+          'hero-scd-sec':'#8ee7ad',
+          'bg-footer': '#eaeaea80'
         },
       },
     },
