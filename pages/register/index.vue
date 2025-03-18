@@ -114,7 +114,7 @@
               />
 
               <!-- Register Button -->
-              <Button
+              <LoginBtn
                 width="100%"
                 :text="$t('register')"
                 type="submit"
@@ -144,8 +144,6 @@
 
 <script setup>
 import { ref, onMounted, watch } from "vue";
-import Button from "@/components/Buttons/Login/index.vue";
-import PhoneInput from "@/components/Inputs/Phone/index.vue";
 
 const firstName = ref("");
 const lastName = ref("");
@@ -301,7 +299,7 @@ const submitForm = async () => {
 
 definePageMeta({
   layout: "minimal",
-  middleware: "auth",
+  // middleware: "auth",
 });
 </script>
 

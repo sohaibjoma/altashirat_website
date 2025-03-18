@@ -1,18 +1,36 @@
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+
 export default defineNuxtConfig({
   experimental: {
     asyncContext: true,
   },
   components: [
     {
-      path: "~/components",
+      path: "@/components",
       pathPrefix: false,
     },
+    {
+      path: "@/components/shared",
+      pathPrefix: false,
+    },
+    {
+      path: "@/components/shared/Buttons",
+      pathPrefix: false,
+    },
+    {
+      path: "@/components/shared/Inputs",
+      pathPrefix: false,
+    },   
+    {
+      path: "@/components/HomePage",
+      pathPrefix: false,
+    },  
+  
+
   ],
   build: {
     transpile: ["vuetify"],
   },
-
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
@@ -22,12 +40,22 @@ export default defineNuxtConfig({
     },
     "@pinia/nuxt",
     "@vee-validate/nuxt",
+    '@nuxtjs/i18n',
   ],
 
+  i18n: {
+    locales: [
+      { code: "en", iso: "en-US", dir: "ltr" },
+      { code: "ar", iso: "ar-EG", dir: "rtl" },
+    ],
+    defaultLocale: "ar",
+    strategy: "prefix_except_default",
+    vueI18n: "index.ts", 
+    detectBrowserLanguage: false, 
+  },
+
   veeValidate: {
-    // disable or enable auto imports
     autoImports: true,
-    // Use different names for components
     componentNames: {
       Form: "VeeForm",
       Field: "VeeField",
@@ -35,7 +63,6 @@ export default defineNuxtConfig({
       ErrorMessage: "VeeErrorMessage",
     },
   },
-
   vite: {
     vue: {
       template: {
@@ -44,8 +71,7 @@ export default defineNuxtConfig({
     },
   },
   plugins: ["~/plugins/vuetify/index.js"],
-
   compatibilityDate: "2025-03-05",
   devtools: { enabled: true },
-  css: ["@/assets/scss/main.scss"],
+  css: ["@/public/assets/scss/main.scss"],
 });

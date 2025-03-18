@@ -1,0 +1,82 @@
+{
+  "hello": "Hello",
+  "language": "Language",
+  "phoneNumber": "Phone Number",
+  "password": "Password",
+  "enterPassword": "Enter Password to login",
+  "login": "Login",
+  "noAccount": "No Account?",
+  "registerAccount": "Register Account",
+  "forgotPassword": "Forgot Your Password",
+  "enterPhoneNumber": "Enter Your Phone Number",
+  "register": "Register Account",
+  "haveAccount": "Have an account?",
+  "firstName": "First Name",
+  "enterFirstName": "Insert firstname",
+  "enterLastName": "Insert lastname",
+  "lastName": "Last Name",
+  "email": "Email",
+  "enterEmail": "Enter Email",
+  "country": "Country",
+  "confirmPassword": "Confirm Password",
+  "confirmPasswordDescription": "Confirm Password",
+  "home-title":"Home",
+  "about":"About Us",
+  "contact":"Contact Us",
+  "terms":"Terms and Conditions",
+  "privacy":"Privacy Policy",
+  "offerViza":"Offer Viza",
+  "profile":"Profile", 
+
+  "home-hero": {
+    "blue_title": "Request your tourist visa or your visa",
+    "white_title": "on the visa website",
+    "tourism_visa_card_title": "Tourist visa",
+    "employment_visa_card_title": "Employment visa",
+    "propose_visa_card_title": "Visa offer",
+    "h3_part1": "Double the chances of",
+    "h3_part2": "visa experts seeing you",
+    "hero_p": "Request your tourist visa or your visa with us on the visa website"
+  },
+
+  "form_fill_message": "Dear customer, by filling out the form we will be able to contact you",
+    "home": {
+    "employmentVisaProcess": "How to Obtain Employment Visas",
+    "fillContactForm": "Fill Contact Form",
+    "communication": "Communication",
+    "followProcedures": "Follow Procedures",
+    "getVisa": "Obtain a Visa",
+    "employmentVisaRequest": "Request an Employment Visa",
+    "employmentVisaDescription": "Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details. Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details. Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details.",
+    "employmentVisaDescriptionSmall": "Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details",
+    "requestEmploymentVisa": "Request Employment Visa",
+    "mainSmallCardText" : "Our esteemed clients at the time of filling out the form will be able to communicate"
+  },
+
+  "home-otherServices": {
+    "title": "Other services for you",
+    "description": "Are you looking for a tourist visa, employment visa, or want to sell visas? We offer assistance with:",
+    "listItems": {
+      "fst":"Work visas",
+      "snd":"Trusted partner",
+      "thrd":"Document authentication",
+      "frth":"Passport insurance",
+      "ffth":"Business invitation letters"
+    }
+  },
+
+  "home-advertisement": {
+    "employment_visa_button": "Request an employment visa",
+    "why_choose_us_title": "Why choose us",
+    "why_choose_us_subtitle": "Many benefits, practical and fast",
+    "listItems": {
+      "fst":"Fast visa processing",
+      "snd" :"24-hour online response",
+      "thrd":"Document authentication",
+      "frth":"Provide the best guidance"
+    },
+    "trusted_company": "Trusted company",
+    "experienced_team": "Experienced team",
+    "best_prices": "Best prices"
+  }
+}

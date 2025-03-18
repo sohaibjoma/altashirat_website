@@ -1,0 +1,254 @@
+.hero__wrapper {
+  background-image: url("/assets/img/hero-background.png") !important; /* Note the leading slash */
+  background-size: cover; /* Optional: Adjust as needed */
+  background-repeat: no-repeat; /* Optional: Adjust as needed */
+  padding-top: 75pt;
+  padding-bottom: 55pt;
+  position: relative;
+}
+
+.hero__plane{
+  position: absolute;
+  top: 10pt;
+  left: 0;
+  height: 470px;
+
+  @media screen and (max-width: 768px) {
+    width: 200px;
+    height: 300px;
+    top: 30pt;
+  }
+}
+
+
+.hero__blue-title{
+  font-size: 16pt;
+  width: 330px;
+}
+
+.hero__white-title{
+  font-size: 24pt;
+}
+
+.hero__h3{
+  height: 60px;
+}
+
+.hero__h3--small-text{
+  font-size: 11pt;
+}
+
+.hero__h3--large-text{
+  font-size: 14pt;
+}
+
+.hero_p{
+font-size: 10pt;
+}
+
+
+/*main section*/
+
+.main-section--wrapper{
+  position: relative;
+
+}
+
+.main-section__pattern__right{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 480px;
+  z-index: 1;
+}
+
+.main-section__pattern__left{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 480px;
+  z-index: 1;
+}
+
+.main-section{
+  z-index: 2
+}
+
+.mainSection__small-card{
+  position: relative;
+  width: 160px;
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mainSection__small-card__img--ar{
+  position: absolute;
+  bottom: 15px;
+  right: 25px;
+  z-index: 1;
+  width: 40px;
+}
+
+.mainSection__small-card__img--en{
+  position: absolute;
+  bottom: 15px;
+  left: 25px;
+  z-index: 1;
+  width: 40px;
+}
+
+.mainSection__small-card__border{
+  width: 2px;
+  height: 20px;
+  background-color: var(--hero-scd-sec);
+}
+
+.mainSection__small-card__text{
+  font-size: 10px;
+}
+
+.mainSection__small-card__click--ar{
+  position: absolute;
+  width: 20px;
+  z-index: 2;
+  right: 20px;
+  top: 25px;
+}
+
+.mainSection__small-card__click--en{
+  position: absolute;
+  width: 20px;
+  z-index: 2;
+  left: 25px;
+  top: 25px;
+}
+
+.main-section__divider{
+  position: relative;
+  z-index: 0;
+}
+
+.main-section__divider__card{
+  position: absolute;
+  bottom: 130px;
+  left: 0;
+  z-index: 2;
+}
+
+.main-section__divider__card_p{
+  font-size: 10pt;
+}
+
+//other services section
+.other-services__wrapper {
+  background-image: url("/assets/img/other-ser-bg.png") !important; 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+}
+
+.other-services__title{
+  position: relative;
+  font-size: 29px;
+}
+
+.other-services__title--underline{
+  font-size: 13px;
+  position: absolute;
+  top:30px;
+}
+
+.other-services__article{
+  width: 450px;
+}
+
+.other-services__p{
+  line-height: 2;
+  font-size: 16px;
+}
+
+//advertisement section
+
+.advertisement--wrapper{
+  position: relative;
+  background: linear-gradient(
+    to left,
+    var(--white) 50%, 
+    var(--bg-input) 50% ,
+  ); 
+  width: 100%;
+  z-index: 1;
+}
+
+
+.advertisement__pattern__right{
+  position: absolute;
+  top: 0;
+  right: -200px;
+  height: 1150px;
+}
+
+.advertisement__pattern__left{
+  position: absolute;
+  top: 0;
+  left: -200px;
+  height: 1150px;
+}
+
+.advertise__card {
+  background-image: url("/assets/img/advertise-bg.png") !important; 
+  background-size: cover; 
+  background-repeat: no-repeat;
+}
+
+.advertise__card--en {
+  background-image: url("/assets/img/advertise-bg-en.png") !important; 
+  background-size: cover; 
+  background-repeat: no-repeat;
+}
+
+.advertise__card__button-column {
+  display: flex;
+  flex-direction: column;
+  margin-inline-start: 650px;
+
+  @media screen and (max-width: 768px) {
+    margin-inline-start: 200px;
+  }
+}
+
+.advertise__article{
+  padding-bottom: 200px;
+}
+
+.advertisemnet__title{
+  font-size: 35px;
+}
+.advertisemnet__list__item{
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+.progress__title{
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.progress__tag--95,
+.progress__tag--97,
+.progress__tag--99{
+  top: -20px;
+}
+
+.progress__tag--99{
+  inset-inline-start: 89%; 
+}
+
+.progress__tag--97{
+  inset-inline-start: 87%; 
+}
+
+.progress__tag--95{ 
+  inset-inline-start: 85%; 
+}
+
+
+

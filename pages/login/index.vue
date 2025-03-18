@@ -67,7 +67,7 @@
               </div>
 
               <!-- Login Button -->
-              <Button
+              <LoginBtn
                 width="100%"
                 :text="$t('login')"
                 type="submit"
@@ -95,8 +95,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import Button from "@/components/Buttons/Login/index.vue";
-import PhoneInput from "@/components/Inputs/Phone/index.vue";
 
 const countryCode = ref("");
 const phoneNumber = ref("");
@@ -217,4 +215,5 @@ definePageMeta({
     0 10px 30px 5px rgba(173, 220, 253, 0.41),
     0 10px 30px 5px rgba(192, 249, 212, 0.41);
 }
+
 </style>

@@ -1,0 +1,16 @@
+@use 'variables';
+@use 'components/Inputs/phone.scss';
+@use 'components/Buttons/login.scss';
+@use 'components/_layouts';
+@use 'components/_home';
+
+@font-face {
+  font-family: 'Bahij';
+  src: url('../fonts//Bahij_TheSansArabic-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  font-family: 'Bahij', sans-serif;
+}
