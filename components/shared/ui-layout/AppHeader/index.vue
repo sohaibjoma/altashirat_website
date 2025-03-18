@@ -114,10 +114,9 @@
 import { Image } from "#components";
 import { ref } from "vue";
 import { useDisplay } from "vuetify";
-import { useI18n, useLocalePath } from "#imports";
+import { useI18n } from "#imports";
 
 const { locale, setLocale } = useI18n();
-const localePath = useLocalePath();
 const { mobile } = useDisplay();
 
 const languages = ref([

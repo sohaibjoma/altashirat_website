@@ -34,7 +34,7 @@
             </div>
             <div>
               <div class="font-weight-bold text-text">مرحباً:</div>
-              <div class="text-text font-weight-bold">{{ user.firstname }}</div>
+              <!-- <div class="text-text font-weight-bold">{{ user.firstname }}</div> -->
             </div>
           </div>
         </v-list-item>

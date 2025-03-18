@@ -1,9 +1,9 @@
 <template>
-  <v-btn :color="btnColor" rounded="pill" class="px-8" height="50">
+  <v-btn :color="btnColor" rounded="pill" class="px-lg-8" height="50">
     {{ btnText }}
     <template v-slot:append>
       <v-icon
-        icon="mdi-chevron-left"
+        :icon="locale === 'ar' ? 'mdi-chevron-left' : 'mdi-chevron-right'"
         :class="iconBgClass"
         :color="iconColor"
       ></v-icon>
@@ -12,6 +12,10 @@
 </template>
 
 <script setup>
+import { useI18n } from "#imports";
+
+const {  locale } = useI18n();
+
 const props = defineProps({
   btnColor: {
     type: String,

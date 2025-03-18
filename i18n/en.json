@@ -31,9 +31,9 @@
   "home-hero": {
     "blue_title": "Request your tourist visa or your visa",
     "white_title": "on the visa website",
-    "tourism_visa_card_title": "Request a tourist visa",
-    "employment_visa_card_title": "Request an employment visa",
-    "propose_visa_card_title": "Request a visa offer",
+    "tourism_visa_card_title": "Tourist visa",
+    "employment_visa_card_title": "Employment visa",
+    "propose_visa_card_title": "Visa offer",
     "h3_part1": "Double the chances of",
     "h3_part2": "visa experts seeing you",
     "hero_p": "Request your tourist visa or your visa with us on the visa website"
@@ -42,18 +42,19 @@
   "form_fill_message": "Dear customer, by filling out the form we will be able to contact you",
     "home": {
     "employmentVisaProcess": "How to Obtain Employment Visas",
-    "fillContactForm": "Fill Out the Contact Form",
+    "fillContactForm": "Fill Contact Form",
     "communication": "Communication",
     "followProcedures": "Follow Procedures",
     "getVisa": "Obtain a Visa",
     "employmentVisaRequest": "Request an Employment Visa",
     "employmentVisaDescription": "Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details. Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details. Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details.",
+    "employmentVisaDescriptionSmall": "Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details",
     "requestEmploymentVisa": "Request Employment Visa",
     "mainSmallCardText" : "Our esteemed clients at the time of filling out the form will be able to communicate"
   },
 
   "home-otherServices": {
-    "title": "Other services to help you",
+    "title": "Other services for you",
     "description": "Are you looking for a tourist visa, employment visa, or want to sell visas? We offer assistance with:",
     "listItems": {
       "fst":"Work visas",

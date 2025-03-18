@@ -5,7 +5,8 @@
     >
 
     <v-card
-        class="rounded-lg mainSection__small-card__img border pe-1 pt-2 ps-1 rounded-sm"
+        class="rounded-lg mainSection__small-card__img--ar border pe-1 pt-2 ps-1 rounded-sm"
+        :class="locale === 'ar' ? 'mainSection__small-card__img--ar' : 'mainSection__small-card__img--en'"
         elevation="2"
       >
         <Image :name="cardPhoto" height="30" />
@@ -23,7 +24,9 @@
 </template>
 
 <script setup>
-import { hydrateOnMediaQuery } from 'vue';
+import { useI18n } from "#imports";
+
+const { locale } = useI18n();
 
 const props = defineProps({
   cardPhoto: String,
@@ -33,5 +36,4 @@ const props = defineProps({
 </script>
 
 <style scoped>
-/* Your CSS styles remain the same */
 </style>

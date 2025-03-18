@@ -6,11 +6,12 @@
 
     <v-card
         class="bg-primary rounded-lg mainSection__small-card__img border pt-2 ps-2 rounded-sm"
+          :class="locale === 'ar' ? 'mainSection__small-card__img--ar' : 'mainSection__small-card__img--en'"
         elevation="2"
       >
         <Image :name="cardPhoto" height="30" />
       </v-card>
-      <Image name="click.png" class="mainSection__small-card__click" />
+      <Image name="click.png" :class="locale === 'ar' ? 'mainSection__small-card__click--ar' : 'mainSection__small-card__click--en'" height="30" />
 
     <div class="d-flex justify-start align-centr">
       <div class="mainSection__small-card__border"></div>
@@ -18,12 +19,15 @@
         {{ title }}
       </h5>
     </div>
-    <p class="text-text mt-2 mainSection__small-card__text ps-2">عميلنا العزيز عند ملئ الاستمارة سنكون  قادرين على التواصل</p>
+    <p class="text-text mt-2 mainSection__small-card__text ps-2">{{ $t('home.mainSmallCardText') }}</p>
     </div>
   </section>
 </template>
 
 <script setup>
+import { useI18n } from "#imports";
+const { locale } = useI18n();
+
 const props = defineProps({
   cardPhoto: String,
   title: String,

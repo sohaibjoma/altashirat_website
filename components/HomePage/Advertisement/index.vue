@@ -9,12 +9,13 @@
       class="advertisement__pattern__left"
     />
 
-    <section class="bg-bg-footer w-75 mx-auto ps-5 pe-5 pt-5 pb-5">
+    <section class="bg-bg-footer w-75 mx-auto ps-5 pe-5 pt-5 pb-5 d-flex flex-md-column flex-column-reverse">
       <div
-        class="d-flex justify-center justify-lg-between advertise__card pb-5 w-50 w-lg-100 mb-16"
+        class="d-flex justify-center justify-lg-between pb-5 w-50 w-lg-100 mb-16"
+        :class="locale === 'ar' ? 'advertise__card ': 'advertise__card--en'"
       >
-        <div class="ms-16 d-none d-lg-block"></div>
-        <div class="d-none d-lg-block"></div>
+        <div class="ms-lg-16"></div>
+        <div></div>
         <div class="advertise__card__button-column pe-10">
           <GenericBtn
             btnColor="white"
@@ -120,7 +121,7 @@
 import { ref } from "vue";
 import { useI18n } from "#imports";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const listItems = ref([
   t("home-advertisement.listItems.fst"),
