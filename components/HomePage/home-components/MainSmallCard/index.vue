@@ -17,12 +17,14 @@
         {{ title }}
       </h5>
     </div>
-    <p class="text-text mt-2 mainSection__small-card__text ps-2">عميلنا العزيز عند ملئ الاستمارة سنكون  قادرين على التواصل</p>
+    <p class="text-text mt-2 mainSection__small-card__text ps-2">{{ $t('home.mainSmallCardText') }}</p>
     </div>
   </section>
 </template>
 
 <script setup>
+import { hydrateOnMediaQuery } from 'vue';
+
 const props = defineProps({
   cardPhoto: String,
   title: String,

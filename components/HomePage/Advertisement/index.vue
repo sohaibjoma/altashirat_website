@@ -1,5 +1,5 @@
 <template>
-  <div class="advertisement--wrapper pt-16">
+  <div class="advertisement--wrapper pt-16 pb-10">
     <Image
       name="homepage-right-pattern.png"
       class="advertisement__pattern__right"
@@ -10,91 +10,129 @@
     />
 
     <section class="bg-bg-footer w-75 mx-auto ps-5 pe-5 pt-5 pb-5">
-      <div class="d-flex jusify-center justify-lg-between advertise__card pb-5 w-50 w-lg-100">
+      <div
+        class="d-flex justify-center justify-lg-between advertise__card pb-5 w-50 w-lg-100 mb-16"
+      >
         <div class="ms-16 d-none d-lg-block"></div>
-
         <div class="d-none d-lg-block"></div>
         <div class="advertise__card__button-column pe-10">
           <GenericBtn
             btnColor="white"
-            btnText=" طلب فيزا توظيف"
+            :btnText="$t('home-advertisement.employment_visa_button')"
             iconColor="white"
             iconBgClass="bg-primary rounded-circle"
             class="mt-5"
-          >
-          </GenericBtn>
+          />
           <GenericBtn
             btnColor="primary"
-            btnText=" طلب فيزا توظيف"
+            :btnText="$t('home-advertisement.employment_visa_button')"
             iconColor="primary"
             iconBgClass="bg-white rounded-circle"
             class="mt-5"
-          >
-          </GenericBtn>
+          />
           <GenericBtn
             btnColor="white"
-            btnText=" طلب فيزا توظيف"
+            :btnText="$t('home-advertisement.employment_visa_button')"
             iconColor="white"
             iconBgClass="bg-primary rounded-circle"
             class="mt-5"
-          >
-          </GenericBtn>
+          />
         </div>
       </div>
 
-      <article class="col-12 col-md-6 col-lg-4 mx-auto px-16 pb-4 advertise__article">
-        <h2 class="text-white mt-12 other-services__title">
-          خدمات أخرى تساعدك على
-          <div class="other-services__title--underline">
-            <span class="text-hero-scd-sec me-1">__</span>
-            <span class="text-primary me-1">_</span>
-            <span class="text-secondary me-1">_</span>
-            <span class="text-hero-scd-sec">___</span>
+      <v-row align="start" no-gutters>
+        <v-col cols="12" sm="5" class="advertise__article ps-2">
+          <h2 class="text-text font-weight-bold text-start advertisemnet__title">
+            {{ $t("home-advertisement.why_choose_us_title") }}
+            <br />
+            {{ $t("home-advertisement.why_choose_us_subtitle") }}
+          </h2>
+          <v-list density="compact" class="transparent-list">
+            <v-list-item
+              v-for="(item, index) in listItems || []"
+              :key="index"
+              color="primary"
+              class="text-text advertisemnet__list__item"
+            >
+              <template v-slot:prepend>
+                <v-icon
+                  :icon="'mdi-chevron-left'"
+                  :color="index % 2 === 0 ? 'secondary' : 'primary'"
+                />
+              </template>
+              <v-list-item-title v-text="item" />
+            </v-list-item>
+          </v-list>
+        </v-col>
+
+        <v-col cols="12" sm="7" class="py-5 ps-16 pe-4 d-flex flex-column align-start jutify-center">
+          <div class="text-text mb-2 progress__title">{{ $t("home-advertisement.trusted_company") }}</div>
+          <div class="progress-wrapper w-100 position-relative">
+            <span class="progress-label text-primary position-absolute progress__tag--95">95%</span>
+            <v-progress-linear
+              color="secondary"
+              model-value="90"
+              :height="18"
+              class="w-100 rounded-lg mb-6"
+              buffer-color="white"
+              rounded
+              rounded-bar
+            />
           </div>
-        </h2>
 
-        <p class="text-white mt-4 text-start other-services__p">
-          هل أنت تبحث عن فيزا سياحيةاو فيزا توظيف أو تريد بيع فيز
-          نقدم لك المساعدة مع:
-        </p>
+          <div class="text-text mb-2 progress__title">{{ $t("home-advertisement.experienced_team") }}</div>
+          <div class="progress-wrapper w-100 position-relative">
+            <span class="progress-label text-primary position-absolute progress__tag--97">97%</span>
+            <v-progress-linear
+              color="secondary"
+              model-value="95"
+              :height="18"
+              class="w-100 rounded-lg mb-6"
+              buffer-color="white"
+              rounded
+              rounded-bar
+            />
+          </div>
 
-        <v-list density="compact" class="transparent-list">
-          <v-list-item
-            v-for="(item, index) in listItems"
-            :key="index"
-            color="primary"
-            class="text-white"
-          >
-            <template v-slot:prepend>
-              <Image
-                :name="index % 2 === 0 ? 'sc-arrow.png' : 'primary-arrow.png'"
-                width="25"
-                class="me-2"
-              />
-            </template>
-
-            <v-list-item-title v-text="item"></v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </article>
+          <div class="text-text mb-2 progress__title">{{ $t("home-advertisement.best_prices") }}</div>
+          <div class="progress-wrapper w-100 position-relative">
+            <span class="progress-label text-primary position-absolute progress__tag--99">99%</span>
+            <v-progress-linear
+              color="secondary"
+              model-value="98"
+              :height="18"
+              class="w-100 rounded-lg mb-6"
+              rounded
+              rounded-bar
+            />
+          </div>
+        </v-col>
+      </v-row>
     </section>
+
+    <div class="text-center pt-10">
+      <Image name="advertise.png" class="w-100 w-lg-75 mt-16 mx-auto" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
+import { useI18n } from "#imports";
+
+const { t } = useI18n();
 
 const listItems = ref([
-  'تأشيرات العمل',
-  'الشريك الموثوق به ',
-  'تصديق الوثائق',
-  'تأمين جواز السفر',
-  'خطابات دعوة العمل',
+  t("home-advertisement.listItems.fst"),
+  t("home-advertisement.listItems.snd"),
+  t("home-advertisement.listItems.thrd"),
+  t("home-advertisement.listItems.frth"),
 ]);
 </script>
 
 <style scoped>
 .transparent-list {
   background-color: transparent;
+  padding-inline-start: 0;
 }
 </style>

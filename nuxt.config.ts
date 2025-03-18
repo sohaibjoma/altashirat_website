@@ -44,9 +44,14 @@ export default defineNuxtConfig({
   ],
 
   i18n: {
-    locales: ['en', 'ar'], 
-    defaultLocale: 'ar', 
-    vueI18n: './plugins/i18n/index.ts', 
+    locales: [
+      { code: "en", iso: "en-US", dir: "ltr" },
+      { code: "ar", iso: "ar-EG", dir: "rtl" },
+    ],
+    defaultLocale: "ar",
+    strategy: "prefix_except_default",
+    vueI18n: "index.ts", 
+    detectBrowserLanguage: false, 
   },
 
   veeValidate: {

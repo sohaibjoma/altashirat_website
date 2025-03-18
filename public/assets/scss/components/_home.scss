@@ -149,25 +149,23 @@ font-size: 10pt;
     to left,
     var(--white) 50%, 
     var(--bg-input) 50% ,
-  );
-  height: 300px; 
+  ); 
   width: 100%;
+  z-index: 1;
 }
 
 .advertisement__pattern__right{
   position: absolute;
   top: 0;
-  right: 0;
-  height: 480px;
-  z-index: 1;
+  right: -200px;
+  height: 1150px;
 }
 
 .advertisement__pattern__left{
   position: absolute;
   top: 0;
-  left: 0;
-  height: 480px;
-  z-index: 1;
+  left: -200px;
+  height: 1150px;
 }
 
 .advertise__card {
@@ -180,12 +178,46 @@ font-size: 10pt;
   display: flex;
   flex-direction: column;
   margin-inline-start: 650px;
+
+  @media screen and (max-width: 768px) {
+    margin-inline-start: 200px;
+  }
 }
 
 .advertise__article{
   padding-bottom: 200px;
 }
 
+.advertisemnet__title{
+  font-size: 35px;
+}
+.advertisemnet__list__item{
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+.progress__title{
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.progress__tag--95,
+.progress__tag--97,
+.progress__tag--99{
+  top: -20px;
+}
+
+.progress__tag--99{
+  inset-inline-start: 89%; 
+}
+
+.progress__tag--97{
+  inset-inline-start: 87%; 
+}
+
+.progress__tag--95{ 
+  inset-inline-start: 85%; 
+}
 
 
 

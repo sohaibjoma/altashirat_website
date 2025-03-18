@@ -7,7 +7,7 @@
     />
     <article class="col-12 col-md-6 col-lg-4 mx-auto px-16 pb-4 other-services__article">
       <h2 class="text-white mt-12 other-services__title">
-        خدمات أخرى تساعدك على
+        {{ $t("home-otherServices.title") }}
         <div class="other-services__title--underline">
           <span class="text-hero-scd-sec me-1">__</span>
           <span class="text-primary me-1">_</span>
@@ -17,8 +17,7 @@
       </h2>
 
       <p class="text-white mt-4 text-start other-services__p">
-        هل أنت تبحث عن فيزا سياحيةاو فيزا توظيف أو تريد بيع فيز
-        نقدم لك المساعدة مع:
+        {{ $t("home-otherServices.description") }}
       </p>
 
       <v-list density="compact" class="transparent-list">
@@ -52,13 +51,16 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from "#imports";
+
+const { t } = useI18n();
 
 const listItems = ref([
-  'تأشيرات العمل',
-  'الشريك الموثوق به ',
-  'تصديق الوثائق',
-  'تأمين جواز السفر',
-  'خطابات دعوة العمل',
+  t("home-otherServices.listItems.fst"),
+  t("home-otherServices.listItems.snd"),
+  t("home-otherServices.listItems.thrd"),
+  t("home-otherServices.listItems.frth"),
+  t("home-otherServices.listItems.ffth"),
 ]);
 </script>
 

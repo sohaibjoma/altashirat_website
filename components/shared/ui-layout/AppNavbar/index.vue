@@ -11,21 +11,21 @@
         rounded
         active
       >
-        <nuxt-link to="/" :class="{ 'active-link': isActive('/') }">
+      <CustomLink path="/" :class="{ 'active-link': isActive('/') }">
           <v-btn rounded="pill" class="link-btn rounded-pill">{{ $t("home") }}</v-btn>
-        </nuxt-link>
-        <nuxt-link to="/about" :class="{ 'active-link': isActive('/about') }">
+        </CustomLink>
+        <CustomLink path="/about" :class="{ 'active-link': isActive('/about') }">
           <v-btn rounded="pill" class="link-btn rounded-pill">{{ $t("about") }}</v-btn>
-        </nuxt-link>
-        <nuxt-link to="/contact" :class="{ 'active-link': isActive('/contact') }">
+        </CustomLink>
+        <CustomLink path="/contact" :class="{ 'active-link': isActive('/contact') }">
           <v-btn rounded="pill" class="link-btn rounded-pill">{{ $t("contact") }}</v-btn>
-        </nuxt-link>
-        <nuxt-link to="/terms" :class="{ 'active-link': isActive('/terms') }">
+        </CustomLink>
+        <CustomLink path="/terms" :class="{ 'active-link': isActive('/terms') }">
           <v-btn rounded="pill" class="link-btn rounded-pill">{{ $t("terms") }}</v-btn>
-        </nuxt-link>
-        <nuxt-link to="/privacy" :class="{ 'active-link': isActive('/privacy') }">
+        </CustomLink>
+        <CustomLink path="/privacy" :class="{ 'active-link': isActive('/privacy') }">
           <v-btn rounded="pill" class="link-btn rounded-pill">{{ $t("privacy") }}</v-btn>
-        </nuxt-link>
+        </CustomLink>
       </v-bottom-navigation>
     </v-layout>
   </div>
@@ -34,9 +34,12 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "nuxt/app";
+import { useLocalePath } from "#imports";
 
 const value = ref(0);
 const route = useRoute();
+
+const localePath = useLocalePath();
 
 const isActive = (path) => {
   return route.path === path;

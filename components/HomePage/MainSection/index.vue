@@ -13,33 +13,25 @@
     >
       <div class="w-50 mt-10 mb-5">
         <h2 class="text-text ms-16 font-weight-black">
-          طريقة استخراج تأشيرات التوظيف
+          {{ $t('home.employmentVisaProcess') }}
         </h2>
         <Image name="title-after.png" width="60" class="ms-16" />
       </div>
       <v-contaier class="mb-10">
-        <v-row class="text-center ga-4 mt-1 mb-16">
-          <MainSmallCard
-            cardPhoto="file.png"
-            title="املأ استمارة التواصل"
-            class="col-12 col-md-6 col-lg-3 mt-4 mt-md-0"
-          />
-          <MainSmallCard
-            cardPhoto="customer.png"
-            title=" التواصل"
-            class="col-12 col-md-6 col-lg-3 mt-4 mt-md-0"
-          />
-          <SpecialMainSmallCard
-            cardPhoto="form.png"
-            title="متابعة الإجراءات"
-            class="col-12 col-md-6 col-lg-3 mt-4 mt-md-0"
-          />
-          <MainSmallCard
-            cardPhoto="stamp.png"
-            title="الحصول على تأشيرة"
-            class="col-12 col-md-6 col-lg-3 mt-4 mt-lg-0"
-          />
-        </v-row>
+        <v-row class="text-center mt-1 mb-16" justify="center">
+    <v-col cols="12" md="6" lg="3" class="mt-4 mt-md-0 d-flex justify-center">
+      <MainSmallCard cardPhoto="file.png" :title="$t('home.fillContactForm')" />
+    </v-col>
+    <v-col cols="12" md="6" lg="3" class="mt-4 mt-md-0 d-flex justify-center">
+      <MainSmallCard cardPhoto="customer.png" :title="$t('home.communication')" />
+    </v-col>
+    <v-col cols="12" md="6" lg="3" class="mt-4 mt-md-0 d-flex justify-center">
+      <SpecialMainSmallCard cardPhoto="form.png" :title="$t('home.followProcedures')" />
+    </v-col>
+    <v-col cols="12" md="6" lg="3" class="mt-4 mt-lg-0 d-flex justify-center">
+      <MainSmallCard cardPhoto="stamp.png" :title="$t('home.getVisa')" />
+    </v-col>
+  </v-row>
       </v-contaier>
     </section>
     <section class="main-section__divider text-center">
@@ -48,16 +40,13 @@
       <v-card
         class="main-section__divider__card rounded-pill w-100 w-md-75 w-lg-50 mx-auto bg-bg-input px-8 pb-8"
       >
-        <h2 class="mt-8 text-text">طــــلب فيزا توظيـــــــــف</h2>
+        <h2 class="mt-8 text-text">{{ $t('home.employmentVisaRequest') }}</h2>
         <p class="text-text px-16 mx-12 mt-4 main-section__divider__card_p">
-          لديك وظائف وتأشيرات تريد اخبارنا بها بادر بملأ الاستماره واخبارنا
-          بالتفاصيل لديك وظائف وتأشيرات تريد اخبارنا بها بادر بملأ الاستماره
-          واخبارنا بالتفاصيل لديك وظائف وتأشيرات تريد اخبارنا بها بادر بملأ
-          الاستماره واخبارنا بالتفاصيل
+          {{ $t('home.employmentVisaDescription') }}
         </p>
         <GenericBtn
           btnColor="primary"
-          btnText=" طلب فيزا توظيف"
+          :btnText="$t('home.requestEmploymentVisa')"
           iconColor="primary"
           iconBgClass="bg-white rounded-circle"
           class="mt-5"

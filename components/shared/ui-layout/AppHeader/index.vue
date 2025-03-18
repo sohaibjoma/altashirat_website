@@ -1,4 +1,3 @@
-// components/layout/Header/index.vue
 <template>
   <div class="header-container">
     <div class="d-flex justify-space-around">
@@ -28,7 +27,7 @@
                   fill="#FFF"
                 />
                 <path
-                  d="M18.347 20.915a.75.75 0 0 1-.693 0L12 17.965v4.285c0 .965.785 1.75 1.75 1.75h8.5c.965 0 1.75-.785 1.75-1.75v-4.285l-5.653 2.95z"
+                  d="M18.347 20.915a.75.75 0 0 1-.693 0L12 17.965v4.285c0 .965.785 1.75 1.75 1.75h8.5c0.965 0 1.75-.785 1.75-1.75v-4.285l-5.653 2.95z"
                   fill="#FFF"
                 />
               </g>
@@ -39,14 +38,9 @@
       </div>
 
       <!-- Logo always visible -->
-       <div class="bg-nav rounded-circle pt-2" width="70" height="100">
-      <Image
-        name="emptylogo.png"
-        alt="Logo"
-        class="mx-5 nav"
-        width="80"
-      />
-       </div>
+      <div class="bg-nav rounded-circle pt-2" width="70" height="100">
+        <Image name="emptylogo.png" alt="Logo" class="mx-5 nav" width="80" />
+      </div>
 
       <!-- Left trapezoid only visible on non-mobile -->
       <div class="trapezoid-left" v-if="!mobile">
@@ -88,13 +82,11 @@
                 />
               </g>
             </svg>
-
             {{ $t("profile") }}
           </nuxt-link>
 
           <!-- Language Selector -->
           <v-select
-            v-model="selectedLanguage"
             :items="languages"
             item-title="text"
             item-value="value"
@@ -102,26 +94,12 @@
             variant="outline"
             class="language-selector"
             hide-details
+            v-model="selectedLanguage"
+            @update:modelValue="changeLocale"
           >
             <template v-slot:selection="{ item }">
               <div class="d-flex align-center">
-                <v-img
-                  :src="item.raw.flag"
-                  width="24"
-                  height="18"
-                  class="mr-2"
-                />
-                <span>{{ item.raw.text }}</span>
-              </div>
-            </template>
-            <template v-slot:item="{ item }">
-              <div class="d-flex align-center">
-                <v-img
-                  :src="item.raw.flag"
-                  width="24"
-                  height="18"
-                  class="mr-2"
-                />
+                <v-img :src="item.raw.flag" width="24" height="18" class="mr-2" />
                 <span>{{ item.raw.text }}</span>
               </div>
             </template>
@@ -136,28 +114,31 @@
 import { Image } from "#components";
 import { ref } from "vue";
 import { useDisplay } from "vuetify";
+import { useI18n, useLocalePath } from "#imports";
 
+const { locale, setLocale } = useI18n();
+const localePath = useLocalePath();
 const { mobile } = useDisplay();
 
 const languages = ref([
-  {
-    text: "العربية",
-    value: "ar",
-    flag: "https://flagcdn.com/sa.svg",
-  },
-  {
-    text: "English",
-    value: "en",
-    flag: "https://flagcdn.com/us.svg",
-  },
+  { text: "العربية", value: "ar", flag: "https://flagcdn.com/sa.svg" },
+  { text: "English", value: "en", flag: "https://flagcdn.com/us.svg" },
 ]);
 
-const selectedLanguage = ref("ar");
+// Set the default selected language based on the current locale
+const selectedLanguage = ref(
+  languages.value.find((lang) => lang.value === locale.value) || languages.value[0]
+);
+
+const changeLocale = (newLocale) => {
+  console.log("Changing locale to:", newLocale); // Debug log
+  setLocale(newLocale);
+  console.log("Current locale after setLocale:", locale.value); // Debug log
+};
 </script>
 
 <style scoped>
-.navbar__logo{
+.navbar__logo {
   background-color: var(--gradient-logo);
 }
-
 </style>
