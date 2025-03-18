@@ -3,10 +3,11 @@
 @use 'components/Buttons/login.scss';
 @use 'components/_layouts';
 @use 'components/_home';
+@use 'components/profile';
 
 @font-face {
   font-family: 'Bahij';
-  src: url('../fonts//Bahij_TheSansArabic-Bold.ttf') format('truetype');
+  src: url('../fonts/Bahij_TheSansArabic-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
