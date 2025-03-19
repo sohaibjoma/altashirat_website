@@ -2,6 +2,10 @@ import axios from "axios";
 import { useAuthStore } from "@/stores/auth";
 import { useNotificationStore } from "@/stores/notifications";
 import { useErrorStore } from "@/stores/error";
+// import { useI18n } from "#imports";
+
+// const i18n = useI18n();
+// const locale = i18n.locale.value; 
 
 const axiosInstance = axios.create({
   baseURL: "https://intern.api.altashirat.solutionplus.net/api",
@@ -14,6 +18,9 @@ axiosInstance.interceptors.request.use((config) => {
   if (token) {
     config.headers["Authorization"] = `Bearer ${token}`;
   }
+  // if (locale) {
+  //   config.headers["x-locale"] = locale;
+  // }
   return config;
 });
 
