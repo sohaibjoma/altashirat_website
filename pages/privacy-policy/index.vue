@@ -6,7 +6,7 @@
     height="auto"
   />
   <div class="position-relative">
-    <MainChip class="chip-position">{{ $t("privacyPolicy.title") }}</MainChip>
+    <MainChip class="chip-position">{{ $t("privacy") }}</MainChip>
   </div>
 
   <v-container class="d-flex justify-center mt-12">
