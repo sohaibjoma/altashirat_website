@@ -166,6 +166,8 @@ const errorStore = useErrorStore();
 const notificationStore = useNotificationStore();
 const router = useRouter();
 
+//countries logic start
+
 onMounted(async () => {
   try {
     await fetchCountries();
@@ -236,6 +238,8 @@ const handleCountryChange = (countryId) => {
     countryCode.value = "00" + phoneCode;
   }
 };
+
+//countries logic end
 
 watch(countryCode, (newCountryCode) => {
   const numericCode = newCountryCode.replace(/^\+|^00/, "");

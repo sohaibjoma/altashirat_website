@@ -19,8 +19,7 @@
             errors.length ? errors : getBackendErrors(phoneNumberName)
           "
           variant="solo-filled"
-          clearable
-          @update:model-value="emit('update:phoneNumberModelValue', $event)"
+          @update:model-value="handlePhoneNumberUpdate"
         >
           <template #prepend-inner>
             <v-icon>mdi-cellphone</v-icon>
@@ -85,6 +84,10 @@ const handleCountryCodeUpdate = (value) => {
   const numericValue = value?.replace(/^\+|^00/, "");
   const formattedValue = numericValue ? `00${numericValue}` : "";
   emit("update:countryCodeModelValue", formattedValue);
+};
+
+const handlePhoneNumberUpdate = (value) => {
+  emit("update:phoneNumberModelValue", value);
 };
 
 const getFlagEmoji = (countryCode) => {

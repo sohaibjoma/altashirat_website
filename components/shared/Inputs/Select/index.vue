@@ -11,7 +11,7 @@
       :error-messages="[...errors.map((error) => $t(error)), ...backendErrors]"
       item-title="text"
       item-value="value"
-       variant="outlined"
+       rounded
       @update:model-value="emit('update:modelValue', $event)"
     >
       <template v-slot:selection="slotProps" v-if="$slots.selection">

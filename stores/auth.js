@@ -26,8 +26,8 @@ export const useAuthStore = defineStore("auth", () => {
 
   const fetchUser = async () => {
     try {
-      const { get } = useApi();
-      const response = await get("/show-account");
+      const { GET } = useApi();
+      const response = await GET("/show-account");
 
       if (response.data) {
         setUser(response.data);

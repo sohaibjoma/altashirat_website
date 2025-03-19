@@ -26,7 +26,7 @@
   "terms":"Terms and Conditions",
   "privacy":"Privacy Policy",
   "offerViza":"Offer Viza",
-  "profile":"Profile", 
+  "profileName":"Profile", 
 
   "home-hero": {
     "blue_title": "Request your tourist visa or your visa",
@@ -78,5 +78,21 @@
     "trusted_company": "Trusted company",
     "experienced_team": "Experienced team",
     "best_prices": "Best prices"
+  },
+
+"profile": {
+    "title": "Your Personal Information",
+    "more": "More",
+    "firstName": "First Name",
+    "middleName": "Middle Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "enterEmail": "Enter Email",
+    "phoneNumber": "Phone Number",
+    "enterPhoneNumber": "Enter Phone Number",
+    "countryCode": "Country Code",
+    "birthdate": "Birth Date",
+    "country": "Country",
+    "save": "Save"
   }
 }
