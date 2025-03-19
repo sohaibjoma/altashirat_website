@@ -23,7 +23,7 @@
         <CustomLink path="/terms" :class="{ 'active-link': isActive('/terms') }">
           <v-btn rounded="pill" class="link-btn rounded-pill">{{ $t("terms") }}</v-btn>
         </CustomLink>
-        <CustomLink path="/privacy" :class="{ 'active-link': isActive('/privacy') }">
+        <CustomLink path="/privacy-policy" :class="{ 'active-link': isActive('/privacy') }">
           <v-btn rounded="pill" class="link-btn rounded-pill">{{ $t("privacy") }}</v-btn>
         </CustomLink>
       </v-bottom-navigation>
