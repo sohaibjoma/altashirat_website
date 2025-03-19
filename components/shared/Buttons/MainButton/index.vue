@@ -3,6 +3,7 @@
     class="gradient-button"
     :width="width"
     :text="text"
+    :loading="loading"
     @click="$emit('click')"
   />
 </template>

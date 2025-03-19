@@ -78,5 +78,17 @@
     "trusted_company": "Trusted company",
     "experienced_team": "Experienced team",
     "best_prices": "Best prices"
+  },
+
+  "account": {
+    "Settings": "Account Settings",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "enterPasswordForDelete": "Enter Password for Delete",
+    "passwordForDeletion" : "Password for Deletion",
+    "confirmDelete": "Delete Account",
+    "confirmDeleteMessage": "All information, transactions and reservations will be lost.",
+    "SettingsAndDelete": "Account settings, deactivation and deletion of the account",
+    "PermenantlyDeactivate": "Permanently deactivate the account"
   }
 }
