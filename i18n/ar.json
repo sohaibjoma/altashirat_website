@@ -77,5 +77,9 @@
     "trusted_company": "شركة موثوقة",
     "experienced_team": "فريق من ذوي الخبرة",
     "best_prices": "أفضل الأسعار"
+  },
+
+  "privacyPolicy": {
+    "title": "سياسة الخصوصية"
   }
 }
