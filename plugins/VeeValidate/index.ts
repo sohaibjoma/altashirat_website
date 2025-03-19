@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from '#app';
 import { defineRule, configure } from 'vee-validate';
-import { required, email, alpha, confirmed, numeric,  } from '@vee-validate/rules';
+import { required, email, alpha, confirmed, numeric, min, max  } from '@vee-validate/rules';
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('app:created', () => {
@@ -20,6 +20,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   defineRule('alpha', alpha);
   defineRule('confirmed', confirmed);
   defineRule('numeric', numeric);
+  defineRule('min', min);
+  defineRule('max', max);
 
   defineRule('nameLength', (value: string) => {
     return (value.length >= 3 && value.length <= 15)
