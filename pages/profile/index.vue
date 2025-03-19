@@ -1,22 +1,29 @@
 <template>
   <v-container>
-    <v-card variant="outlined" class="rounded-lg custom-card pt-5 w-75">
-      <v-card-title class="d-flex justify-space-between align-center">
-      <div class="d-flex justify-start align-center">
-        <div class="profile__h--starter me-5"></div>
-        <Image
-          name="profile-form-icon.png"
-          alt="profile tile image"
-          width="30"
-        />
-        <h3 class="text-text profile__h ps-3">{{ $t('profile.title') }}</h3>
-      </div>
-      <span class="ms-auto me-10">
-        <CustomLink to="/profile" class="profile__more-btn text-primary bg-bg-input text-decoration-none rounded-pill px-4 py-2">
-          المـــزيد
-        </CustomLink>
-      </span>
-
+    <v-card
+      variant="outlined"
+      class="rounded-lg custom-card pt-5 w-75 mx-auto mt-16 mt-lg-none mx-lg-none"
+    >
+      <v-card-title
+        class="d-flex flex-column-reverse flex-lg-row justify-space-between align-center"
+      >
+        <div class="d-flex justify-start align-center">
+          <div class="profile__h--starter me-5"></div>
+          <Image
+            name="profile-form-icon.png"
+            alt="profile tile image"
+            width="30"
+          />
+          <h3 class="text-text profile__h ps-3">{{ $t("profile.title") }}</h3>
+        </div>
+        <div class="ms-auto me-lg-10 mb-8 mb-lg-0">
+          <CustomLink
+            to="/profile"
+            class="profile__more-btn text-primary bg-bg-input text-decoration-none rounded-pill px-4 py-2"
+          >
+            {{ $t("profile.more") }}
+          </CustomLink>
+        </div>
       </v-card-title>
 
       <!-- Form Start -->
@@ -29,8 +36,8 @@
           <div class="w-100 w-lg-50 pe-16">
             <Text
               v-model="formState.firstName"
-              label="enterLastName"
-              name="middlename"
+              :label="$t('profile.firstName')"
+              name="firstname"
               rules="alpha"
               icon="mdi-account"
             />
@@ -39,7 +46,7 @@
           <div class="w-100 w-lg-50 pe-16">
             <Text
               v-model="formState.middleName"
-              label="enterLastName"
+              :label="$t('profile.middleName')"
               name="middlename"
               rules="alpha"
               icon="mdi-account"
@@ -49,18 +56,18 @@
           <div class="w-100 w-lg-50 pe-16">
             <Text
               v-model="formState.lastName"
-              label="enterLastName"
+              :label="$t('profile.lastName')"
               name="lastname"
               rules="alpha"
               icon="mdi-account"
             />
           </div>
 
-          <div class="w-50 pe-16">
+          <div class="w-100 w-lg-50 pe-16">
             <Text
               v-model="formState.email"
-              label="enterEmail"
-              placeholder="enterEmail"
+              :label="$t('profile.email')"
+              :placeholder="$t('profile.enterEmail')"
               name="email"
               rules="email"
               icon="mdi-email"
@@ -68,15 +75,15 @@
           </div>
 
           <!-- Phone Input -->
-          <div class="w-50 pe-16">
+          <div class="w-lg-50 w-100 pe-16">
             <PhoneInput
-              :title="$t('phoneNumber')"
+              :title="$t('profile.phoneNumber')"
               :country-code-model-value="formState.countryCode"
               country-code-name="phone.country_code"
               country-code-rules="required"
-              :country-code-label="$t('countryCode')"
-              :phone-number-label="$t('phoneNumber')"
-              :phone-number-placeholder="$t('enterPhoneNumber')"
+              :country-code-label="$t('profile.countryCode')"
+              :phone-number-label="$t('profile.phoneNumber')"
+              :phone-number-placeholder="$t('profile.enterPhoneNumber')"
               :phone-number-model-value="formState.phoneNumber"
               phone-number-name="phone.number"
               :country-options="phoneCodeOptions"
@@ -87,32 +94,33 @@
           </div>
 
           <!-- Date Input -->
-          <div class="w-50 pe-16">
+          <div class="w-100 w-lg-50 pe-16">
             <DateInput
               v-model="formState.birth_date"
               name="birth_date"
-              title="birthdate"
+              :title="$t('profile.birthdate')"
               class="rounded-xl"
             />
           </div>
 
           <!-- Country Select -->
-          <div class="w-50 pe-16">
+          <div class="w-100 w-lg-50 pe-16">
             <Select
               v-model="formState.country"
-              :label="$t('country')"
+              :title="$t('profile.country')"
               :items="countriesNames"
               name="country"
               rules="required"
               class="mb-5"
+              icon="mdi-flag"
             />
           </div>
 
           <!-- Submit Button -->
-          <div class="ms-auto w-100">
+          <div class="ms-lg-auto w-100">
             <LoginBtn
               width="150"
-              text="حفظ"
+              :text="$t('profile.save')"
               type="submit"
               :loading="isLoading"
               class="mb-5 ms-auto me-14"
@@ -232,7 +240,6 @@ const formSubmitting = async () => {
 
     const response = await POST("update-account", formData);
     notificationStore.setNotification("Login successful!", "success");
-
   } catch (error) {
     notificationStore.setNotification(
       error.response?.data?.message || "Login failed. Please try again.",

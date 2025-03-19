@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Title (conditionally rendered) -->
-    <div v-if="title" class="text-h6 pb-2 font-weight-bold text-text">
+    <div v-if="title" class="ms-4 mt-8 mb-2 pb-2 font-weight-bold text-text">
       {{ title }}
     </div>
 

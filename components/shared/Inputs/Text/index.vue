@@ -1,5 +1,5 @@
 <template>
-  <div class="ms-4 mt-8 font-weight-bold">
+  <div class="mb-2 text-text font-weight-bold">
     {{ label }}
   </div>
   <v-text-field

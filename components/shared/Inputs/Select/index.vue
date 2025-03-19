@@ -1,6 +1,6 @@
 <template>
-  <div v-if="title" class="mb-2 text-h6 font-weight-bold text-text">
-    {{ $t(title) }}
+  <div v-if="title" class="mb-2 font-weight-bold text-text">
+    {{ title }}
   </div>
   <VeeField v-slot="{ field, errors }" :name="name" :rules="rules">
     <v-select
@@ -11,7 +11,8 @@
       :error-messages="[...errors.map((error) => $t(error)), ...backendErrors]"
       item-title="text"
       item-value="value"
-       rounded
+      rounded
+      :prepend-inner-icon="icon"
       @update:model-value="emit('update:modelValue', $event)"
     >
       <template v-slot:selection="slotProps" v-if="$slots.selection">
@@ -26,7 +27,7 @@ import { computed } from "vue";
 import { useErrorStore } from "@/stores/error";
 
 const props = defineProps({
-  title: { type: String, default: "" },
+  title: { type: String },
   label: { type: String, required: true },
   placeholder: { type: String, default: "" },
   hint: { type: String, default: "" },
@@ -34,6 +35,7 @@ const props = defineProps({
   items: { type: Array, default: () => [] },
   name: { type: String, required: true },
   rules: { type: String, default: "" },
+  icon: String,
 });
 
 const emit = defineEmits(["update:modelValue"]);

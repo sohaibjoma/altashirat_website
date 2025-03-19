@@ -1,31 +1,22 @@
 <template>
   <div>
-    <div v-if="title" class="mb-2 text-h6 font-weight-bold text-text">
+    <div v-if="title" class="mb-2 ms-4 mt-8 font-weight-bold text-text">
       {{ $t(title) }}
     </div>
     <div class="rounded-xl d-flex align-center justify-center overflow-hidden">
       <!-- Phone Number Field -->
-      <VeeField
-        v-slot="{ field, errors }"
-        :name="phoneNumberName"
-        :rules="phoneNumberRules"
+      <v-text-field
+        v-model="phoneNumberValue"
+        type="tel"
+        :placeholder="$t(phoneNumberPlaceholder)"
+        :error-messages="phoneNumberErrorMessages"
+        variant="solo-filled"
+        @update:model-value="handlePhoneNumberUpdate"
       >
-        <v-text-field
-          v-bind="field"
-          :model-value="phoneNumberModelValue"
-          type="tel"
-          :placeholder="$t(phoneNumberPlaceholder)"
-          :error-messages="
-            errors.length ? errors : getBackendErrors(phoneNumberName)
-          "
-          variant="solo-filled"
-          @update:model-value="handlePhoneNumberUpdate"
-        >
-          <template #prepend-inner>
-            <v-icon>mdi-cellphone</v-icon>
-          </template>
-        </v-text-field>
-      </VeeField>
+        <template #prepend-inner>
+          <v-icon>mdi-cellphone</v-icon>
+        </template>
+      </v-text-field>
 
       <!-- Country Code Select -->
       <div class="country-code-wrapper">
@@ -50,6 +41,8 @@
 
 <script setup>
 import { computed } from "vue";
+import { useField } from "vee-validate";
+import { useErrorStore } from "@/stores/error"; // Adjust the path as needed
 
 const props = defineProps({
   title: { type: String, default: "" },
@@ -70,12 +63,35 @@ const emit = defineEmits([
   "update:countryCodeModelValue",
 ]);
 
+// Use vee-validate's useField for phone number
+const {
+  value: phoneNumberValue,
+  errorMessage: phoneNumberErrorMessage,
+  handleChange: handlePhoneNumberChange,
+} = useField(props.phoneNumberName, props.phoneNumberRules, {
+  initialValue: props.phoneNumberModelValue,
+});
+
+// Access the error store
 const errorStore = useErrorStore();
 
-const getBackendErrors = (fieldName) => {
-  return errorStore.getErrorsForField(fieldName);
+// Combine validation errors and backend errors for phone number
+const phoneNumberErrorMessages = computed(() => {
+  const errors = [];
+  if (phoneNumberErrorMessage.value) errors.push(phoneNumberErrorMessage.value);
+  if (errorStore.getErrorsForField(props.phoneNumberName).length) {
+    errors.push(...errorStore.getErrorsForField(props.phoneNumberName));
+  }
+  return errors;
+});
+
+// Handle phone number changes
+const handlePhoneNumberUpdate = (newValue) => {
+  handlePhoneNumberChange(newValue); // Update the field's value and trigger validation
+  emit("update:phoneNumberModelValue", newValue); // Emit the new value to the parent
 };
 
+// Handle country code changes
 const selectedCountry = computed(() => {
   return props.countryCodeModelValue?.replace(/^\+|^00/, "") || "";
 });
@@ -86,10 +102,7 @@ const handleCountryCodeUpdate = (value) => {
   emit("update:countryCodeModelValue", formattedValue);
 };
 
-const handlePhoneNumberUpdate = (value) => {
-  emit("update:phoneNumberModelValue", value);
-};
-
+// Get flag emoji for the country code
 const getFlagEmoji = (countryCode) => {
   if (!countryCode) return "";
   return String.fromCodePoint(
