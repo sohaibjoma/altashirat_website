@@ -184,13 +184,13 @@ const submitForm = async () => {
     authStore.setToken(response.token);
     authStore.setUser(response.user);
 
-    notificationStore.setNotification("Data Updated Successfully!", "success");
+    notificationStore.setNotification("Login Successfull", "success");
 
     router.push("/");
   } catch (error) {
     console.error("Login error:", error);
     notificationStore.setNotification(
-      error.response?.data?.message || "Data Update Failed. Please try again.",
+      error.response?.data?.message || "Login Failed. Please try again.",
       "error"
     );
   } finally {

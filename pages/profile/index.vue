@@ -239,10 +239,10 @@ const formSubmitting = async () => {
     console.log("Form Data:", Object.fromEntries(formData.entries())); // Debugging
 
     const response = await POST("update-account", formData);
-    notificationStore.setNotification("Login successful!", "success");
+    notificationStore.setNotification("Data Updated successful!", "success");
   } catch (error) {
     notificationStore.setNotification(
-      error.response?.data?.message || "Login failed. Please try again.",
+      error.response?.data?.message || "Data Update failed. Please try again.",
       "error"
     );
   }
