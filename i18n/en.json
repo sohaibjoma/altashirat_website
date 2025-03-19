@@ -78,5 +78,9 @@
     "trusted_company": "Trusted company",
     "experienced_team": "Experienced team",
     "best_prices": "Best prices"
+  },
+
+  "privacyPolicy": {
+    "title": "Privacy Policy"
   }
 }
