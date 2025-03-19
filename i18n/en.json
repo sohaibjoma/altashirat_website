@@ -80,6 +80,10 @@
     "best_prices": "Best prices"
   },
 
+  "privacyPolicy": {
+    "title": "Privacy Policy"
+  },
+
 "profile": {
     "title": "Your Personal Information",
     "more": "More",

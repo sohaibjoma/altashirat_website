@@ -78,6 +78,10 @@
     "experienced_team": "فريق من ذوي الخبرة",
     "best_prices": "أفضل الأسعار"
   },
+
+  "privacyPolicy": {
+    "title": "سياسة الخصوصية"
+  },
   
   "profile": {
     "title": "المعلومات الشخصية الخاصة بك",
