@@ -78,6 +78,18 @@
     "experienced_team": "فريق من ذوي الخبرة",
     "best_prices": "أفضل الأسعار"
   },
+
+  "account": {
+    "Settings": "إدارة الحساب",
+    "delete": "حذف",
+    "cancel": "إلغاء",
+    "enterPasswordForDelete": "أدخل كلمة المرور للحذف",
+    "passwordForDeletion" : "كلمة المرور لتأكيد الحذف",
+    "confirmDelete": "حذف الحساب",
+    "confirmDeleteMessage": "سوف يتم فقد كل المعلومات والمعاملات والحجوزات",
+    "SettingsAndDelete": "إعدادات الحساب والغاء تنشيط الحساب وحذفه",
+    "PermenantlyDeactivate": "إلغاء تنشيط الحساب نهائياً"
+  },
   
   "profile": {
     "title": "المعلومات الشخصية الخاصة بك",

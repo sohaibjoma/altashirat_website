@@ -40,8 +40,8 @@ export const useAuthStore = defineStore("auth", () => {
 
   const logout = async () => {
     try {
-      const { remove } = useApi();
-      await remove("/logout");
+      const { DELETE } = useApi();
+      await DELETE("/logout");
       clearToken();
       navigateTo("/");
     } catch (error) {

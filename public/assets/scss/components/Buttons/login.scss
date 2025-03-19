@@ -15,3 +15,27 @@
 .gradient-button:hover {
   opacity: 0.9;
 }
+
+.gradient-banner {
+  height: 7px;
+  width: 50%;
+  background: linear-gradient(to right, #4dd0e1, #4426f5);
+  position: absolute;
+  top: 2px;
+}
+
+.gradient-line {
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(to bottom, #4426f5, #65bcf9, #8ee7ad);
+  border-radius: 2px;
+  position: absolute;
+}
+
+.gradient-line-left {
+  left: 0;
+}
+
+.gradient-line-right {
+  right: 0;
+}

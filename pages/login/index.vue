@@ -2,9 +2,8 @@
   <v-container fluid class="fill-height pa-0 ma-0">
     <v-row no-gutters class="fill-height">
       <v-col cols="12" md="6" class="d-none d-md-flex pa-0 ma-0">
-        <!-- <Image src="login.png" class="w-100 h-100 object-cover" cover min-height="100vh" max-height="100vh" /> -->
-        <v-img
-          src="assets/img/login.png"
+        <Image
+          name="login.png"
           class="w-100 h-100 object-cover"
           cover
           min-height="100vh"
@@ -17,8 +16,7 @@
         <v-card class="pa-6 rounded-xl w-100 card-with-shadow" max-width="500">
           <!-- Logo -->
           <div class="d-flex justify-center mb-4">
-            <v-img src="assets/img/logo.png" max-width="120" alt="Logo" />
-            <!-- <Image src="/logo.png" max-width="120" alt="Logo" /> -->
+            <Image name="logo.png" max-width="120" alt="Logo" />
           </div>
 
           <v-card-title class="text-center text-h5 font-weight-bold text-text">
@@ -67,7 +65,7 @@
               </div>
 
               <!-- Login Button -->
-              <LoginBtn
+              <MainButton
                 width="100%"
                 :text="$t('login')"
                 type="submit"
@@ -215,5 +213,4 @@ definePageMeta({
     0 10px 30px 5px rgba(173, 220, 253, 0.41),
     0 10px 30px 5px rgba(192, 249, 212, 0.41);
 }
-
 </style>
