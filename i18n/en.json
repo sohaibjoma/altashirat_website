@@ -90,5 +90,13 @@
     "confirmDeleteMessage": "All information, transactions and reservations will be lost.",
     "SettingsAndDelete": "Account settings, deactivation and deletion of the account",
     "PermenantlyDeactivate": "Permanently deactivate the account"
+  },
+  "aboutSection":{
+    "title": "Altaashirat Platform",
+    "tourism": "Application for a tourist visa",
+    "employment": "Application for a work visa",
+    "embassy":"Embassy Services",
+    "counselate": "Consular Services"
+
   }
 }

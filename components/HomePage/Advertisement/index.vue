@@ -118,7 +118,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+
 import { useI18n } from "#imports";
 
 const { t, locale } = useI18n();

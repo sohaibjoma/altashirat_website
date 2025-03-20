@@ -8,19 +8,23 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
+
+const localeStore = useLocaleStore();
+const { locale } = useI18n();
 const settingsStore = useSettingsStore();
 
-// Fetch settings during app initialization (SSR and client-side)
-const { error } = useAsyncData("settings", async () => {
-  await settingsStore.fetchSettings();
-  return null; // No data returned directly, just populating the store
-});
+// Watch for changes to the locale and update the store
+watch(
+  () => locale.value,
+  (newLocale) => {
+    localeStore.setLocale(newLocale);
+    settingsStore.fetchSettings(); // Re-fetch settings on locale change
+  },
+  { immediate: true } // Set the initial locale
+);
 
-// Optional: Debug
-onMounted(() => {
-  console.log("App mounted, keyValSettings:", settingsStore.keyValSettings.value);
-  if (error.value) {
-    console.error("Error fetching settings:", error.value);
-  }
+onBeforeMount(async () => {
+  await settingsStore.fetchSettings();
 });
 </script>

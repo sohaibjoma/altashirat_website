@@ -25,13 +25,15 @@ export const useSettingsStore = defineStore("settings", () => {
 
   // Reduce the settings array into a key-value object
   const keyValSettings = computed(() => {
-    return settings.value.reduce((acc, item) => {
-      // Ensure item is an object with key and value properties
-      if (item && typeof item === "object" && "key" in item && "value" in item) {
-        acc[item.key] = item.value;
-      }
-      return acc;
-    }, {});
+    if (settings.value) {
+      return settings.value.reduce((acc, item) => {
+        // Ensure item is an object with key and value properties
+        if (item && typeof item === "object" && "key" in item && "value" in item) {
+          acc[item.key] = item.value;
+        }
+        return acc;
+      }, {});
+    }
   });
 
   // Watch keyValSettings for changes
