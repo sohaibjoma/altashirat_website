@@ -98,5 +98,6 @@
     "embassy":"Embassy Services",
     "counselate": "Consular Services"
 
-  }
+  },
+  "contactInfo": "Contact Information"
 }

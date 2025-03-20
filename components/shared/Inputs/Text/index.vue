@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <div v-if="title" class="mb-2 text-h6 font-weight-bold text-text">
-      {{ $t(title) }}
-    </div> -->
+    <div class="mb-2 text-h6 font-weight-bold text-text">
+      {{ title }}
+    </div>
 
     <veeField v-slot="{ field, errors }" :name="name" :rules="rules">
       <v-text-field
