@@ -5,6 +5,7 @@
   "password": "Password",
   "enterPassword": "Enter Password to login",
   "login": "Login",
+  "logout": "Logout",
   "noAccount": "No Account?",
   "registerAccount": "Register Account",
   "forgotPassword": "Forgot Your Password",
@@ -105,6 +106,9 @@
     "countryCode": "Country Code",
     "birthdate": "Birth Date",
     "country": "Country",
-    "save": "Save"
+    "save": "Save",
+    "personalInfo": "Personal Information",
+    "changePassword": "Change Password",
+    "orders": "Orders"
   }
 }
