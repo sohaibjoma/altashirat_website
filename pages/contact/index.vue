@@ -1,23 +1,38 @@
 <template>
   <v-card
-    class="mx-auto pa-0 mt-10"
-    max-width="700"
+    class="mx-auto px-0 pt-0 py-16 mt-10 mb-16"
+    max-width="800"
   >
   <Image
   name="contact.png"
-  class="d-block mx-auto w-100 text-center py-6 bg mt-none"
+  class="d-block mx-auto w-100 bg mt-none"
   />
 
-  <div class="w-100 text-text bg-bg-input"><span class="mx-auto">{{ t("contactInfo") }}</span></div>
+  <h2 class="w-100 text-text text-center bg-bg-input py-2">{{ t("contactInfo") }}</h2>
+    <v-card-text class="mt-8">
+      <section class="d-flex justify-start align-center my-2">
+        <Image name="contact-icon.png" width="60" class="d-none d-md-block"/>
+        <span class="bg-bg-input rounded-circle pa-3 mx-3">
+        <v-icon color="primary" size="30">mdi-cellphone</v-icon>
+        </span>
+        <h3 v-html="keyValSettings.contacts_phone" class="text-text me-5"></h3>
+      </section>
 
-    <v-card-subtitle class="pt-4">
-      Number 10
-    </v-card-subtitle>
+      <section class="d-flex justify-start align-center my-2">
+        <Image name="contact-icon.png" width="60" class="d-none d-md-block"/>
+        <span class="bg-bg-input rounded-circle pa-3 mx-3">
+        <v-icon color="primary" size="30">mdi-email</v-icon>
+        </span>
+        <h3 v-html="keyValSettings.contacts_email" class="text-text me-5"></h3>
+      </section>
 
-    <v-card-text>
-      <div>Whitehaven Beach</div>
-
-      <div>Whitsunday Island, Whitsunday Islands</div>
+      <section class="d-flex justify-start align-center mt-2 mb-16">
+        <Image name="contact-icon.png" width="60" class="d-none d-md-block"/>
+        <span class="bg-bg-input rounded-circle pa-3 mx-3">
+        <v-icon color="primary" size="30">mdi-map-marker-radius</v-icon>
+        </span>
+        <h3 v-html="keyValSettings.contacts_address" class="text-text me-5"></h3>
+      </section>
     </v-card-text>
   </v-card>
 
@@ -39,9 +54,6 @@ const listItems = ref([
 const settingsStore = useSettingsStore();
 const keyValSettings = computed(()=>settingsStore.keyValSettings);
 
-const email = keyValSettings.contacts_email;
-const phone = keyValSettings.contacts_phone;
-const Address = keyValSettings.contacts_address 
 </script>
 
 <style scoped>
