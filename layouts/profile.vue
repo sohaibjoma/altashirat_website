@@ -53,16 +53,7 @@ onMounted(() => {
   min-height: 100vh;
 }
 
-.header-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
 .navbar-container {
-  margin-top: 80px;
   z-index: 5;
 }
 
@@ -73,7 +64,7 @@ onMounted(() => {
 }
 
 .content-container.with-sidebar {
-  padding-right: 240px;
+  padding-right: 40px;
 }
 
 .footer-container {

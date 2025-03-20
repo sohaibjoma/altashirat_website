@@ -4,11 +4,12 @@
 @use 'components/_layouts';
 @use 'components/_home';
 @use 'components/_deleteAccount';
+@use 'components/profile';
 @use 'components/Chips/mainChip.scss';
 
 @font-face {
   font-family: 'Bahij';
-  src: url('../fonts//Bahij_TheSansArabic-Bold.ttf') format('truetype');
+  src: url('../fonts/Bahij_TheSansArabic-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

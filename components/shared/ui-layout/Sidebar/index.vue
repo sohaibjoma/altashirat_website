@@ -162,14 +162,11 @@ watch(mobile, (isMobile) => {
 
 <style scoped>
 .user-sidebar {
-  background-image: url("assets/img/sidebar.png");
+  background-image: url("/assets/img/sidebar.png");
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 80px);
-  max-height: calc(100vh - 80px);
-  margin-top: 80px;
   z-index: 1;
-  position: fixed;
+  position:sticky
 }
 
 .user-sidebar-mobile {
