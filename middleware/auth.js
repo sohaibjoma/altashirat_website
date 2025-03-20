@@ -4,4 +4,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (authStore.token && (to.path === "/login" || to.path === "/register")) {
     return navigateTo("/");
   }
+
+  if (to.path.startsWith("/profile")) {
+    return navigateTo("/login");
+  }
 });

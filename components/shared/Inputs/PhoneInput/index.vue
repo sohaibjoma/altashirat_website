@@ -4,7 +4,6 @@
       {{ $t(title) }}
     </div>
     <div class="rounded-xl d-flex align-center justify-center overflow-hidden">
-      <!-- Phone Number Field -->
       <v-text-field
         v-model="phoneNumberValue"
         type="tel"
@@ -18,14 +17,14 @@
         </template>
       </v-text-field>
 
-      <!-- Country Code Select -->
-      <div class="country-code-wrapper">
+      <div class="country-code-wrapper d-flex d-sm-block xs-12 sm-4">
         <Select
           :model-value="selectedCountry"
           :items="countryOptions"
           :name="countryCodeName"
           :rules="countryCodeRules"
           @update:model-value="handleCountryCodeUpdate"
+          class="w-xs-100 w-sm-auto"
         >
           <template #selection="{ item }">
             <div class="d-flex align-center">
@@ -118,7 +117,7 @@ const getFlagEmoji = (countryCode) => {
 .country-code-wrapper {
   background-color: var(--primary);
   color: var(--white);
-  min-width: 120px;
+  min-width: 10px;
   max-width: 100px;
   width: auto;
 }

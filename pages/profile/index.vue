@@ -8,17 +8,18 @@
         class="d-flex flex-column-reverse flex-lg-row justify-space-between align-center"
       >
         <div class="d-flex justify-start align-center">
-          <div class="profile__h--starter me-5"></div>
+          <div class="profile__h--starter me-5 d-none d-md-block"></div>
           <Image
             name="profile-form-icon.png"
             alt="profile tile image"
             width="30"
           />
-          <h3 class="text-text profile__h ps-3">{{ $t("profile.title") }}</h3>
+          <h3 class="text-text profile__h ps-3 d-none d-md-block">{{ $t("profile.title") }}</h3>
+          <div class="text-text profile__small-title d-md-none">{{ $t("profile.title") }}</div>
         </div>
         <div class="ms-auto me-lg-10 mb-8 mb-lg-0">
           <CustomLink
-            to="/profile"
+            to="/profile/delete-account"
             class="profile__more-btn text-primary bg-bg-input text-decoration-none rounded-pill px-4 py-2"
           >
             {{ $t("profile.more") }}
@@ -133,6 +134,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+  layout: "profile",
+  middleware: "auth",
+});
 // Reactive form state
 const formState = reactive({
   firstName: "",
