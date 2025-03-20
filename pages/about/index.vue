@@ -10,8 +10,8 @@
   </div>
 
   <v-container class="mt-12">
-    <div
-      v-html="keyValSettings.about1 || 'No content available'"
+      <div
+      v-html="keyValSettings.about1"
       class="text-text w-75 mx-auto"
     ></div>
 
@@ -43,7 +43,7 @@
 
     <section class="d-flex justify-between flex-wrap w-75 mx-auto align-start">
       <div
-      v-html="keyValSettings.about2 || 'No content available'"
+      v-html="keyValSettings.about2"
       class="text-text w-lg-50 w-100 mx-auto bg-bg-input pa-3 mt-lg-16"
     ></div>
     <div class="w-100 w-lg-50 pb-16 ps-lg-10">
@@ -72,10 +72,19 @@ const listItems = ref([
 ]);
 
 const settingsStore = useSettingsStore();
-const keyValSettings = settingsStore.keyValSettings;
+const keyValSettings = computed(() => settingsStore.keyValSettings);
 
-const about1 = keyValSettings.about1;
-const about2 = keyValSettings.about2;
+console.log("keyValSettings",keyValSettings.value);
+
+
+
+
+const about1 = keyValSettings.value.about1
+
+const about2 = keyValSettings.value.about2
+
+
+
 </script>
 
 <style scoped>

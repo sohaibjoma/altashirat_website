@@ -36,19 +36,5 @@ export const useSettingsStore = defineStore("settings", () => {
     }
   });
 
-  // Watch keyValSettings for changes
-  watch(
-    keyValSettings,
-    (newSettings, oldSettings) => {
-      console.log("keyValSettings updated:", newSettings);
-      console.log("Previous keyValSettings:", oldSettings);
-      // Add any additional logic here, e.g., notifying other parts of the app
-    },
-    {
-      immediate: true, // Trigger immediately with the initial value
-      deep: true, // Watch nested properties if needed (not strictly necessary here)
-    }
-  );
-
   return { settings, keyValSettings, fetchSettings, isLoading, error };
 });

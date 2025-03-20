@@ -15,16 +15,17 @@ const { locale } = useI18n();
 const settingsStore = useSettingsStore();
 
 // Watch for changes to the locale and update the store
+onMounted(async () => {
+  await settingsStore.fetchSettings();
+});
+
 watch(
   () => locale.value,
   (newLocale) => {
     localeStore.setLocale(newLocale);
-    settingsStore.fetchSettings(); // Re-fetch settings on locale change
+    settingsStore.fetchSettings(); 
   },
-  { immediate: true } // Set the initial locale
+  { immediate: true } 
 );
 
-onBeforeMount(async () => {
-  await settingsStore.fetchSettings();
-});
 </script>

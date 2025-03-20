@@ -82,7 +82,7 @@
                 />
               </g>
             </svg>
-            {{ $t("profile") }}
+            {{ $t("profileName") }}
           </nuxt-link>
 
           <!-- Language Selector -->

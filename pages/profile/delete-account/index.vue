@@ -5,6 +5,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+  layout: "profile",
+  middleware: "auth",
+});
 import AccountSettingsCard from "~/components/shared/Cards/DeleteAccount/index.vue";
 import { useApi } from "~/composables/api";
 import { useAuthStore } from "~/stores/auth";

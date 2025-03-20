@@ -1,14 +1,13 @@
 <template>
-  <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto pa-0 mt-10"
     max-width="700"
   >
-
   <Image
   name="contact.png"
-  class="d-block mx-auto w-100 text-center py-6 bg"
+  class="d-block mx-auto w-100 text-center py-6 bg mt-none"
   />
+
   <div class="w-100 text-text bg-bg-input"><span class="mx-auto">{{ t("contactInfo") }}</span></div>
 
     <v-card-subtitle class="pt-4">
@@ -21,7 +20,7 @@
       <div>Whitsunday Island, Whitsunday Islands</div>
     </v-card-text>
   </v-card>
-</template>
+
 </template>
 
 <script setup>
@@ -38,17 +37,13 @@ const listItems = ref([
 ]);
 
 const settingsStore = useSettingsStore();
-const keyValSettings = settingsStore.keyValSettings;
+const keyValSettings = computed(()=>settingsStore.keyValSettings);
 
-const about1 = keyValSettings.about1;
-const about2 = keyValSettings.about2;
+const email = keyValSettings.contacts_email;
+const phone = keyValSettings.contacts_phone;
+const Address = keyValSettings.contacts_address 
 </script>
 
 <style scoped>
-.chip-position {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+
 </style>
