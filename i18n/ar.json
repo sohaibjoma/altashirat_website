@@ -108,7 +108,14 @@
     "save": "حفظ",
     "personalInfo": "معلومات شخصية",
     "changePassword": "تغيير كلمة المرور",
-    "orders": "الطلبات"
+    "orders": "الطلبات",
+    "changePasswordTitle": "تغيير كلمة المرور الخاصة بك",
+    "currentPassword": "كلمة المرور الحالية",
+    "enterCurrentPassword": "ادخل كلمة المرور القديمة للتغيير",
+    "newPassword": "كلمة المرور الجديدة",
+    "enterNewPassword": "ادخل كلمة المرور الجديدة للمتابعة",
+    "confirmNewPassword": "إعادة كلمة المرور الجديدة للمتابعة",
+    "enterConfirmNewPassword": "إعادة كلمة المرور الجديدة "
   },
     "save": "حفظ",
 

@@ -20,7 +20,7 @@
           </div>
 
           <v-card-title
-            class="text-center text-h5 font-weight-bold text-text mb-4"
+            class="text-center font-weight-bold text-text mb-4"
           >
             {{ $t("register") }}
           </v-card-title>
@@ -34,7 +34,8 @@
                   <Text
                     v-model="firstName"
                     :title="$t('firstName')"
-                    label="enterFirstName"
+                    :label="$t('enterFirstName')"
+                    :placeholder="$t('enterFirstName')"
                     name="firstname"
                     rules="required|alpha"
                     icon="mdi-account"
@@ -44,7 +45,8 @@
                   <Text
                     v-model="lastName"
                     :title="$t('lastName')"
-                    label="enterLastName"
+                    :label="$t('enterLastName')"
+                    :placeholder="$t('enterLastName')"
                     name="lastname"
                     rules="required|alpha"
                     icon="mdi-account"
@@ -56,8 +58,8 @@
               <Text
                 v-model="email"
                 :title="$t('email')"
-                label="enterEmail"
-                placeholder="enterEmail"
+                :label="$t('enterEmail')"
+                :placeholder="$t('enterEmail')"
                 name="email"
                 rules="required|email"
                 icon="mdi-email"

@@ -8,6 +8,7 @@
     :error-messages="errorMessage"
     rounded
     variant="solo-filled"
+    :placeholder="placeholder"
     :type="type"
     :hint="hint"
     persistent-hint
@@ -28,6 +29,7 @@ const props = defineProps({
   label: String,
   modelValue: String,
   icon: String,
+  placeholder: String,
 });
 
 const emit = defineEmits(["update:modelValue"]);

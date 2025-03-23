@@ -109,7 +109,14 @@
     "save": "Save",
     "personalInfo": "Personal Information",
     "changePassword": "Change Password",
-    "orders": "Orders"
+    "orders": "Orders",
+    "changePasswordTitle": "Change Password",
+    "currentPassword": "Current Password",
+    "enterCurrentPassword": "Enter Current Password",
+    "newPassword": "New Password",
+    "enterNewPassword": "Enter New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "enterConfirmNewPassword": "Enter Confirm New Password"
   },
     "save": "Save",
   "aboutSection":{

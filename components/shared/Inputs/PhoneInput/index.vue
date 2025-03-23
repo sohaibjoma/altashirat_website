@@ -90,6 +90,7 @@ const handlePhoneNumberUpdate = (newValue) => {
   emit("update:phoneNumberModelValue", newValue); // Emit the new value to the parent
 };
 
+
 // Handle country code changes
 const selectedCountry = computed(() => {
   return props.countryCodeModelValue?.replace(/^\+|^00/, "") || "";
