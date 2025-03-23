@@ -1,25 +1,22 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { useCookie } from "nuxt/app";
 
-export const useDrawerStore = defineStore("drawer", () => {
-  const isOpen = ref(false);
-
-  function toggle() {
-    isOpen.value = !isOpen.value;
-  }
-
-  function open() {
-    isOpen.value = true;
-  }
-
-  function close() {
-    isOpen.value = false;
-  }
-
-  return {
-    isOpen,
-    toggle,
-    open,
-    close,
-  };
+export const useDrawerStore = defineStore("drawer", {
+  state: () => ({
+    isOpen: useCookie("sidebarState").value === "true" || false,
+  }),
+  actions: {
+    toggle() {
+      this.isOpen = !this.isOpen;
+      useCookie("sidebarState").value = this.isOpen;
+    },
+    open() {
+      this.isOpen = true;
+      useCookie("sidebarState").value = true;
+    },
+    close() {
+      this.isOpen = false;
+      useCookie("sidebarState").value = false;
+    },
+  },
 });

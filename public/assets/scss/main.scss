@@ -5,8 +5,9 @@
 @use 'components/_home';
 
 @use 'components/_deleteAccount';
-@use 'components/profile';
+@use 'components/_profile';
 @use 'components/Chips/mainChip.scss';
+@use 'components/_notifications.scss';
 
 @font-face {
   font-family: 'Bahij';

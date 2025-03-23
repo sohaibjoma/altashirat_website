@@ -6,6 +6,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
   }
 
   if (to.path.startsWith("/profile")) {
-    return navigateTo("/login");
+    if (authStore.token) {
+      return;
+    } else {
+      return navigateTo("/login");
+    }
   }
 });

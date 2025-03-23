@@ -49,6 +49,12 @@ export const useAuthStore = defineStore("auth", () => {
     }
   };
 
+  const isProfilePage = computed(() => {
+    return route.path.startsWith("/user") || route.path.startsWith("/profile");
+  });
+
+  const isAuthenticated = computed(() => !!token.value);
+
   return {
     token,
     user,
@@ -57,5 +63,7 @@ export const useAuthStore = defineStore("auth", () => {
     clearToken,
     fetchUser,
     logout,
+    isProfilePage,
+    isAuthenticated,
   };
 });

@@ -5,6 +5,7 @@
   "password": "كلمة المرور",
   "enterPassword": "أدخل كلمة المرور للمتابعة",
   "login": "قم بتسجيل الدخول",
+  "logout": "تسجيل الخروج",
   "noAccount": "ليس لديك حساب؟",
   "registerAccount": "تسجيل حساب جديد",
   "forgotPassword": "نسيت كلمة المرور؟",
@@ -84,13 +85,13 @@
     "delete": "حذف",
     "cancel": "إلغاء",
     "enterPasswordForDelete": "أدخل كلمة المرور للحذف",
-    "passwordForDeletion" : "كلمة المرور لتأكيد الحذف",
+    "passwordForDeletion": "كلمة المرور لتأكيد الحذف",
     "confirmDelete": "حذف الحساب",
     "confirmDeleteMessage": "سوف يتم فقد كل المعلومات والمعاملات والحجوزات",
     "SettingsAndDelete": "إعدادات الحساب والغاء تنشيط الحساب وحذفه",
     "PermenantlyDeactivate": "إلغاء تنشيط الحساب نهائياً"
   },
-  
+
   "profile": {
     "title": "المعلومات الشخصية الخاصة بك",
     "more": "المـــزيد",
@@ -104,8 +105,12 @@
     "countryCode": "رمز الدولة",
     "birthdate": "تاريخ الميلاد",
     "country": "الدولة",
-    "save": "حفظ"
+    "save": "حفظ",
+    "personalInfo": "معلومات شخصية",
+    "changePassword": "تغيير كلمة المرور",
+    "orders": "الطلبات"
   },
+    "save": "حفظ",
 
   "aboutSection":{
     "title": "منصة التأشيرات",
