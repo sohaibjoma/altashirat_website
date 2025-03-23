@@ -31,17 +31,17 @@
                 fill-rule="evenodd"
               />
             </svg>
-            <h3 class="text-text">حمل تطبيق منصة التأشيرات</h3>
+            <h3 class="text-text">{{ t('footer.download_app') }}</h3>
           </div>
           <v-img
             src="/assets/img/googlePlay.png"
-            alt="Google Play"
+            :alt="t('footer.google_play_alt')"
             width="150"
             class="mb-2"
           ></v-img>
           <v-img
             src="/assets/img/appStore.png"
-            alt="App Store"
+            :alt="t('footer.app_store_alt')"
             width="150"
           ></v-img>
         </v-col>
@@ -75,7 +75,7 @@
                 fill-rule="evenodd"
               />
             </svg>
-            <h3 class="text-text">طلبات التأشيرات</h3>
+            <h3 class="text-text">{{ t('footer.visa_requests') }}</h3>
           </div>
           <v-list class="pa-0 bg-transparent" density="compact">
             <v-list-item
@@ -87,7 +87,7 @@
               <template v-slot:prepend>
                 <v-icon icon="mdi-chevron-left" color="secondary"></v-icon>
               </template>
-              <v-list-item-title>{{ item }}</v-list-item-title>
+              <v-list-item-title>{{ t(item) }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-col>
@@ -121,7 +121,7 @@
                 fill-rule="evenodd"
               />
             </svg>
-            <h3 class="text-text">معلومات عامة</h3>
+            <h3 class="text-text">{{ t('footer.general_info') }}</h3>
           </div>
           <v-list class="pa-0 bg-transparent" density="compact">
             <v-list-item
@@ -133,7 +133,7 @@
               <template v-slot:prepend>
                 <v-icon icon="mdi-chevron-left" color="secondary"></v-icon>
               </template>
-              <v-list-item-title>{{ item }}</v-list-item-title>
+              <v-list-item-title>{{ t(item) }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-col>
@@ -167,7 +167,7 @@
                 fill-rule="evenodd"
               />
             </svg>
-            <h3 class="text-text">التواصل الاجتماعي</h3>
+            <h3 class="text-text">{{ t('footer.social_media') }}</h3>
           </div>
           <v-list class="pa-0 bg-transparent" density="compact">
             <v-list-item
@@ -179,9 +179,7 @@
               <template v-slot:prepend>
                 <v-icon icon="mdi-chevron-left" color="secondary"></v-icon>
               </template>
-              <v-list-item-title>
-                {{ item.name }}
-              </v-list-item-title>
+              <v-list-item-title>{{ t(item.name) }}</v-list-item-title>
               <template v-slot:append>
                 <v-avatar size="24" color="transparent">
                   <v-icon :color="item.color">{{ item.icon }}</v-icon>
@@ -196,27 +194,35 @@
   <v-row class="mt-1">
     <v-col cols="12" class="text-center copyright-section">
       <div>
-        جميع الحقوق محفوظة © {{ new Date().getFullYear() }} لمنصة التأشيرات
+        {{ t('footer.copyright', { year: new Date().getFullYear() }) }}
       </div>
     </v-col>
   </v-row>
 </template>
 
 <script setup>
-const visaItems = ["طلب فيزا سياحية", "طلب فيزا توظيف", "عـــرض فيزا"];
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
+const visaItems = [
+  "home-hero.tourism_visa_card_title",
+  "home-hero.employment_visa_card_title",
+  "offerViza",
+];
 
 const infoItems = [
-  "عن منصة التأشيرات",
-  "تواصل معنا",
-  "الشروط والأحكام",
-  "سياسة الخصوصية",
+  "about",
+  "contact",
+  "terms",
+  "privacy",
 ];
 
 const socialItems = [
-  { name: "تويتر", icon: "mdi-twitter", color: "#1DA1F2" },
-  { name: "انستقرام", icon: "mdi-instagram", color: "#E1306C" },
-  { name: "فيسبوك", icon: "mdi-facebook", color: "#1877F2" },
-  { name: "سناب شات", icon: "mdi-snapchat", color: "#FFFC00" },
+  { name: "footer.social_twitter", icon: "mdi-twitter", color: "#1DA1F2" },
+  { name: "footer.social_instagram", icon: "mdi-instagram", color: "#E1306C" },
+  { name: "footer.social_facebook", icon: "mdi-facebook", color: "#1877F2" },
+  { name: "footer.social_snapchat", icon: "mdi-snapchat", color: "#FFFC00" },
 ];
 </script>
 
@@ -229,6 +235,6 @@ const socialItems = [
   background-color: var(--accent);
   color: var(--white);
   font-size: 14px;
-  margin-bottom: 0px;
+  margin-bottom: 12px;
 }
 </style>
