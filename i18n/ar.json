@@ -5,6 +5,7 @@
   "password": "كلمة المرور",
   "enterPassword": "أدخل كلمة المرور للمتابعة",
   "login": "قم بتسجيل الدخول",
+  "logout": "تسجيل الخروج",
   "noAccount": "ليس لديك حساب؟",
   "registerAccount": "تسجيل حساب جديد",
   "forgotPassword": "نسيت كلمة المرور؟",
@@ -28,6 +29,20 @@
   "offerViza": "عرض فيزا",
   "profileName": "الملف الشخصي",
 
+  "validation": {
+    "required": "هذا الحقل مطلوب.",
+    "email": "يرجى إدخال بريد إلكتروني صالح.",
+    "alpha": "يجب أن يحتوي الحقل على أحرف فقط.",
+    "confirmed": "الحقل غير متطابق.",
+    "numeric": "يجب أن يكون الحقل رقماً.",
+    "nameLength": "يجب أن يكون الحقل بين 3 و 15 حرفًا.",
+    "middleName": "يجب ألا يزيد الحقل عن 15 حرفًا.",
+    "password": "يجب أن يكون الحقل بين 8 و 50 حرفًا.",
+    "phoneNum": "يجب أن يكون الحقل بين 9 و 15 رقمًا.",
+    "phoneCode": "يجب أن يكون الحقل بين 3 و 5 أرقام.",
+    "mailLength": "يجب ألا يزيد الحقل عن 50 حرفًا."
+  },
+
   "home-hero": {
     "blue_title": "اطلب تأشيرتك السياحية أو فيزتك",
     "white_title": "على موقع التأشيرات",
@@ -38,6 +53,7 @@
     "h3_part2": "التأشيرات للاطلاع عليك",
     "hero_p": "اطلب تأشيرتك السياحية أو فيزتك معنا على موقع التأشيرات"
   },
+
   "form_fill_message": "عميلنا العزيز عند ملئ الاستمارة سنكون قادرين على التواصل",
 
   "home": {
@@ -64,6 +80,7 @@
       "ffth": "خطابات دعوة العمل"
     }
   },
+
   "home-advertisement": {
     "employment_visa_button": "طلب فيزا توظيف",
     "why_choose_us_title": "لماذا اخترتنا",
@@ -84,13 +101,13 @@
     "delete": "حذف",
     "cancel": "إلغاء",
     "enterPasswordForDelete": "أدخل كلمة المرور للحذف",
-    "passwordForDeletion" : "كلمة المرور لتأكيد الحذف",
+    "passwordForDeletion": "كلمة المرور لتأكيد الحذف",
     "confirmDelete": "حذف الحساب",
     "confirmDeleteMessage": "سوف يتم فقد كل المعلومات والمعاملات والحجوزات",
     "SettingsAndDelete": "إعدادات الحساب والغاء تنشيط الحساب وحذفه",
     "PermenantlyDeactivate": "إلغاء تنشيط الحساب نهائياً"
   },
-  
+
   "profile": {
     "title": "المعلومات الشخصية الخاصة بك",
     "more": "المـــزيد",
@@ -104,16 +121,33 @@
     "countryCode": "رمز الدولة",
     "birthdate": "تاريخ الميلاد",
     "country": "الدولة",
-    "save": "حفظ"
+    "save": "حفظ",
+    "personalInfo": "معلومات شخصية",
+    "changePassword": "تغيير كلمة المرور",
+    "orders": "الطلبات"
   },
 
-  "aboutSection":{
+  "aboutSection": {
     "title": "منصة التأشيرات",
     "tourism": "طلب الحصول على تأشيرة سياحية",
     "employment": "طلب االحصول على تأشيرة وظيفية",
-    "embassy":"خدمات السفارات",
+    "embassy": "خدمات السفارات",
     "counselate": "خدمات القنصليات"
   },
-  
-  "contactInfo": "بيانات التواصل"
+
+  "contactInfo": "بيانات التواصل",
+
+  "footer": {
+    "download_app": "حمل تطبيق منصة التأشيرات",
+    "google_play_alt": "جوجل بلاي",
+    "app_store_alt": "متجر التطبيقات",
+    "visa_requests": "طلبات التأشيرات",
+    "general_info": "معلومات عامة",
+    "social_media": "التواصل الاجتماعي",
+    "social_twitter": "تويتر",
+    "social_instagram": "انستقرام",
+    "social_facebook": "فيسبوك",
+    "social_snapchat": "سناب شات",
+    "copyright": "جميع الحقوق محفوظة © {year} لمنصة التأشيرات"
+  }
 }

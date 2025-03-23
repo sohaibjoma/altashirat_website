@@ -10,22 +10,45 @@
   --bg-header: #d1d1d180;
   --bg-footer: #eaeaea80;
   --hero-scd-sec: #8ee7ad;
+  --correct-bg: #4d9959;
+  --error-bg: #d02c47;
+  --correct-text: #4d9959;
+  --error-text: #d02c47;
+  --success-icon: #4d9959;
+  --error-icon: #d02c47;
 
-  /* Gradient Variable */
-  --gradient-button: linear-gradient(135deg,
-      rgba(68, 38, 245, 1) 0%,
-      rgba(101, 188, 249, 1) 50%,
-      rgba(142, 231, 173, 1) 100%);
+  /* Gradient Variables */
+  --gradient-button: linear-gradient(
+    135deg,
+    rgba(68, 38, 245, 1) 0%,
+    rgba(101, 188, 249, 1) 50%,
+    rgba(142, 231, 173, 1) 100%
+  );
 
-  --gradient-card: linear-gradient(to bottom,
-      rgba(176, 211, 255, 0.41) 0%,
-      rgba(173, 220, 253, 0.41) 50%,
-      rgba(192, 249, 212, 0.41) 100%);
+  --gradient-card: linear-gradient(
+    to bottom,
+    rgba(176, 211, 255, 0.41) 0%,
+    rgba(173, 220, 253, 0.41) 50%,
+    rgba(192, 249, 212, 0.41) 100%
+  );
 
-  --gradient-nav:
-    linear-gradient(90deg,
-      rgba(68, 38, 245, 1) 0%, rgba(101, 188, 249, 1) 53%, rgba(142, 231, 173, 1) 100%);
+  --gradient-nav: linear-gradient(
+    90deg,
+    rgba(68, 38, 245, 1) 0%,
+    rgba(101, 188, 249, 1) 53%,
+    rgba(142, 231, 173, 1) 100%
+  );
 
-  --gradient-logo:
-    linear-gradient(90deg, rgba(97, 173, 248, 1) 0%, rgba(104, 191, 243, 1) 100%);
+  --gradient-logo: linear-gradient(
+    90deg,
+    rgba(97, 173, 248, 1) 0%,
+    rgba(104, 191, 243, 1) 100%
+  );
+
+  --gradient-sidebar: linear-gradient(
+    to bottom,
+    #B0D3FF 0%,
+    #ADDCFD 52.639%,
+    #C0F9D4 100%
+  );
 }

@@ -1,14 +1,27 @@
 <template>
-  <transition name="fade">
-    <div v-if="visible" :class="['notification', type]">
-      {{ message }}
+  <v-snackbar
+    v-model="visible"
+    :class="['notification-snackbar', snackbarColor]"
+    location="bottom right"
+    :timeout="3000"
+    elevation="10"
+    rounded="lg"
+    content-class="snackbar-content"
+  >
+    <div class="d-flex align-center">
+      <v-icon
+        :icon="type === 'success' ? 'mdi-check-circle' : 'mdi-close-circle'"
+        class="me-3"
+        :class="type === 'success' ? 'success-icon' : 'error-icon'"
+      ></v-icon>
+      <span>{{ message }}</span>
     </div>
-  </transition>
+  </v-snackbar>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
-import { useNotificationStore } from "@/stores/notifications";
+import { ref, watch, computed } from "vue";
+import { useNotificationStore } from "../../../stores/notifications";
 import { storeToRefs } from "pinia";
 
 const notificationStore = useNotificationStore();
@@ -16,6 +29,10 @@ const { message, type } = storeToRefs(notificationStore);
 
 const visible = ref(false);
 let timeoutId = null;
+
+const snackbarColor = computed(() => {
+  return type.value === "success" ? "success-bg" : "error-bg";
+});
 
 watch(message, (newMessage) => {
   if (newMessage) {
@@ -33,34 +50,4 @@ watch(message, (newMessage) => {
 });
 </script>
 
-<style scoped>
-.notification {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  color: white;
-  z-index: 1000;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.success {
-  background-color: #4caf50;
-}
-
-.error {
-  background-color: #f44336;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
+<style scoped></style>

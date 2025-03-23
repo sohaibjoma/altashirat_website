@@ -1,0 +1,31 @@
+.v-snackbar.success-bg {
+  .v-snackbar__wrapper {
+    background-color: white !important;
+    border: 1px solid var(--correct-bg) !important;
+  }
+
+  .v-snackbar__content {
+    color: var(--correct-bg) !important;
+    font-weight: bold !important;
+  }
+
+  .success-icon {
+    color: var(--correct-bg) !important;
+  }
+}
+
+.v-snackbar.error-bg {
+  .v-snackbar__wrapper {
+    background-color: white !important;
+    border: 1px solid var(--error-bg) !important;
+  }
+
+  .v-snackbar__content {
+    color: var(--error-bg) !important;
+    font-weight: bold !important;
+  }
+
+  .error-icon {
+    color: var(--error-bg) !important;
+  }
+}
