@@ -110,5 +110,15 @@
     "personalInfo": "Personal Information",
     "changePassword": "Change Password",
     "orders": "Orders"
-  }
+  },
+
+  "aboutSection":{
+    "title": "Altaashirat Platform",
+    "tourism": "Application for a tourist visa",
+    "employment": "Application for a work visa",
+    "embassy":"Embassy Services",
+    "counselate": "Consular Services"
+
+  },
+  "contactInfo": "Contact Information"
 }
