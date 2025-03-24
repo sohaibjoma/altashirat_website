@@ -6,7 +6,7 @@
     <div class="rounded-xl d-flex align-center justify-center overflow-hidden">
       <v-text-field
         v-model="phoneNumberValue"
-        type="tel"
+        type="text"
         :placeholder="$t(phoneNumberPlaceholder)"
         :error-messages="phoneNumberErrorMessages"
         variant="solo-filled"
@@ -29,7 +29,7 @@
           <template #selection="{ item }">
             <div class="d-flex align-center">
               <span>(+{{ item.raw.value }})</span>
-              <span class="mr-1">{{ getFlagEmoji(item.raw.code) }}</span>
+              <span class="ms-1 flag-emoji ">{{ getFlagEmoji(item.raw.code) }}</span>
             </div>
           </template>
         </Select>
@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useField } from "vee-validate";
 import { useErrorStore } from "@/stores/error"; // Adjust the path as needed
 
@@ -67,9 +67,17 @@ const {
   value: phoneNumberValue,
   errorMessage: phoneNumberErrorMessage,
   handleChange: handlePhoneNumberChange,
+  setValue: setPhoneNumberValue // Get setValue from useField
 } = useField(props.phoneNumberName, props.phoneNumberRules, {
   initialValue: props.phoneNumberModelValue,
 });
+
+watch(
+  () => props.phoneNumberModelValue,
+  (newValue) => {
+    setPhoneNumberValue(newValue || ""); // Update vee-validate's value when prop changes
+  }
+);
 
 // Access the error store
 const errorStore = useErrorStore();
@@ -111,6 +119,7 @@ const getFlagEmoji = (countryCode) => {
       .map((char) => 127397 + char.charCodeAt())
   );
 };
+
 </script>
 
 <style scoped>
@@ -120,6 +129,12 @@ const getFlagEmoji = (countryCode) => {
   min-width: 10px;
   max-width: 100px;
   width: auto;
+}
+
+.flag-emoji {
+  font-family: 'Noto Color Emoji', sans-serif;
+  font-size: 1.2em; /* Adjust size as needed */
+  line-height: 1;
 }
 
 :deep(.v-input__details) {

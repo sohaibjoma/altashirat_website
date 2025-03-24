@@ -162,7 +162,7 @@ const userAvatar = ref("/assets/img/logo.png");
 const isProfilePage = computed(() => {
   return (
     route.path.startsWith("/profile") ||
-    route.path.startsWith("/change-password") ||
+    route.path.startsWith("/profile/change-password") ||
     route.path.startsWith("/data") ||
     route.path.startsWith("/account")
   );
@@ -202,7 +202,7 @@ const menuItems = computed(() => {
     {
       title: t("profile.changePassword"),
       icon: "mdi-lock-reset",
-      to: "/change-password",
+      to: "/profile/change-password",
     },
     {
       title: t("profile.orders"),
