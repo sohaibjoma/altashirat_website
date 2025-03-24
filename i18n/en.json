@@ -21,13 +21,27 @@
   "country": "Country",
   "confirmPassword": "Confirm Password",
   "confirmPasswordDescription": "Confirm Password",
-  "home-title":"Home",
-  "about":"About Us",
-  "contact":"Contact Us",
-  "terms":"Terms and Conditions",
-  "privacy":"Privacy Policy",
-  "offerViza":"Offer Viza",
-  "profileName":"Profile", 
+  "home-title": "Home",
+  "about": "About Us",
+  "contact": "Contact Us",
+  "terms": "Terms and Conditions",
+  "privacy": "Privacy Policy",
+  "offerViza": "Offer Viza",
+  "profileName": "Profile",
+
+  "validation": {
+    "required": "this field is required.",
+    "email": "Please enter a valid email address.",
+    "alpha": "The field must contain only letters.",
+    "confirmed": "The field does not match.",
+    "numeric": "The field must be a number.",
+    "nameLength": "The field must be between 3 and 15 characters.",
+    "middleName": "The field must be at most 15 characters.",
+    "passwordLength": "The field must be between 8 and 50 characters.",
+    "phoneNum": "The field must be between 9 and 15 digits.",
+    "phoneCode": "The field must be between 3 and 5 digits.",
+    "mailLength": "The field must be at most 50 characters."
+  },
 
   "home-hero": {
     "blue_title": "Request your tourist visa or your visa",
@@ -41,7 +55,7 @@
   },
 
   "form_fill_message": "Dear customer, by filling out the form we will be able to contact you",
-    "home": {
+  "home": {
     "employmentVisaProcess": "How to Obtain Employment Visas",
     "fillContactForm": "Fill Contact Form",
     "communication": "Communication",
@@ -51,18 +65,18 @@
     "employmentVisaDescription": "Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details. Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details. Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details.",
     "employmentVisaDescriptionSmall": "Do you have jobs and visas you’d like to inform us about? Fill out the form and provide us with the details",
     "requestEmploymentVisa": "Request Employment Visa",
-    "mainSmallCardText" : "Our esteemed clients at the time of filling out the form will be able to communicate"
+    "mainSmallCardText": "Our esteemed clients at the time of filling out the form will be able to communicate"
   },
 
   "home-otherServices": {
     "title": "Other services for you",
     "description": "Are you looking for a tourist visa, employment visa, or want to sell visas? We offer assistance with:",
     "listItems": {
-      "fst":"Work visas",
-      "snd":"Trusted partner",
-      "thrd":"Document authentication",
-      "frth":"Passport insurance",
-      "ffth":"Business invitation letters"
+      "fst": "Work visas",
+      "snd": "Trusted partner",
+      "thrd": "Document authentication",
+      "frth": "Passport insurance",
+      "ffth": "Business invitation letters"
     }
   },
 
@@ -71,10 +85,10 @@
     "why_choose_us_title": "Why choose us",
     "why_choose_us_subtitle": "Many benefits, practical and fast",
     "listItems": {
-      "fst":"Fast visa processing",
-      "snd" :"24-hour online response",
-      "thrd":"Document authentication",
-      "frth":"Provide the best guidance"
+      "fst": "Fast visa processing",
+      "snd": "24-hour online response",
+      "thrd": "Document authentication",
+      "frth": "Provide the best guidance"
     },
     "trusted_company": "Trusted company",
     "experienced_team": "Experienced team",
@@ -86,14 +100,14 @@
     "delete": "Delete",
     "cancel": "Cancel",
     "enterPasswordForDelete": "Enter Password for Delete",
-    "passwordForDeletion" : "Password for Deletion",
+    "passwordForDeletion": "Password for Deletion",
     "confirmDelete": "Delete Account",
     "confirmDeleteMessage": "All information, transactions and reservations will be lost.",
     "SettingsAndDelete": "Account settings, deactivation and deletion of the account",
     "PermenantlyDeactivate": "Permanently deactivate the account"
   },
 
-"profile": {
+  "profile": {
     "title": "Your Personal Information",
     "more": "More",
     "firstName": "First Name",
@@ -116,16 +130,32 @@
     "newPassword": "New Password",
     "enterNewPassword": "Enter New Password",
     "confirmNewPassword": "Confirm New Password",
-    "enterConfirmNewPassword": "Enter Confirm New Password"
+    "enterConfirmNewPassword": "Enter Confirm New Password",
+    "enterMiddleName": "Enter Middle Name"
+
   },
-    "save": "Save",
-  "aboutSection":{
+
+  "aboutSection": {
     "title": "Altaashirat Platform",
     "tourism": "Application for a tourist visa",
     "employment": "Application for a work visa",
-    "embassy":"Embassy Services",
+    "embassy": "Embassy Services",
     "counselate": "Consular Services"
-
   },
-  "contactInfo": "Contact Information"
+
+  "contactInfo": "Contact Information",
+
+  "footer": {
+    "download_app": "Download the Visa Platform App",
+    "google_play_alt": "Google Play",
+    "app_store_alt": "App Store",
+    "visa_requests": "Visa Requests",
+    "general_info": "General Information",
+    "social_media": "Social Media",
+    "social_twitter": "Twitter",
+    "social_instagram": "Instagram",
+    "social_facebook": "Facebook",
+    "social_snapchat": "Snapchat",
+    "copyright": "All rights reserved © {year} Visa Platform"
+  }
 }

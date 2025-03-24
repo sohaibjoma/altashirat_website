@@ -48,6 +48,7 @@
             <Text
               v-model="formState.middleName"
               :label="$t('profile.middleName')"
+              :placeholder="$t('profile.enterMiddleName')"
               name="middlename"
               rules="alpha"
               icon="mdi-account"

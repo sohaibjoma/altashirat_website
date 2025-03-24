@@ -45,22 +45,24 @@
           </div>
         </v-list-item>
 
-        <!-- Navbar items -->
-        <v-list-item
-          v-for="(item, index) in navItems"
-          :key="`nav-${index}`"
-          :to="item.to"
-          class="my-2 sidebar-item"
-          @click="drawerStore.close()"
-          active-class="active-item"
-        >
-          <template v-slot:prepend>
-            <v-icon class="item-icon">{{ item.icon }}</v-icon>
-          </template>
-          <v-list-item-title class="text-text font-weight-bold">
-            {{ item.title }}
-          </v-list-item-title>
-        </v-list-item>
+        <!-- Navbar items (only on mobile) -->
+        <template v-if="mobile">
+          <v-list-item
+            v-for="(item, index) in navItems"
+            :key="`nav-${index}`"
+            :to="item.to"
+            class="my-2 sidebar-item"
+            @click="drawerStore.close()"
+            active-class="active-item"
+          >
+            <template v-slot:prepend>
+              <v-icon class="item-icon">{{ item.icon }}</v-icon>
+            </template>
+            <v-list-item-title class="text-text font-weight-bold">
+              {{ item.title }}
+            </v-list-item-title>
+          </v-list-item>
+        </template>
 
         <!-- User routes -->
         <v-list-item
@@ -96,22 +98,24 @@
 
       <!-- Unauthenticated layout -->
       <template v-else>
-        <!-- Navbar items -->
-        <v-list-item
-          v-for="(item, index) in navItems"
-          :key="`nav-${index}`"
-          :to="item.to"
-          class="my-2 sidebar-item"
-          @click="drawerStore.close()"
-          active-class="active-item"
-        >
-          <template v-slot:prepend>
-            <v-icon class="item-icon">{{ item.icon }}</v-icon>
-          </template>
-          <v-list-item-title class="text-text font-weight-bold">
-            {{ item.title }}
-          </v-list-item-title>
-        </v-list-item>
+        <!-- Navbar items (only on mobile) -->
+        <template v-if="mobile">
+          <v-list-item
+            v-for="(item, index) in navItems"
+            :key="`nav-${index}`"
+            :to="item.to"
+            class="my-2 sidebar-item"
+            @click="drawerStore.close()"
+            active-class="active-item"
+          >
+            <template v-slot:prepend>
+              <v-icon class="item-icon">{{ item.icon }}</v-icon>
+            </template>
+            <v-list-item-title class="text-text font-weight-bold">
+              {{ item.title }}
+            </v-list-item-title>
+          </v-list-item>
+        </template>
 
         <!-- Login/Signup -->
         <v-list-item
@@ -158,7 +162,7 @@ const userAvatar = ref("/assets/img/logo.png");
 const isProfilePage = computed(() => {
   return (
     route.path.startsWith("/profile") ||
-    route.path.startsWith("/change-password") ||
+    route.path.startsWith("/profile/change-password") ||
     route.path.startsWith("/data") ||
     route.path.startsWith("/account")
   );
@@ -198,7 +202,7 @@ const menuItems = computed(() => {
     {
       title: t("profile.changePassword"),
       icon: "mdi-lock-reset",
-      to: "/change-password",
+      to: "/profile/change-password",
     },
     {
       title: t("profile.orders"),
@@ -215,7 +219,7 @@ const navItems = ref([
   { title: t("about"), icon: "mdi-information", to: "/about" },
   { title: t("contact"), icon: "mdi-phone", to: "/contact" },
   { title: t("terms"), icon: "mdi-file-document", to: "/terms" },
-  { title: t("privacy"), icon: "mdi-shield", to: "/privacy" },
+  { title: t("privacy"), icon: "mdi-shield", to: "/privacy-policy" },
 ]);
 
 onMounted(() => {
@@ -246,9 +250,10 @@ watch(mobile, (isMobile) => {
 
 <style scoped>
 .user-sidebar {
-  background-image: url("/assets/img/sidebar.png");
+  background: url("/assets/img/sidebar-img.png"), var(--gradient-sidebar);
+  background-position: right bottom;
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
   height: 100vh;
   position: fixed;
   top: 0;
