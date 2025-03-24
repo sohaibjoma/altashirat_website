@@ -1,5 +1,5 @@
 <template>
-  <v-container class="py-12">
+  <v-container class="pb-12">
     <AccountSettingsCard @delete-account="handleDeleteAccount" />
   </v-container>
 </template>

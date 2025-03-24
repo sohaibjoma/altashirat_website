@@ -12,6 +12,7 @@
       item-title="text"
       item-value="value"
       rounded
+      varient="solo-filled"
       :prepend-inner-icon="icon"
       @update:model-value="emit('update:modelValue', $event)"
     >

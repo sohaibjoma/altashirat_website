@@ -2,7 +2,7 @@
   <v-container>
     <v-card
       variant="outlined"
-      class="rounded-lg custom-card pt-5 w-75 mx-auto mt-16 mt-lg-none mx-lg-none"
+      class="rounded-lg custom-card pt-5 w-75 mx-auto ms-lg-5 mt-lg-5 mx-lg-0 pb-lg-16"
     >
       <v-card-title
         class="d-flex flex-column-reverse flex-lg-row justify-space-between align-center"
@@ -48,6 +48,7 @@
             <Text
               v-model="formState.middleName"
               :label="$t('profile.middleName')"
+              :placeholder="$t('profile.enterMiddleName')"
               name="middlename"
               rules="alpha"
               icon="mdi-account"
@@ -119,11 +120,10 @@
 
           <!-- Submit Button -->
           <div class="ms-lg-auto w-100">
-            <LoginBtn
+            <MainButton
               width="150"
               :text="$t('profile.save')"
               type="submit"
-              :loading="isLoading"
               class="mb-5 ms-auto me-14"
             />
           </div>
@@ -166,6 +166,7 @@ onMounted(async () => {
   await fetchCountries();
   initializeFormWithUserData(); // Initialize form with user data
 });
+
 
 // Fetch countries
 const fetchCountries = async () => {
@@ -243,7 +244,7 @@ const formSubmitting = async () => {
 
     console.log("Form Data:", Object.fromEntries(formData.entries())); // Debugging
 
-    const response = await POST("update-account", formData);
+    const response = await POST("/update-account", formData);
     notificationStore.setNotification("Data Updated successful!", "success");
   } catch (error) {
     notificationStore.setNotification(

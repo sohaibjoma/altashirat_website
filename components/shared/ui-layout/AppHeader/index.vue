@@ -22,8 +22,8 @@
           </template>
         </v-select>
 
-        <nuxt-link
-          to="/profile"
+        <CustomLink
+          path="/profile"
           class="text-decoration-none text-text font-weight-bold ms-4 d-flex align-center gap-4"
         >
           {{ $t("profileName") }}
@@ -61,7 +61,7 @@
               />
             </g>
           </svg>
-        </nuxt-link>
+        </CustomLink>
       </div>
     </div>
 
