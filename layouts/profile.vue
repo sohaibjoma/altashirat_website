@@ -4,21 +4,14 @@
       <AppHeader />
 
       <div v-if="!mobile">
-        <AppNavbar />
+        <AppNavbar class="mt-5" />
       </div>
 
       <Sidebar />
 
-      <div
-        class="content-container"
-        :class="{ 'with-sidebar': drawerStore.isOpen }"
-      >
-        <v-main>
-          <div class="pa-4">
-            <slot />
-          </div>
-        </v-main>
-      </div>
+      <v-main>
+        <slot />
+      </v-main>
 
       <div class="footer-container">
         <AppFooter />
@@ -28,7 +21,6 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import { useDisplay } from "vuetify";
 import { useDrawerStore } from "~/stores/drawer";
 
@@ -40,9 +32,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-.content-container {
-  flex: 1;
-  transition: padding 0.3s ease;
-}
-</style>
+<style scoped></style>

@@ -56,12 +56,12 @@
 
               <!-- Forgot Password -->
               <div class="d-flex justify-end mb-5">
-                <router-link
-                  to="/"
+                <CustomLink
+                  path="/"
                   class="text-decoration-none font-weight-bold text-text"
                 >
                   {{ $t("forgotPassword") }}
-                </router-link>
+                </CustomLink>
               </div>
 
               <!-- Login Button -->
@@ -76,12 +76,12 @@
               <!-- Register Link -->
               <div class="text-center">
                 <span class="me-1 font-weight-bold">{{ $t("noAccount") }}</span>
-                <router-link
-                  to="/register"
+                <CustomLink
+                  path="/register"
                   class="text-decoration-none text-secondary font-weight-bold"
                 >
                   {{ $t("registerAccount") }}
-                </router-link>
+                </CustomLink>
               </div>
             </v-form>
           </v-card-text>
@@ -92,6 +92,7 @@
 </template>
 
 <script setup>
+import { CustomLink } from "#components";
 import { ref, onMounted } from "vue";
 
 const countryCode = ref("");
@@ -186,7 +187,7 @@ const submitForm = async () => {
 
     notificationStore.setNotification("Login Successfull", "success");
 
-    router.push("/");
+    navigateTo("/");
   } catch (error) {
     console.error("Login error:", error);
     notificationStore.setNotification(

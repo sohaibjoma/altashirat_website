@@ -28,6 +28,7 @@ export const useAuthStore = defineStore("auth", () => {
     try {
       const { GET } = useApi();
       const response = await GET("/show-account");
+      console.log("API Response:", response);
 
       if (response.data) {
         setUser(response.data);

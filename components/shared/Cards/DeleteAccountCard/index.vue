@@ -64,15 +64,12 @@
       </v-expand-transition>
     </v-card>
 
-    <DeleteAccount v-model="showDeleteDialog" @confirm="confirmDelete" />
+    <DeleteAccountDialogue v-model="showDeleteDialog" @confirm="confirmDelete" />
   </v-container>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
-import DeleteAccount from "@/components/shared/Dialogues/DeleteAccount";
-
 const { t, locale } = useI18n();
 
 const emit = defineEmits(["delete-account"]);

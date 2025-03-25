@@ -1,6 +1,6 @@
 <template>
   <v-container class="pb-12">
-    <AccountSettingsCard @delete-account="handleDeleteAccount" />
+    <DeleteAccountCard @delete-account="handleDeleteAccount" />
   </v-container>
 </template>
 
@@ -9,11 +9,8 @@ definePageMeta({
   layout: "profile",
   middleware: "auth",
 });
-import AccountSettingsCard from "~/components/shared/Cards/DeleteAccount/index.vue";
-import { useApi } from "~/composables/api";
-import { useAuthStore } from "~/stores/auth";
-import { navigateTo } from "#app";
 
+import { navigateTo } from "#app";
 const { POST } = useApi();
 const authStore = useAuthStore();
 

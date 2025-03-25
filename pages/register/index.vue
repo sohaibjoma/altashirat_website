@@ -112,7 +112,7 @@
                 :label="$t('confirmPasswordDescription')"
                 class="mb-5"
                 name="password_confirmation"
-                rules="required|confirmed:@password"
+                rules="required|confirmed:password"
               />
 
               <!-- Register Button -->
@@ -129,12 +129,12 @@
                 <span class="me-1 font-weight-bold">{{
                   $t("haveAccount")
                 }}</span>
-                <router-link
-                  to="/login"
+                <CustomLink
+                  path="/login"
                   class="text-decoration-none text-secondary font-weight-bold"
                 >
                   {{ $t("login") }}
-                </router-link>
+                </CustomLink>
               </div>
             </v-form>
           </v-card-text>
@@ -166,7 +166,6 @@ const { GET, POST } = useApi();
 const authStore = useAuthStore();
 const errorStore = useErrorStore();
 const notificationStore = useNotificationStore();
-const router = useRouter();
 
 //countries logic start
 
@@ -291,7 +290,7 @@ const submitForm = async () => {
 
     notificationStore.setNotification("Registration successful!", "success");
 
-    router.push("/");
+    navigateTo("/");
   } catch (error) {
     console.error("Registration error:", error);
     notificationStore.setNotification(
