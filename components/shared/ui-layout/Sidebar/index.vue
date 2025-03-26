@@ -187,11 +187,11 @@ const editUserPic = () => {};
 const handleLogout = async () => {
   try {
     await authStore.logout();
-    notificationStore.setNotification("Logged out successfully", "success");
+    notificationStore.setNotification( t("notification.successfullLogout") ,"success");
     drawerStore.close();
   } catch (error) {
     notificationStore.setNotification(
-      "Failed to log out. Please try again.",
+      t("notification.failedLogout"),
       "error"
     );
   }
