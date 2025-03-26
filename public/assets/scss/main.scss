@@ -1,8 +1,8 @@
 @use 'variables';
-@use 'components/Inputs/phone.scss';
-@use 'components/Buttons/login.scss';
-@use 'components/_layouts';
-@use 'components/_home';
+@use 'components/Inputs/phone';
+@use 'components/Buttons/login';
+@use 'components/Ui-Layout/layouts';
+@use 'components/home';
 
 @use 'components/_deleteAccount';
 @use 'components/_profile';

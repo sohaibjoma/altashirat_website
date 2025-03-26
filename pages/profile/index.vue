@@ -14,8 +14,12 @@
             alt="profile tile image"
             width="30"
           />
-          <h3 class="text-text profile__h ps-3 d-none d-md-block">{{ $t("profile.title") }}</h3>
-          <div class="text-text profile__small-title d-md-none">{{ $t("profile.title") }}</div>
+          <h3 class="text-text profile__h ps-3 d-none d-md-block">
+            {{ $t("profile.title") }}
+          </h3>
+          <div class="text-text profile__small-title d-md-none">
+            {{ $t("profile.title") }}
+          </div>
         </div>
         <div class="ms-auto me-lg-10 mb-8 mb-lg-0">
           <CustomLink
@@ -82,7 +86,6 @@
               :title="$t('profile.phoneNumber')"
               :country-code-model-value="formState.countryCode"
               country-code-name="phone.country_code"
-              country-code-rules="required"
               :country-code-label="$t('profile.countryCode')"
               :phone-number-label="$t('profile.phoneNumber')"
               :phone-number-placeholder="$t('profile.enterPhoneNumber')"
@@ -98,8 +101,8 @@
           <!-- Date Input -->
           <div class="w-100 w-lg-50 pe-16">
             <DateInput
-              v-model="formState.birth_date"
-              name="birth_date"
+              v-model="formState.birthdate"
+              name="birthdate"
               :title="$t('profile.birthdate')"
               class="rounded-xl"
             />
@@ -112,7 +115,6 @@
               :title="$t('profile.country')"
               :items="countriesNames"
               name="country"
-              rules="required"
               class="mb-5"
               icon="mdi-flag"
             />
@@ -134,11 +136,15 @@
 </template>
 
 <script setup>
+import { useI18n } from "#imports";
+
+const { t } = useI18n();
+
 definePageMeta({
   layout: "profile",
   middleware: "auth",
 });
-// Reactive form state
+
 const formState = reactive({
   firstName: "",
   middleName: "",
@@ -147,10 +153,9 @@ const formState = reactive({
   countryCode: "",
   phoneNumber: "",
   country: "",
-  birth_date: null,
+  birthdate: null,
 });
 
-// Initialize arrays for countries
 const codeFlagArr = ref([]);
 const phoneCodeOptions = ref([]);
 const countriesNames = ref([]);
@@ -167,8 +172,6 @@ onMounted(async () => {
   initializeFormWithUserData(); // Initialize form with user data
 });
 
-
-// Fetch countries
 const fetchCountries = async () => {
   try {
     const response = await GET("/countries?pagination=all");
@@ -201,18 +204,15 @@ const fetchCountries = async () => {
     console.error("Failed to fetch countries:", error);
   }
 };
-
 // Initialize form with user data
 const initializeFormWithUserData = () => {
   const user = authStore.user;
   if (user) {
-    console.log("Initializing form with user data:", user); // Debugging
-
     formState.firstName = user.firstname || "";
     formState.middleName = user.middlename || "";
     formState.lastName = user.lastname || "";
     formState.email = user.email || "";
-    formState.birth_date = user.birthdate || null;
+    formState.birthdate = user.birthdate || null;
 
     // Initialize phone data
     if (user.phone) {
@@ -224,10 +224,9 @@ const initializeFormWithUserData = () => {
     if (user.country) {
       formState.country = user.country.id || "";
     }
-
-    console.log("Form State after initialization:", formState); // Debugging
   }
 };
+
 // Form submission
 const formSubmitting = async () => {
   try {
@@ -237,18 +236,34 @@ const formSubmitting = async () => {
     formData.append("middlename", formState.middleName);
     formData.append("lastname", formState.lastName);
     formData.append("email", formState.email);
-    formData.append("birth_date", formState.birth_date);
+    formData.append("birthdate", formState.birthdate);
     formData.append("phone[country_code]", formState.countryCode);
     formData.append("phone[number]", formState.phoneNumber);
     formData.append("country", formState.country);
 
-    console.log("Form Data:", Object.fromEntries(formData.entries())); // Debugging
-
     const response = await POST("/update-account", formData);
-    notificationStore.setNotification("Data Updated successful!", "success");
+
+    // Update user in store with new data
+    authStore.updateUser({
+      firstname: formState.firstName,
+      middlename: formState.middleName,
+      lastname: formState.lastName,
+      email: formState.email,
+      birthdate: formState.birthdate,
+      phone: {
+        country_code: formState.countryCode,
+        number: formState.phoneNumber,
+      },
+      country: { id: formState.country },
+    });
+
+    notificationStore.setNotification(
+      t("notification.updateSuccess"),
+      "success"
+    );
   } catch (error) {
     notificationStore.setNotification(
-      error.response?.data?.message || "Data Update failed. Please try again.",
+      error.response?.data?.message || t("notification.updateFailed"),
       "error"
     );
   }

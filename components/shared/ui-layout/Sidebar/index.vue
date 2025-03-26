@@ -4,20 +4,25 @@
     v-if="mobile"
     class="sidebar-toggle"
     @click="drawerStore.toggle()"
-    :class="{ closed: !drawerStore.isOpen }"
+    :class="{
+      closed: !drawerStore.isOpen,
+      'sidebar-toggle-ltr': !isRTL,
+      'sidebar-toggle-rtl': isRTL,
+    }"
   >
-    <v-icon>{{
-      drawerStore.isOpen ? "mdi-chevron-right" : "mdi-chevron-left"
-    }}</v-icon>
+    <v-icon>{{ getToggleIcon() }}</v-icon>
   </div>
 
   <v-navigation-drawer
     v-if="!mobile || drawerStore.isOpen || isProfilePage"
     v-model="drawerStore.isOpen"
     width="240"
-    location="right"
     class="user-sidebar"
-    :class="{ 'user-sidebar-mobile': mobile }"
+    :class="{
+      'user-sidebar-mobile': mobile,
+      'user-sidebar-ltr': !isRTL,
+      'user-sidebar-rtl': isRTL,
+    }"
     :temporary="mobile"
     :permanent="!mobile"
     fixed
@@ -37,7 +42,7 @@
               </div>
             </div>
             <div>
-              <div class="font-weight-bold text-text">مرحباً:</div>
+              <div class="font-weight-bold text-text">{{ t("hello") }}:</div>
               <div v-if="user" class="text-text font-weight-bold">
                 {{ user.firstname || user.name }}
               </div>
@@ -50,7 +55,7 @@
           <v-list-item
             v-for="(item, index) in navItems"
             :key="`nav-${index}`"
-            :to="item.to"
+            :to="localePath(item.to)"
             class="my-2 sidebar-item"
             @click="drawerStore.close()"
             active-class="active-item"
@@ -68,7 +73,7 @@
         <v-list-item
           v-for="item in filteredMenuItems"
           :key="item.title"
-          :to="item.to"
+          :to="localePath(item.to)"
           class="my-2 sidebar-item"
           @click="drawerStore.close()"
           active-class="active-item"
@@ -103,7 +108,7 @@
           <v-list-item
             v-for="(item, index) in navItems"
             :key="`nav-${index}`"
-            :to="item.to"
+            :to="localePath(item.to)"
             class="my-2 sidebar-item"
             @click="drawerStore.close()"
             active-class="active-item"
@@ -121,7 +126,7 @@
         <v-list-item
           v-for="item in filteredMenuItems"
           :key="item.title"
-          :to="item.to"
+          :to="localePath(item.to)"
           class="my-2 sidebar-item"
           @click="drawerStore.close()"
           active-class="active-item"
@@ -139,38 +144,45 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from "vue";
 import { useDisplay } from "vuetify";
-import { useRoute } from "vue-router";
 import { useDrawerStore } from "~/stores/drawer";
 import { useI18n } from "vue-i18n";
 import { useAuthStore } from "~/stores/auth";
 import { useNotificationStore } from "~/stores/notifications";
+import { useLocalePath } from "#imports";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const { mobile } = useDisplay();
 const route = useRoute();
 const drawerStore = useDrawerStore();
 const authStore = useAuthStore();
 const notificationStore = useNotificationStore();
+const localePath = useLocalePath();
 
 const user = computed(() => authStore.user);
 const isAuthenticated = computed(() => authStore.isAuthenticated);
+const isRTL = computed(() => locale.value === "ar");
 
 const userAvatar = ref("/assets/img/logo.png");
 
+const getToggleIcon = () => {
+  if (isRTL.value) {
+    return drawerStore.isOpen ? "mdi-chevron-right" : "mdi-chevron-left";
+  } else {
+    return drawerStore.isOpen ? "mdi-chevron-left" : "mdi-chevron-right";
+  }
+};
+
 const isProfilePage = computed(() => {
   return (
-    route.path.startsWith("/profile") ||
-    route.path.startsWith("/profile/change-password") ||
-    route.path.startsWith("/data") ||
-    route.path.startsWith("/account")
+    route.path.startsWith(localePath("/profile")) ||
+    route.path.startsWith(localePath("/profile/change-password")) ||
+    route.path.startsWith(localePath("/data")) ||
+    route.path.startsWith(localePath("/account"))
   );
 });
 
-const editUserPic = () => {
-  console.log("Edit profile picture clicked!");
-};
+const editUserPic = () => {};
 
 const handleLogout = async () => {
   try {
@@ -257,9 +269,16 @@ watch(mobile, (isMobile) => {
   height: 100vh;
   position: fixed;
   top: 0;
-  right: 0;
   z-index: 999;
   overflow-y: auto;
+}
+
+.user-sidebar-rtl {
+  right: 0;
+}
+
+.user-sidebar-ltr {
+  left: 0;
 }
 
 .user-sidebar-mobile {
@@ -276,22 +295,34 @@ watch(mobile, (isMobile) => {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: 240px;
   width: 32px;
   height: 32px;
   background-color: var(--primary);
   color: white;
-  border-radius: 50% 0 0 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   z-index: 1000;
-  transition: right 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.sidebar-toggle.closed {
+.sidebar-toggle-rtl {
+  right: 240px;
+  border-radius: 50% 0 0 50%;
+}
+
+.sidebar-toggle-rtl.closed {
   right: 0;
+}
+
+.sidebar-toggle-ltr {
+  left: 240px;
+  border-radius: 0 50% 50% 0;
+}
+
+.sidebar-toggle-ltr.closed {
+  left: 0;
 }
 
 .welcome-card {
@@ -302,6 +333,7 @@ watch(mobile, (isMobile) => {
   display: flex;
   align-items: center;
   margin: 0 auto;
+  direction: v-bind('isRTL ? "rtl" : "ltr"');
 }
 
 .avatar-container {
@@ -331,14 +363,11 @@ watch(mobile, (isMobile) => {
 }
 
 .sidebar-item:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--v-primary-lighten3);
 }
 
 .active-item {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.item-icon {
-  margin-right: 16px;
+  background-color: var(--white);
+  color: var(--primary);
 }
 </style>

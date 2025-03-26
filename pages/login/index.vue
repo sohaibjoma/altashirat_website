@@ -56,12 +56,12 @@
 
               <!-- Forgot Password -->
               <div class="d-flex justify-end mb-5">
-                <router-link
-                  to="/"
+                <CustomLink
+                  path="/"
                   class="text-decoration-none font-weight-bold text-text"
                 >
                   {{ $t("forgotPassword") }}
-                </router-link>
+                </CustomLink>
               </div>
 
               <!-- Login Button -->
@@ -76,12 +76,12 @@
               <!-- Register Link -->
               <div class="text-center">
                 <span class="me-1 font-weight-bold">{{ $t("noAccount") }}</span>
-                <router-link
-                  to="/register"
+                <CustomLink
+                  path="/register"
                   class="text-decoration-none text-secondary font-weight-bold"
                 >
                   {{ $t("registerAccount") }}
-                </router-link>
+                </CustomLink>
               </div>
             </v-form>
           </v-card-text>
@@ -92,7 +92,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { CustomLink } from "#components";
+import { useI18n } from "#imports";
+
+const { t } = useI18n();
 
 const countryCode = ref("");
 const phoneNumber = ref("");
@@ -111,7 +114,6 @@ onMounted(async () => {
   try {
     await fetchCountries();
   } catch (error) {
-    console.error("Failed to initialize login page:", error);
     notificationStore.setNotification(
       "Failed to initialize login page. Please try again.",
       "error"
@@ -146,9 +148,8 @@ const fetchCountries = async () => {
       countryCode.value = "00" + countryOptions.value[0].value;
     }
   } catch (error) {
-    console.error("Failed to fetch countries:", error);
     notificationStore.setNotification(
-      "Failed to load countries. Please try again.",
+      t("notification.failedToLoadCountries"),
       "error"
     );
   } finally {
@@ -184,13 +185,12 @@ const submitForm = async () => {
     authStore.setToken(response.token);
     authStore.setUser(response.user);
 
-    notificationStore.setNotification("Login Successfull", "success");
+    notificationStore.setNotification(t("notification.loginSuccess"), "success");
 
-    router.push("/");
+    navigateTo("/");
   } catch (error) {
-    console.error("Login error:", error);
     notificationStore.setNotification(
-      error.response?.data?.message || "Login Failed. Please try again.",
+      error.response?.data?.message || t("notification.loginFailed"),
       "error"
     );
   } finally {

@@ -1,7 +1,7 @@
 <template>
   <Image
     name="privacy-policy.png"
-    class="d-block mx-auto mt-12"
+    class="d-block mx-auto mt-4"
     width="100%"
     height="auto"
   />

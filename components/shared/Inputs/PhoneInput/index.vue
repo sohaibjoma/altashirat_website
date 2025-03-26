@@ -22,7 +22,6 @@
           :model-value="selectedCountry"
           :items="countryOptions"
           :name="countryCodeName"
-          :rules="countryCodeRules"
           @update:model-value="handleCountryCodeUpdate"
           class="w-xs-100 w-sm-auto"
         >

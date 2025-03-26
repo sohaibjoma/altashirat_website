@@ -14,7 +14,6 @@ export const useSettingsStore = defineStore("settings", () => {
     try {
       const response = await GET("/settings");
       settings.value = Array.isArray(response.data) ? response.data : []; // Ensure it’s an array
-      console.log("Settings fetched:", settings.value);
     } catch (err) {
       error.value = err;
       console.error("Failed to fetch settings:", err);

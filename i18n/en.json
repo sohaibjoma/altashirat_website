@@ -40,7 +40,9 @@
     "passwordLength": "The field must be between 8 and 50 characters.",
     "phoneNum": "The field must be between 9 and 15 digits.",
     "phoneCode": "The field must be between 3 and 5 digits.",
-    "mailLength": "The field must be at most 50 characters."
+    "mailLength": "The field must be at most 50 characters.",
+    "min": "The field must be at least {0} characters.",
+    "max": "The field must be at most {0} characters."
   },
 
   "home-hero": {
@@ -157,5 +159,19 @@
     "social_facebook": "Facebook",
     "social_snapchat": "Snapchat",
     "copyright": "All rights reserved © {year} Visa Platform"
+  },
+
+  "notification": {
+    "loginSuccess": "Login Successfull",
+    "loginFailed": "Failed to login. Please try again.",
+    "failedToLoadCountries": "Failed to load countries. Please try again.",
+    "registerSuccess": "Registration successful!",
+    "registerFailed": "Failed to register. Please try again.",
+    "changePasswordSuccess": "Password changed successfully!",
+    "changePasswordFailed": "Failed to change password. Please try again.",
+    "deleteSuccess": "Account deleted successfully!",
+    "deleteFailed": "Failed to delete account. Please try again.",
+    "updateSuccess": "Data updated successfully!",
+    "updateFailed": "Failed to update data. Please try again."
   }
 }

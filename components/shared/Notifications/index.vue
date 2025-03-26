@@ -20,7 +20,6 @@
 </template>
 
 <script setup>
-import { ref, watch, computed } from "vue";
 import { useNotificationStore } from "../../../stores/notifications";
 import { storeToRefs } from "pinia";
 

@@ -9,7 +9,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     // Configure validation messages
     configure({
       generateMessage: ({ field, rule }) => {
-        console.log('Rule Name:', rule?.name); 
         return t(`validation.${rule?.name}`, { field });
       },
     });

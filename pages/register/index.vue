@@ -19,124 +19,127 @@
             <Image name="logo.png" max-width="120" alt="Logo" />
           </div>
 
-          <v-card-title
-            class="text-center font-weight-bold text-text mb-4"
-          >
+          <v-card-title class="text-center font-weight-bold text-text mb-4">
             {{ $t("register") }}
           </v-card-title>
 
           <!-- Form -->
           <v-card-text>
-            <v-form ref="registerForm" @submit.prevent="submitForm">
-              <!-- First Name and Last Name -->
-              <v-row>
-                <v-col cols="12" sm="6">
-                  <Text
-                    v-model="firstName"
-                    :title="$t('firstName')"
-                    :label="$t('enterFirstName')"
-                    :placeholder="$t('enterFirstName')"
-                    name="firstname"
-                    rules="required|alpha"
-                    icon="mdi-account"
-                  />
-                </v-col>
-                <v-col cols="12" sm="6">
-                  <Text
-                    v-model="lastName"
-                    :title="$t('lastName')"
-                    :label="$t('enterLastName')"
-                    :placeholder="$t('enterLastName')"
-                    name="lastname"
-                    rules="required|alpha"
-                    icon="mdi-account"
-                  />
-                </v-col>
-              </v-row>
+            <VeeForm v-slot="{ handleSubmit }">
+              <v-form
+                ref="registerForm"
+                @submit.prevent="handleSubmit(formSubmitting)"
+              >
+                <!-- First Name and Last Name -->
+                <v-row>
+                  <v-col cols="12" sm="6">
+                    <Text
+                      v-model="firstName"
+                      :title="$t('firstName')"
+                      :label="$t('enterFirstName')"
+                      :placeholder="$t('enterFirstName')"
+                      name="firstname"
+                      rules="required|alpha"
+                      icon="mdi-account"
+                    />
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <Text
+                      v-model="lastName"
+                      :title="$t('lastName')"
+                      :label="$t('enterLastName')"
+                      :placeholder="$t('enterLastName')"
+                      name="lastname"
+                      rules="required|alpha"
+                      icon="mdi-account"
+                    />
+                  </v-col>
+                </v-row>
 
-              <!-- Email input -->
-              <Text
-                v-model="email"
-                :title="$t('email')"
-                :label="$t('enterEmail')"
-                :placeholder="$t('enterEmail')"
-                name="email"
-                rules="required|email"
-                icon="mdi-email"
-              />
+                <!-- Email input -->
+                <Text
+                  v-model="email"
+                  :title="$t('email')"
+                  :label="$t('enterEmail')"
+                  :placeholder="$t('enterEmail')"
+                  name="email"
+                  rules="required|email"
+                  icon="mdi-email"
+                />
 
-              <!-- Country Select -->
-              <Select
-                v-model="country"
-                :title="$t('country')"
-                :label="$t('country')"
-                :items="countryOptions"
-                name="country"
-                rules="required"
-                class="mb-5"
-                @update:modelValue="handleCountryChange"
-              />
+                <!-- Country Select -->
+                <Select
+                  v-model="country"
+                  :title="$t('country')"
+                  :label="$t('country')"
+                  :items="countryOptions"
+                  name="country"
+                  rules="required"
+                  class="mb-5"
+                  @update:modelValue="handleCountryChange"
+                />
 
-              <!-- Phone Input -->
-              <PhoneInput
-                :title="$t('phoneNumber')"
-                :country-code-model-value="countryCode"
-                country-code-name="phone.country_code"
-                country-code-rules="required"
-                :country-code-label="$t('countryCode')"
-                :phone-number-label="$t('phoneNumber')"
-                :phone-number-placeholder="$t('enterPhoneNumber')"
-                :phone-number-model-value="phoneNumber"
-                phone-number-name="phone.number"
-                phone-number-rules="required|phone"
-                :country-options="phoneCodeOptions"
-                class="mb-5"
-                @update:country-code-model-value="countryCode = $event"
-                @update:phone-number-model-value="phoneNumber = $event"
-              />
+                <!-- Phone Input -->
+                <PhoneInput
+                  :title="$t('phoneNumber')"
+                  :country-code-model-value="countryCode"
+                  country-code-name="phone.country_code"
+                  country-code-rules="required"
+                  :country-code-label="$t('countryCode')"
+                  :phone-number-label="$t('phoneNumber')"
+                  :phone-number-placeholder="$t('enterPhoneNumber')"
+                  :phone-number-model-value="phoneNumber"
+                  phone-number-name="phone.number"
+                  phone-number-rules="required|phoneNum"
+                  :country-options="phoneCodeOptions"
+                  class="mb-5"
+                  @update:country-code-model-value="countryCode = $event"
+                  @update:phone-number-model-value="phoneNumber = $event"
+                />
 
-              <!-- Password Input -->
-              <Password
-                v-model="password"
-                :title="$t('password')"
-                :label="$t('enterPassword')"
-                class="mb-3"
-                name="password"
-                rules="required|min:8|max:50"
-              />
+                <!-- Password Input -->
+                <Password
+                  v-model="password"
+                  :title="$t('password')"
+                  :label="$t('enterPassword')"
+                  class="mb-3"
+                  name="password"
+                  rules="required|min:8|max:50"
+                />
 
-              <!-- Confirm Password Input -->
-              <Password
-                v-model="confirmPassword"
-                :title="$t('confirmPassword')"
-                :label="$t('confirmPasswordDescription')"
-                class="mb-5"
-                name="password_confirmation"
-                rules="required|confirmed:@password"
-              />
+                <!-- Confirm Password Input -->
+                <Password
+                  v-model="confirmPassword"
+                  :title="$t('confirmPassword')"
+                  :label="$t('confirmPasswordDescription')"
+                  class="mb-5"
+                  name="password_confirmation"
+                  rules="required|confirmed:@password"
+                />
 
-              <!-- Register Button -->
-              <MainButton
-                width="100%"
-                :text="$t('register')"
-                type="submit"
-                :loading="isLoading"
-                class="mb-5"
-              />
+                <!-- Register Button -->
+                <MainButton
+                  width="100%"
+                  :text="$t('register')"
+                  type="submit"
+                  :loading="isLoading"
+                  class="mb-5"
+                />
 
-              <!-- Register Link -->
-              <div class="text-center">
-                <span class="me-1 font-weight-bold">{{
-                  $t("haveAccount")
-                }}</span>
-                <router-link
-                  to="/login"
-                  class="text-decoration-none text-secondary font-weight-bold"
-                >
-                  {{ $t("login") }}
-                </router-link>
-              </div>
-            </v-form>
+                <!-- Register Link -->
+                <div class="text-center">
+                  <span class="me-1 font-weight-bold">{{
+                    $t("haveAccount")
+                  }}</span>
+                  <CustomLink
+                    path="/login"
+                    class="text-decoration-none text-secondary font-weight-bold"
+                  >
+                    {{ $t("login") }}
+                  </CustomLink>
+                </div>
+              </v-form>
+            </VeeForm>
           </v-card-text>
         </v-card>
       </v-col>
@@ -145,7 +148,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { useI18n } from "#imports";
+
+const { t } = useI18n();
 
 const firstName = ref("");
 const lastName = ref("");
@@ -166,9 +171,6 @@ const { GET, POST } = useApi();
 const authStore = useAuthStore();
 const errorStore = useErrorStore();
 const notificationStore = useNotificationStore();
-const router = useRouter();
-
-//countries logic start
 
 onMounted(async () => {
   try {
@@ -225,7 +227,7 @@ const fetchCountries = async () => {
   } catch (error) {
     console.error("Failed to fetch countries:", error);
     notificationStore.setNotification(
-      "Failed to load countries. Please try again.",
+      t("notification.failedToLoadCountries"),
       "error"
     );
   } finally {
@@ -241,8 +243,6 @@ const handleCountryChange = (countryId) => {
   }
 };
 
-//countries logic end
-
 watch(countryCode, (newCountryCode) => {
   const numericCode = newCountryCode.replace(/^\+|^00/, "");
 
@@ -256,7 +256,7 @@ watch(countryCode, (newCountryCode) => {
   }
 });
 
-const submitForm = async () => {
+const formSubmitting = async () => {
   if (!registerForm.value) return;
 
   const { valid } = await registerForm.value.validate();
@@ -289,13 +289,13 @@ const submitForm = async () => {
     authStore.setToken(response.token);
     authStore.setUser(response.user);
 
-    notificationStore.setNotification("Registration successful!", "success");
+    notificationStore.setNotification(t("notification.registerSuccess"), "success");
 
-    router.push("/");
+    navigateTo("/");
   } catch (error) {
     console.error("Registration error:", error);
     notificationStore.setNotification(
-      error.response?.data?.message || "Registration failed. Please try again.",
+      error.response?.data?.message || t("notification.registerFailed"),
       "error"
     );
   } finally {
@@ -305,7 +305,7 @@ const submitForm = async () => {
 
 definePageMeta({
   layout: "minimal",
-  // middleware: "auth",
+  middleware: "auth",
 });
 </script>
 
