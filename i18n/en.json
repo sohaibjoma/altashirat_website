@@ -172,6 +172,8 @@
     "deleteSuccess": "Account deleted successfully!",
     "deleteFailed": "Failed to delete account. Please try again.",
     "updateSuccess": "Data updated successfully!",
-    "updateFailed": "Failed to update data. Please try again."
+    "updateFailed": "Failed to update data. Please try again.",
+    "successfullLogout": "You Logged Out Successfully",
+    "failedLogout": "Failed to log out. Please try again."
   }
 }
