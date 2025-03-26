@@ -131,9 +131,7 @@ const selectedLanguage = ref(
 );
 
 const changeLocale = (newLocale) => {
-  console.log("Changing locale to:", newLocale);
   setLocale(newLocale);
-  console.log("Current locale after setLocale:", locale.value);
 };
 </script>
 

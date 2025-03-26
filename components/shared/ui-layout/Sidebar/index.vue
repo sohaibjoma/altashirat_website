@@ -42,7 +42,7 @@
               </div>
             </div>
             <div>
-              <div class="font-weight-bold text-text">{{ t("welcome") }}:</div>
+              <div class="font-weight-bold text-text">{{ t("hello") }}:</div>
               <div v-if="user" class="text-text font-weight-bold">
                 {{ user.firstname || user.name }}
               </div>
@@ -182,9 +182,7 @@ const isProfilePage = computed(() => {
   );
 });
 
-const editUserPic = () => {
-  console.log("Edit profile picture clicked!");
-};
+const editUserPic = () => {};
 
 const handleLogout = async () => {
   try {

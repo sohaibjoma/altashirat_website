@@ -40,14 +40,12 @@ axiosInstance.interceptors.response.use(
           "error"
         );
       } else {
-        console.error("API Error:", error.response);
         notificationStore.setNotification(
           "An unexpected error occurred.",
           "error"
         );
       }
     } else {
-      console.error("Network Error:", error);
       notificationStore.setNotification(
         "Network issue. Please try again later.",
         "error"

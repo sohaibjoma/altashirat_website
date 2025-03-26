@@ -69,8 +69,6 @@ const listItems = ref([
 const settingsStore = useSettingsStore();
 const keyValSettings = computed(() => settingsStore.keyValSettings);
 
-console.log("keyValSettings", keyValSettings.value);
-
 const about1 = keyValSettings.value.about1;
 
 const about2 = keyValSettings.value.about2;

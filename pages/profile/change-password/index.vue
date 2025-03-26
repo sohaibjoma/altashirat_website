@@ -80,12 +80,15 @@
 </template>
 
 <script setup>
+import { useI18n } from "#imports";
+
+const { t } = useI18n();
+
 definePageMeta({
   layout: "profile",
   middleware: "auth",
 });
 
-// API and store usage
 const { POST } = useApi();
 const notificationStore = useNotificationStore();
 
@@ -97,19 +100,16 @@ const formState = ref({
 
 const formSubmitting = async () => {
   try {
-    // Create FormData dynamically with current form state
     const payload = new FormData();
     payload.append("old_password", formState.value.oldPass);
     payload.append("new_password", formState.value.newPass);
     payload.append("new_password_confirmation", formState.value.newPassConfirm);
 
-    console.log("Form Data:", Object.fromEntries(payload.entries())); // Debugging
-
     const response = await POST("change-password", payload);
-    notificationStore.setNotification("Data Updated successful!", "success");
+    notificationStore.setNotification(t("notification.registerSuccess"), "success");
   } catch (error) {
     notificationStore.setNotification(
-      error.response?.data?.message || "Data Update failed. Please try again.",
+      error.response?.data?.message || t("notification.registerFailed"),
       "error"
     );
   }

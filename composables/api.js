@@ -12,7 +12,6 @@ export function useApi() {
       const response = await api.get(endpoint);
       return response.data;
     } catch (err) {
-      console.error("API Error:", err);
       throw err;
     } finally {
       loading.value = false;
@@ -25,7 +24,6 @@ export function useApi() {
       const response = await api.post(endpoint, data);
       return response.data;
     } catch (err) {
-      console.error("API Error:", err);
       throw err;
     } finally {
       loading.value = false;
@@ -38,7 +36,6 @@ export function useApi() {
       const response = await api.delete(endpoint);
       return response.data;
     } catch (err) {
-      console.error("API Error:", err);
       throw err;
     } finally {
       loading.value = false;

@@ -1,11 +1,13 @@
 import { defineStore } from "pinia";
 import { useApi } from "@/composables/api";
 import { useCookie } from "nuxt/app";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 export const useAuthStore = defineStore("auth", () => {
   const token = ref(useCookie("auth_token").value || null);
-  const user = ref(useCookie("auth_user").value || null);
+  const user = ref(
+    useCookie("auth_user").value ? useCookie("auth_user").value : null
+  );
 
   const setToken = (newToken) => {
     token.value = newToken;
@@ -13,8 +15,15 @@ export const useAuthStore = defineStore("auth", () => {
   };
 
   const setUser = (newUser) => {
-    user.value = newUser;
-    useCookie("auth_user").value = JSON.stringify(newUser);
+    if (newUser) {
+      user.value = newUser;
+      useCookie("auth_user").value = newUser;
+    }
+  };
+
+  const updateUser = (updatedUserData) => {
+    const mergedUserData = { ...user.value, ...updatedUserData };
+    setUser(mergedUserData);
   };
 
   const clearToken = () => {
@@ -28,7 +37,6 @@ export const useAuthStore = defineStore("auth", () => {
     try {
       const { GET } = useApi();
       const response = await GET("/show-account");
-      console.log("API Response:", response);
 
       if (response.data) {
         setUser(response.data);
@@ -61,6 +69,7 @@ export const useAuthStore = defineStore("auth", () => {
     user,
     setToken,
     setUser,
+    updateUser,
     clearToken,
     fetchUser,
     logout,
