@@ -56,7 +56,7 @@
                 :text="$t('account.cancel')"
                 color="error"
                 :loading="isLoading"
-                @click="toggleExpandedView"
+                @click="cancelAction"
               />
             </div>
           </div>
@@ -64,7 +64,10 @@
       </v-expand-transition>
     </v-card>
 
-    <DeleteAccountDialogue v-model="showDeleteDialog" @confirm="confirmDelete" />
+    <DeleteAccountDialogue
+      v-model="showDeleteDialog"
+      @confirm="confirmDelete"
+    />
   </v-container>
 </template>
 
@@ -99,6 +102,11 @@ const openDeleteDialog = () => {
 
 const confirmDelete = (password) => {
   emit("delete-account", password);
+};
+
+const cancelAction = () => {
+  isExpanded.value = false;
+  showDeleteDialog.value = false;
 };
 </script>
 

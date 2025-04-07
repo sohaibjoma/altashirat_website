@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="fill-height pa-0 ma-0">
+  <v-container fluid class="fill-height pa-0 ma-0 position-relative">
     <v-row no-gutters class="fill-height">
       <v-col cols="12" md="6" class="d-none d-md-flex pa-0 ma-0">
         <Image
@@ -12,8 +12,17 @@
       </v-col>
 
       <!-- Register Card Column -->
-      <v-col cols="12" md="6" class="d-flex align-center justify-center pa-6">
-        <v-card class="pa-12 rounded-xl w-100 card-with-shadow" max-width="600">
+      <v-col cols="12" md="6" class="d-flex flex-column align-center pa-6">
+        <div 
+          :class="[
+            'back-button-wrapper',
+            isRTL ? 'back-button-rtl' : 'back-button-ltr'
+          ]"
+        >
+          <BackButton :text="$t('backToHome')" @click="navigateTo('/')" />
+        </div>
+
+        <v-card class="pa-12 rounded-xl w-100 card-with-shadow mt-15" max-width="600">
           <!-- Logo -->
           <div class="d-flex justify-center mb-4">
             <Image name="logo.png" max-width="120" alt="Logo" />
@@ -35,22 +44,20 @@
                   <v-col cols="12" sm="6">
                     <Text
                       v-model="firstName"
-                      :title="$t('firstName')"
-                      :label="$t('enterFirstName')"
+                      :label="$t('firstName')"
                       :placeholder="$t('enterFirstName')"
                       name="firstname"
-                      rules="required|alpha"
+                      rules="required|min:3|max:15"
                       icon="mdi-account"
                     />
                   </v-col>
                   <v-col cols="12" sm="6">
                     <Text
                       v-model="lastName"
-                      :title="$t('lastName')"
-                      :label="$t('enterLastName')"
+                      :label="$t('lastName')"
                       :placeholder="$t('enterLastName')"
                       name="lastname"
-                      rules="required|alpha"
+                      rules="required|min:3|max:15"
                       icon="mdi-account"
                     />
                   </v-col>
@@ -59,24 +66,11 @@
                 <!-- Email input -->
                 <Text
                   v-model="email"
-                  :title="$t('email')"
-                  :label="$t('enterEmail')"
+                  :label="$t('email')"
                   :placeholder="$t('enterEmail')"
                   name="email"
                   rules="required|email"
                   icon="mdi-email"
-                />
-
-                <!-- Country Select -->
-                <Select
-                  v-model="country"
-                  :title="$t('country')"
-                  :label="$t('country')"
-                  :items="countryOptions"
-                  name="country"
-                  rules="required"
-                  class="mb-5"
-                  @update:modelValue="handleCountryChange"
                 />
 
                 <!-- Phone Input -->
@@ -150,7 +144,8 @@
 <script setup>
 import { useI18n } from "#imports";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
+const isRTL = computed(() => locale.value === "ar");
 
 const firstName = ref("");
 const lastName = ref("");
@@ -235,14 +230,6 @@ const fetchCountries = async () => {
   }
 };
 
-const handleCountryChange = (countryId) => {
-  const selectedCountry = countryDataMap.value[countryId];
-  if (selectedCountry) {
-    const phoneCode = selectedCountry.phone_code.replace(/^\+|^00/, "");
-    countryCode.value = "00" + phoneCode;
-  }
-};
-
 watch(countryCode, (newCountryCode) => {
   const numericCode = newCountryCode.replace(/^\+|^00/, "");
 
@@ -310,6 +297,20 @@ definePageMeta({
 </script>
 
 <style scoped>
+.back-button-wrapper {
+  position: absolute;
+  top: 24px;
+  z-index: 100;
+}
+
+.back-button-ltr {
+  right: 24px;
+}
+
+.back-button-rtl {
+  left: 24px;
+}
+
 .card-with-shadow {
   border-radius: 24px;
   background-color: white;

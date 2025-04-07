@@ -1,0 +1,21 @@
+.back-button {
+  border-radius: 23px;
+  background: var(--hero-scd-sec);
+}
+
+.large-screen {
+  width: 207px;
+  height: 49px;
+  border-radius: 25px;
+  background: var(--hero-scd-sec);
+}
+
+.back-button__icon {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .back-button {
+    border-radius: 18px;
+  }
+}
