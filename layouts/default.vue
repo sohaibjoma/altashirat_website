@@ -1,4 +1,3 @@
-// layouts/default.vue
 <template>
   <v-app>
     <div class="app-layout">
@@ -15,16 +14,10 @@
       <Sidebar />
 
       <!-- Main Content Area -->
-      <div
-        class="content-container"
-        :class="{ 'with-sidebar': drawerStore.isOpen && showSidebar }"
-      >
-        <v-main>
-          <div>
-            <slot />
-          </div>
-        </v-main>
-      </div>
+
+      <v-main>
+        <slot />
+      </v-main>
 
       <!-- Footer -->
       <div class="footer-container">
@@ -35,18 +28,9 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
 import { useDisplay } from "vuetify";
-import { useRoute } from "vue-router";
-import { useDrawerStore } from "~/stores/drawer";
 
 const { mobile } = useDisplay();
-const drawerStore = useDrawerStore();
-const route = useRoute();
-
-const showSidebar = computed(() => {
-  return route.path.startsWith("/profile");
-});
 </script>
 
 <style scoped></style>

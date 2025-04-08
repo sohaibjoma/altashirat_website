@@ -28,6 +28,7 @@
   "privacy": "Privacy Policy",
   "offerViza": "Offer Viza",
   "profileName": "Profile",
+  "backToHome": "Back to Home",
 
   "validation": {
     "required": "this field is required.",

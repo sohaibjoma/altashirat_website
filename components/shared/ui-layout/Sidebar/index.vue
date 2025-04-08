@@ -25,7 +25,6 @@
     }"
     :temporary="mobile"
     :permanent="!mobile"
-    fixed
   >
     <v-list class="sidebar-content">
       <!-- Authenticated layout -->
@@ -187,13 +186,13 @@ const editUserPic = () => {};
 const handleLogout = async () => {
   try {
     await authStore.logout();
-    notificationStore.setNotification( t("notification.successfullLogout") ,"success");
+    notificationStore.setNotification(
+      t("notification.successfullLogout"),
+      "success"
+    );
     drawerStore.close();
   } catch (error) {
-    notificationStore.setNotification(
-      t("notification.failedLogout"),
-      "error"
-    );
+    notificationStore.setNotification(t("notification.failedLogout"), "error");
   }
 };
 
@@ -266,11 +265,10 @@ watch(mobile, (isMobile) => {
   background-position: right bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  z-index: 999;
-  overflow-y: auto;
+}
+
+.v-navigation-drawer {
+  position: fixed !important;
 }
 
 .user-sidebar-rtl {
@@ -280,11 +278,11 @@ watch(mobile, (isMobile) => {
 .user-sidebar-ltr {
   left: 0;
 }
-
+/* 
 .user-sidebar-mobile {
   height: 100vh;
   top: 0;
-}
+} */
 
 .sidebar-content {
   height: 100%;
