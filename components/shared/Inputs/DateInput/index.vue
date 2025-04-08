@@ -15,14 +15,15 @@
       rounded
       :menu-props="{ contentClass: 'date-picker-menu' }"
       @blur="validateOnImmediate"
+      @update:model-value="updateDate"
       open-on-click
     ></v-date-input>
   </div>
 </template>
 
-<script setup >
+<script setup>
 import { useField } from 'vee-validate'
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 const props = defineProps({
   rules: {
@@ -58,13 +59,65 @@ const { value, errorMessage, setTouched, validate } = useField(
   props.rules
 )
 
+// Parse the incoming string date to a Date object if needed
+const parseDate = (dateValue) => {
+  if (!dateValue) return null
+  if (dateValue instanceof Date) return dateValue
+  
+  // Parse the date string (YYYY-MM-DD format)
+  if (typeof dateValue === 'string') {
+    try {
+      return new Date(dateValue)
+    } catch (e) {
+      console.error('Invalid date format', e)
+      return null
+    }
+  }
+  return null
+}
+
+// Format Date object to YYYY-MM-DD string
+const formatDate = (date) => {
+  if (!date) return null
+  if (typeof date === 'string' && date.match(/^\d{4}-\d{2}-\d{2}$/)) return date
+  
+  if (date instanceof Date) {
+    const year = date.getFullYear()
+    // getMonth() returns 0-11, so add 1
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    return `${year}-${month}-${day}`
+  }
+  
+  return null
+}
+
+// Store date internally as Date object for the component
+const internalDate = ref(parseDate(props.modelValue))
+
+// Watch for external changes to modelValue
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    internalDate.value = parseDate(newVal)
+  },
+  { immediate: true }
+)
+
+// Expose Date object to v-date-input
 const dateModel = computed({
-  get: () => props.modelValue,
+  get: () => internalDate.value,
   set: (newValue) => {
-    value.value = newValue
-    emit('update:modelValue', newValue)
+    internalDate.value = newValue
   }
 })
+
+// When the date picker updates, format as YYYY-MM-DD string for the parent
+const updateDate = (newDate) => {
+  const formattedDate = formatDate(newDate)
+  value.value = formattedDate
+  emit('update:modelValue', formattedDate)
+}
 
 const validateOnImmediate = () => {
   setTouched(true)
