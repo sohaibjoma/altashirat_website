@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <section >
     <v-card
-      class="pt-3 px-1 rounded-xl home__card--shadow d-flex justify-center align-center flex-column"
+      class="pt-3 px-1 rounded-xl home__card--shadow d-flex align-center flex-column"
     >
       <div class="rounded-xl w-50">
         <div class="bg-secondary rounded-xl py-3 home__card__img__shadow">

@@ -83,7 +83,9 @@
   },
 
   "home-advertisement": {
-    "employment_visa_button": "Request an employment visa",
+    "employment_visa_button": "Request employment visa",
+    "tour_visa_button": "Request tourism visa",
+    "propose_visa_button": "Request proposing visa",
     "why_choose_us_title": "Why choose us",
     "why_choose_us_subtitle": "Many benefits, practical and fast",
     "listItems": {

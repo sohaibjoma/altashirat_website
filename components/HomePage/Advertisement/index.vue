@@ -11,38 +11,29 @@
 
     <section class="bg-bg-footer w-75 mx-auto ps-5 pe-5 pt-5 pb-5 d-flex flex-md-column flex-column-reverse">
       <div
-        class="d-flex justify-center justify-lg-between pb-5 w-50 w-lg-100 mb-16"
-        :class="locale === 'ar' ? 'advertise__card ': 'advertise__card--en'"
+        class="d-flex flex-wrap lg-100 mb-16 bg-white"
       >
-        <div class="ms-lg-16"></div>
-        <div></div>
-        <div class="advertise__card__button-column pe-10">
+        <Image
+        :name="locale === 'ar' ? 'advertise-bg.png' : 'advertise-bg-en.png'"
+        class="w-100 w-md-66"
+        />
+        <div class="advertise__card__button-column mx-auto pb-5 pb-lg-0">
           <GenericBtn
-            btnColor="white"
-            :btnText="$t('home-advertisement.employment_visa_button')"
-            iconColor="white"
-            iconBgClass="bg-primary rounded-circle"
-            class="mt-5"
+
+            :btnText="$t('home-advertisement.tour_visa_btn')"
           />
           <GenericBtn
-            btnColor="primary"
+
             :btnText="$t('home-advertisement.employment_visa_button')"
-            iconColor="primary"
-            iconBgClass="bg-white rounded-circle"
-            class="mt-5"
           />
           <GenericBtn
-            btnColor="white"
-            :btnText="$t('home-advertisement.employment_visa_button')"
-            iconColor="white"
-            iconBgClass="bg-primary rounded-circle"
-            class="mt-5"
+            :btnText="$t('home-advertisement.sell_visa_btn')"
           />
         </div>
       </div>
 
       <v-row align="start" no-gutters>
-        <v-col cols="12" sm="5" class="advertise__article ps-2">
+        <v-col cols="12" md="5" lg="5" class="advertise__article ps-2 mx-auto">
           <h2 class="text-text font-weight-bold text-start advertisemnet__title">
             {{ $t("home-advertisement.why_choose_us_title") }}
             <br />
@@ -66,7 +57,7 @@
           </v-list>
         </v-col>
 
-        <v-col cols="12" sm="7" class="py-5 ps-16 pe-4 d-flex flex-column align-start jutify-center">
+        <v-col cols="12" md="7" lg="7" class="py-5 ps-16 pe-4 d-flex flex-column align-start jutify-center">
           <div class="text-text mb-2 progress__title">{{ $t("home-advertisement.trusted_company") }}</div>
           <div class="progress-wrapper w-100 position-relative">
             <span class="progress-label text-primary position-absolute progress__tag--95">95%</span>

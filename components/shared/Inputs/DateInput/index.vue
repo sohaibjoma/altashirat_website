@@ -1,62 +1,73 @@
 <template>
   <div>
-    <!-- Title (conditionally rendered) -->
     <div v-if="title" class="ms-4 mt-8 mb-2 pb-2 font-weight-bold text-text">
       {{ title }}
     </div>
-
-    <!-- Date Input -->
-    <v-text-field
-      v-model="internalValue"
+    <v-date-input
+      v-model="dateModel"
+      prepend-icon=""
+      prepend-inner-icon="$calendar"
       :error="!!errorMessage"
       :error-messages="errorMessage"
-      type="date"
       :hint="hint"
       persistent-hint
       variant="solo-filled"
       rounded
+      :menu-props="{ contentClass: 'date-picker-menu' }"
       @blur="validateOnImmediate"
-    ></v-text-field>
+      open-on-click
+    ></v-date-input>
   </div>
 </template>
 
-<script setup>
-import { useField } from "vee-validate";
-import { computed } from "vue";
+<script setup >
+import { useField } from 'vee-validate'
+import { computed } from 'vue'
 
-// Define props
 const props = defineProps({
-  rules: [Array, Function],
-  hint: String,
-  name: String,
-  label: String,
-  modelValue: String,
-  title: String,
-});
+  rules: {
+    type: [Array, Function, String],
+    default: () => []
+  },
+  hint: {
+    type: String,
+    default: ''
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  label: {
+    type: String,
+    default: ''
+  },
+  modelValue: {
+    type: [String, Date, Number, null],
+    default: null
+  },
+  title: {
+    type: String,
+    default: ''
+  }
+})
 
-// Define emits
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue'])
 
-// Use vee-validate's useField
 const { value, errorMessage, setTouched, validate } = useField(
   props.name,
   props.rules
-);
+)
 
-// Computed property for v-model
-const internalValue = computed({
+const dateModel = computed({
   get: () => props.modelValue,
   set: (newValue) => {
-    value.value = newValue;
-    emit("update:modelValue", newValue);
-  },
-});
+    value.value = newValue
+    emit('update:modelValue', newValue)
+  }
+})
 
-// Validate on blur
 const validateOnImmediate = () => {
-  setTouched(true);
-  validate();
-};
+  setTouched(true)
+  validate()
+}
 </script>
-
-<style scoped></style>

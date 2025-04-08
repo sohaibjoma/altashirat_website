@@ -42,7 +42,7 @@
         </CustomLink>
         <CustomLink
           path="/privacy-policy"
-          :class="{ 'active-link': isActive('/privacy') }"
+          :class="{ 'active-link': isActive('/privacy-policy') }"
         >
           <v-btn rounded="pill" class="link-btn rounded-pill">{{
             $t("privacy")
@@ -81,7 +81,7 @@ const isActive = (path) => {
 }
 
 .active-link .link-btn {
-  color: var(--v-primary-base) !important;
+  color: var(--primary) !important;
   background-color: var(--white) !important;
 }
 </style>

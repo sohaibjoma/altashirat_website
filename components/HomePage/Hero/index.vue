@@ -10,25 +10,22 @@
       </h2>
     </section>
     <section class="mx-auto px-16">
-      <v-row class="text-center mt-7 mx-16 px-16">
-        <v-col class="col-12 col-md-4 d-flex justify-center">
+      <v-row class="text-center mt-7 px-16 d-flex justify-center">
           <HeroCard
+          class="mx-5 mt-3"
             cardName="tourism-visa.png"
             :title="$t('home-hero.tourism_visa_card_title')"
           />
-        </v-col>
-        <v-col class="col-12 col-md-4 d-flex justify-center">
           <HeroCard
+          class="mx-5 mt-3"
             cardName="employment-visa.png"
             :title="$t('home-hero.employment_visa_card_title')"
           />
-        </v-col>
-        <v-col class="col-12 col-md-4 d-flex justify-center">
           <HeroCard
+          class="mx-5 mt-3"
             cardName="propose-visa.png"
             :title="$t('home-hero.propose_visa_card_title')"
           />
-        </v-col>
       </v-row>
     </section>
   </div>
@@ -38,11 +35,12 @@
       class="rounded-pill bg-hero-scd-sec w-50 py-3 px-2 text-text hero__h3 d-flex justify-center text-center align-center"
     >
       <span class="py-1 pe-1 hero__h3--large-text d-none d-md-inline">{{ $t("home-hero.h3_part1") }} </span>
-      <Image name="passport.png" height="100" class="d-none d-lg-block" />
+      <span class="d-md-none hero__h3--small-text">{{ $t("home-hero.h3_part1") }}</span>
+      <Image name="passport.png" height="100" class="mt-10" />
       <span class="py-1 ps-lg-4 d-none d-md-inline hero__h3--large-text"> {{ $t("home-hero.h3_part2") }} </span>
-      <span class="d-md-none hero__h3--small-text">{{ $t("home-hero.h3_part1") }} {{ $t("home-hero.h3_part2") }}</span>
+      <span class="d-md-none hero__h3--small-text">{{ $t("home-hero.h3_part2") }}</span>
     </div>
-    <p class="text-text mt-5 mt-lg-15 hero_p">
+    <p class="text-text mt-15 hero_p">
       {{ $t("home-hero.hero_p") }}
     </p>
   </section>
