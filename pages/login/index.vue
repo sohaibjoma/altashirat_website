@@ -12,8 +12,20 @@
       </v-col>
 
       <!-- Login Card Column -->
-      <v-col cols="12" md="6" class="d-flex align-center justify-center pa-4">
-        <v-card class="pa-6 rounded-xl w-100 card-with-shadow" max-width="500">
+      <v-col cols="12" md="6" class="d-flex flex-column align-center pa-4">
+        <div
+          :class="[
+            'back-button-wrapper',
+            isRTL ? 'back-button-rtl' : 'back-button-ltr',
+          ]"
+        >
+          <BackButton :text="$t('backToHome')" @click="navigateTo('/')" />
+        </div>
+
+        <v-card
+          class="pa-6 rounded-xl w-100 card-with-shadow mt-16"
+          max-width="500"
+        >
           <!-- Logo -->
           <div class="d-flex justify-center mb-4">
             <Image name="logo.png" max-width="120" alt="Logo" />
@@ -95,7 +107,8 @@
 import { CustomLink } from "#components";
 import { useI18n } from "#imports";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
+const isRTL = computed(() => locale.value === "ar");
 
 const countryCode = ref("");
 const phoneNumber = ref("");
@@ -185,7 +198,10 @@ const submitForm = async () => {
     authStore.setToken(response.token);
     authStore.setUser(response.user);
 
-    notificationStore.setNotification(t("notification.loginSuccess"), "success");
+    notificationStore.setNotification(
+      t("notification.loginSuccess"),
+      "success"
+    );
 
     navigateTo("/");
   } catch (error) {
@@ -205,6 +221,19 @@ definePageMeta({
 </script>
 
 <style scoped>
+.back-button-wrapper {
+  position: absolute;
+  z-index: 100;
+}
+
+.back-button-ltr {
+  right: 24px;
+}
+
+.back-button-rtl {
+  left: 24px;
+}
+
 .card-with-shadow {
   border-radius: 24px;
   background-color: white;

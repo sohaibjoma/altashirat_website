@@ -3,7 +3,7 @@
     v-model="visible"
     :class="['notification-snackbar', snackbarColor]"
     location="bottom right"
-    :timeout="3000"
+    :timeout="5000"
     elevation="10"
     rounded="lg"
     content-class="snackbar-content"
@@ -44,7 +44,7 @@ watch(message, (newMessage) => {
     timeoutId = setTimeout(() => {
       visible.value = false;
       notificationStore.clearNotification();
-    }, 3000);
+    }, 5000);
   }
 });
 </script>
