@@ -86,6 +86,8 @@
 
   "home-advertisement": {
     "employment_visa_button": "طلب فيزا توظيف",
+    "tour_visa_btn": "طلب فيزا سياحية",
+    "sell_visa_btn": "طلب بيع فيزا",
     "why_choose_us_title": "لماذا اخترتنا",
     "why_choose_us_subtitle": "فوائد عديدة وعملية وسريعة",
     "listItems": {

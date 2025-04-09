@@ -1,5 +1,6 @@
 <template>
-  <v-row class="other-services__wrapper">
+  <v-row class="other-services__wrapper d-flex justify-center">
+  
     <Image
       name="other-ser-img.png"
       class="ms-8 mt-5 col-12 col-md-6 col-lg-4"
@@ -44,7 +45,7 @@
       name="other-ser-plane.png"
       class="d-none col-lg-4 d-lg-block mt-16"
       height="350"
-      width="420"
+      width="360"
     />
   </v-row>
 </template>

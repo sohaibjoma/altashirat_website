@@ -137,6 +137,7 @@
 
 <script setup>
 import { useI18n } from "#imports";
+import { onMounted, reactive, ref } from "vue";
 
 const { t } = useI18n();
 

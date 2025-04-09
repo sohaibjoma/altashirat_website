@@ -4,11 +4,15 @@ import { createVuetify } from "vuetify";
 import "@mdi/font/css/materialdesignicons.css";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
+import * as labsComponents from 'vuetify/labs/components'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const i18n = nuxtApp.$i18n; 
   const vuetify = createVuetify({
-    components,
+    components: {
+      ...components,
+      ...labsComponents,
+    },
     directives,
     icons: {
       defaultSet: "mdi",
