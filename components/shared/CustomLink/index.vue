@@ -1,6 +1,7 @@
 <template>
           <nuxt-link :to="localePath(path)">
           <slot/>
+          
         </nuxt-link>
 </template>
 

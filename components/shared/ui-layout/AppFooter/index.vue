@@ -1,8 +1,8 @@
 <template>
-  <v-footer class="bg-bg-footer pt-12 footer__container">
+  <v-footer class="bg-bg-footer pt-12">
     <v-container>
       <v-row>
-        <v-col cols="12" sm="6" md="3" class="d-flex flex-column">
+        <v-col cols="12" sm="6" md="3" class="d-flex flex-column ">
           <div class="d-flex align-center mb-4">
             <svg
               width="4"
@@ -46,7 +46,7 @@
           ></v-img>
         </v-col>
 
-        <v-col cols="12" sm="6" md="3" class="d-flex flex-column">
+        <v-col cols="12" sm="6" md="3" class="d-flex flex-column ">
           <div class="d-flex align-center mb-4">
             <svg
               width="4"
@@ -77,7 +77,7 @@
             </svg>
             <h3 class="text-text">{{ t('footer.visa_requests') }}</h3>
           </div>
-          <v-list class="pa-0 bg-transparent" density="compact">
+          <v-list class="pa-0 bg-transparent custom-padding" density="compact">
             <v-list-item
               class="text-text"
               v-for="(item, index) in visaItems"
@@ -85,7 +85,7 @@
               :value="item"
             >
               <template v-slot:prepend>
-                <v-icon icon="mdi-chevron-left" color="secondary"></v-icon>
+                <v-icon :icon="locale==='ar'?'mdi-chevron-left' :'mdi-chevron-right'" color="secondary" class="custom_margin"></v-icon>
               </template>
               <v-list-item-title>{{ t(item) }}</v-list-item-title>
             </v-list-item>
@@ -124,16 +124,18 @@
             <h3 class="text-text">{{ t('footer.general_info') }}</h3>
           </div>
           <v-list class="pa-0 bg-transparent" density="compact">
+            
             <v-list-item
               v-for="(item, index) in infoItems"
               :key="index"
               :value="item"
-              class="text-text"
+              class="text-text custom_margin"
             >
-              <template v-slot:prepend>
-                <v-icon icon="mdi-chevron-left" color="secondary"></v-icon>
-              </template>
+            <CustomLink :path="`/${item}`" class="text-decoration-none text-text d-flex">
+                <v-icon :icon="locale==='ar'?'mdi-chevron-left' :'mdi-chevron-right'" color="secondary" class="me-4"></v-icon>
               <v-list-item-title>{{ t(item) }}</v-list-item-title>
+          </CustomLink>
+
             </v-list-item>
           </v-list>
         </v-col>
@@ -177,7 +179,7 @@
               class="text-text d-flex"
             >
               <template v-slot:prepend>
-                <v-icon icon="mdi-chevron-left" color="secondary"></v-icon>
+                <v-icon :icon="locale==='ar'?'mdi-chevron-left' :'mdi-chevron-right'" color="secondary" class="custom_margin"></v-icon>
               </template>
               <v-list-item-title>{{ t(item.name) }}</v-list-item-title>
               <template v-slot:append>
@@ -203,6 +205,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 
+const {  locale } = useI18n();
 const { t } = useI18n();
 
 const visaItems = [
@@ -215,7 +218,7 @@ const infoItems = [
   "about",
   "contact",
   "terms",
-  "privacy",
+  "privacy-policy",
 ];
 
 const socialItems = [
@@ -238,7 +241,8 @@ const socialItems = [
   margin-bottom: 12px;
 }
 
-.footer__container {
-  padding-inline: 10rem !important;
+.custom_margin{
+  margin-right: -20px;
+  margin-left: -20px;
 }
 </style>

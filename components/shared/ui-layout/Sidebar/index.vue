@@ -230,7 +230,7 @@ const navItems = ref([
   { title: t("about"), icon: "mdi-information", to: "/about" },
   { title: t("contact"), icon: "mdi-phone", to: "/contact" },
   { title: t("terms"), icon: "mdi-file-document", to: "/terms" },
-  { title: t("privacy"), icon: "mdi-shield", to: "/privacy-policy" },
+  { title: t("privacy-policy"), icon: "mdi-shield", to: "/privacy-policy" },
 ]);
 
 onMounted(() => {

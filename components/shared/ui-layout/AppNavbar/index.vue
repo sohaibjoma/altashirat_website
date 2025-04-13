@@ -45,7 +45,7 @@
           :class="{ 'active-link': isActive('/privacy-policy') }"
         >
           <v-btn rounded="pill" class="link-btn rounded-pill">{{
-            $t("privacy")
+            $t("privacy-policy")
           }}</v-btn>
         </CustomLink>
       </v-bottom-navigation>
