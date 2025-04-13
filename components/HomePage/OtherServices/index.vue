@@ -36,7 +36,7 @@
             />
           </template>
 
-          <v-list-item-title v-text="item"></v-list-item-title>
+          <v-list-item-title>{{ item }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </article>

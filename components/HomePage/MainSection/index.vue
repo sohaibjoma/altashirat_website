@@ -169,7 +169,7 @@
 
         <!-- generic btn replacement -->
     <v-btn color="primary" rounded="pill" class="px-lg-8 border border-primary border-opacity-100 border-4 mt-5" height="50" v-bind="props">
-    {{ $t('home-advertisement.employment_visa_button') }}
+    {{ $t('home-advertisement.employment_visa_btn') }}
     <template v-slot:append>
       <v-icon
         :icon="locale === 'ar' ? 'mdi-chevron-left' : 'mdi-chevron-right'"

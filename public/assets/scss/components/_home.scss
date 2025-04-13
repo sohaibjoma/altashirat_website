@@ -59,6 +59,7 @@ font-size: 10pt;
   top: 0;
   right: 0;
   height: 465px;
+  width: 700px;
   z-index: 1;
 }
 
@@ -67,6 +68,7 @@ font-size: 10pt;
   top: 0;
   left: 0;
   height: 465px;
+  width: 700px;
   z-index: 1;
 }
 
@@ -181,20 +183,19 @@ font-size: 10pt;
 .advertisement__pattern__right{
   position: absolute;
   top: 0;
-  right: -200px;
-  height: 1500px;
-  width: 700px;
+  right: 0;
+  height: 1170px;
+  width: 400px;
   z-index: 0;
 }
 
 .advertisement__pattern__left{
   position: absolute;
   top: 0;
-  left: -200px;
-  height: 1500px;
-  width: 700px;
+  left: 0;
+  height: 1170px;
+  width: 400px;
   z-index: 0;
-
 }
 
 .advertise__card__button-column {

@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="bg-bg-footer pt-12">
+  <v-footer class="bg-bg-footer pt-12 footer__container">
     <v-container>
       <v-row>
         <v-col cols="12" sm="6" md="3" class="d-flex flex-column">
@@ -236,5 +236,9 @@ const socialItems = [
   color: var(--white);
   font-size: 14px;
   margin-bottom: 12px;
+}
+
+.footer__container {
+  padding-inline: 10rem !important;
 }
 </style>
