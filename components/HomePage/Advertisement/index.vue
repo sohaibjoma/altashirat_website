@@ -9,7 +9,7 @@
       class="advertisement__pattern__left"
     />
 
-    <section class="bg-bg-footer w-75 mx-auto ps-5 pe-5 pt-5 pb-5 d-flex flex-md-column flex-column-reverse">
+    <section class="bg-bg-footer w-75 mx-auto ps-5 pe-5 pt-5 pb-5 d-flex flex-md-column flex-column-reverse ad__maain-card">
       <div
         class="d-flex flex-wrap lg-100 mb-16 bg-white"
       >
@@ -24,7 +24,7 @@
           />
           <GenericBtn
 
-            :btnText="$t('home-advertisement.employment_visa_button')"
+            :btnText="$t('home-advertisement.employment_visa_btn')"
           />
           <GenericBtn
             :btnText="$t('home-advertisement.sell_visa_btn')"
@@ -52,7 +52,7 @@
                   :color="index % 2 === 0 ? 'secondary' : 'primary'"
                 />
               </template>
-              <v-list-item-title v-text="item" />
+              <v-list-item-title>{{ item }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-col>
@@ -102,19 +102,18 @@
       </v-row>
     </section>
 
-    <div class="text-center pt-10">
+    <div class="text-center pt-10 px-5">
       <Image name="advertise.png" class="w-100 w-lg-75 mt-16 mx-auto" />
     </div>
   </div>
 </template>
 
 <script setup>
-
-import { useI18n } from "#imports";
+import { useI18n, computed } from "#imports";
 
 const { t, locale } = useI18n();
 
-const listItems = ref([
+const listItems = computed(() => [
   t("home-advertisement.listItems.fst"),
   t("home-advertisement.listItems.snd"),
   t("home-advertisement.listItems.thrd"),

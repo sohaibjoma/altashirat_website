@@ -8,6 +8,20 @@ import * as labsComponents from 'vuetify/labs/components'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const i18n = nuxtApp.$i18n; 
+  const messages = {
+    ar:{
+      confirmEdit: { ok: "حفظ", cancel :"إلغاء"},
+      open: "فتح",
+      close: "إغلاق",
+      input:{
+        appendAction: "appenAction",
+      },
+      dataIterator:{
+        pageText: "{0}-{1} من {2}",
+        rowsPerPageText: "العناصر لكل الصفحة:",
+      }
+    }
+  }
   const vuetify = createVuetify({
     components: {
       ...components,
@@ -20,6 +34,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     locale: {
       locale: i18n.locale, 
       rtl: { ar: true, en: false }, 
+      messages: messages
     },
     theme: {
       defaultTheme: "myCustomTheme",
