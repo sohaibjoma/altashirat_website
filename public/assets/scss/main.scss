@@ -4,6 +4,8 @@
 @use 'components/Ui-Layout/layouts';
 @use 'components/home';
 
+@use 'components/orders';
+@use 'components/customtable';
 @use 'components/_deleteAccount';
 @use 'components/_profile';
 @use 'components/Chips/mainChip.scss';

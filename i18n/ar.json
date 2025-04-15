@@ -179,5 +179,20 @@
     "updateFailed": "فشل تحديث البيانات. حاول مرة أخرى.",
     "successfullLogout": "تم تسجيل الخروج بنجاح",
     "failedLogout": "فشل تسجيل الخروج. حاول مرة أخرى."
+  },
+  "order":{
+    "orderNumber": "رقم الطلب",
+    "orderDate": "تاريخ الطلب",
+    "orderStatus": "حالة الطلب",
+    "purpose": "غرض الزيارة",
+    "popupTitle":"إستمارة عرض فيزا سياحية",
+    "personalInfo": "المعلومات الشخصية",
+    "orderInfo":"معلومات الفيزا والمؤهلات المطلوبة"
+  },
+  "statuses":{
+    "pending": "قيد الانتظار",
+    "reviwing": "قيد المراجعة",
+    "accepted": "تم القبول",
+    "rejected": "تم رفضه"
   }
 }

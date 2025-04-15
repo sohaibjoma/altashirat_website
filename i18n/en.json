@@ -178,5 +178,20 @@
     "updateFailed": "Failed to update data. Please try again.",
     "successfullLogout": "You Logged Out Successfully",
     "failedLogout": "Failed to log out. Please try again."
+  },
+  "order":{
+    "orderNumber": "Order Number",
+    "orderDate": "Order Date",
+    "orderStatus": "Order Status",
+    "purpose": "Purpose of Visit",
+    "popupTitle":"Tourism Visa Request Form",
+    "personalInfo": "Personal Information",
+    "orderInfo":"Visa Info and Qualifications Required"
+  },
+  "statuses":{
+    "pending": "Pending",
+    "reviwing": "Reviewing",
+    "accepted": "Accepted",
+    "rejected": "Rejected"
   }
 }
