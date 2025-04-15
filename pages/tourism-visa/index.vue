@@ -1,16 +1,23 @@
 <template>
   <div class="tourism-visa">
-      <div class="tourism-popup position-absolute w-100 h-100" v-if="!isAuthenticated">
+    <div
+      class="tourism-popup position-absolute w-100 h-100"
+      v-if="!isAuthenticated"
+    >
       <div
         class="tourism-card position-fixed mx-auto rounded-xl d-flex justify-center align-center flex-column"
       >
-        <h3 class="tourism-popup-title mt-5">{{ $t("createTourismVisa.popupTitle") }}</h3>
+        <h3 class="tourism-popup-title mt-5">
+          {{ $t("createTourismVisa.popupTitle") }}
+        </h3>
         <Image
           name="tourism-visa-empty.png"
           alt="profile tile image"
           width="200"
         />
-        <p class="tourism-popup-desc mt-5 px-12">{{ $t("createTourismVisa.popupDesc") }}</p>
+        <p class="tourism-popup-desc mt-5 px-12">
+          {{ $t("createTourismVisa.popupDesc") }}
+        </p>
         <MainButton
           width="50%"
           :text="$t('login')"
@@ -120,6 +127,7 @@
                     name="birthdate"
                     :title="$t('createTourismVisa.birthdate')"
                     class="rounded-xl"
+                    rules="required"
                   />
                 </div>
 
@@ -388,15 +396,21 @@ const formSubmitting = async () => {
     formData.append("gender", formState.gender);
     formData.append("birthdate", formState.birthdate);
     formData.append("passport_number", formState.passportNumber);
-    
+
     formState.passportImages.forEach((file, index) => {
       formData.append(`passport_images[${index}]`, file);
     });
 
     if (formState.attachment && formState.attachment.length) {
       formState.attachment.forEach((file, index) => {
-        formData.append(`attachment[${index}]`, file);
+        if (file instanceof File && file.type === "application/pdf") {
+          formData.append(`attachments[${index}]`, file);
+        } else {
+          console.warn(`Invalid file at index ${index}:`, file);
+        }
       });
+    } else {
+      console.warn("No attachments provided");
     }
 
     formData.append("phone[country_code]", formState.countryCode);
@@ -409,7 +423,6 @@ const formSubmitting = async () => {
     formData.append("message", formState.message);
 
     const response = await POST("/tourism-visa", formData);
-
 
     authStore.updateUser({
       firstname: formState.firstName,
