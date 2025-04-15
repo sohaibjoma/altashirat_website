@@ -123,7 +123,8 @@
                 <!-- Date Input -->
                 <div class="w-100 w-lg-50 pe-16">
                   <DateInput
-                    v-model="formState.birthdate"
+                  :modelValue="formState.birthdate"
+                  @update:modelValue="formState.birthdate = $event"
                     name="birthdate"
                     :title="$t('createTourismVisa.birthdate')"
                     class="rounded-xl"
