@@ -120,7 +120,6 @@
                     name="birthdate"
                     :title="$t('createTourismVisa.birthdate')"
                     class="rounded-xl"
-                    rules="required"
                   />
                 </div>
 
