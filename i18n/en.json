@@ -45,7 +45,7 @@
     "mailLength": "The field must be at most 50 characters.",
     "passport": "The field must be between 14 and 20 digits.",
     "perposeOfVisit": "The field must be between 5 and 255 digits.",
-    "count": "The field must be between 0 and 10 digits.",
+    "count": "The field value must be from 0 to 10",
     "textarea": "The field must be more than 40000 digits.",
     "min": "The field must be at least {0} characters.",
     "max": "The field must be at most {0} characters."

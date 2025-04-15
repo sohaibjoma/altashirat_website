@@ -389,15 +389,16 @@ const formSubmitting = async () => {
     formData.append("gender", formState.gender);
     formData.append("birthdate", formState.birthdate);
     formData.append("passport_number", formState.passportNumber);
-    // formData.append("passport_images", formState.passportImages);
-    // formData.append("attachment", formState.attachment);
+    
     formState.passportImages.forEach((file, index) => {
       formData.append(`passport_images[${index}]`, file);
     });
 
-    formState.attachment.forEach((file, index) => {
-      formData.append(`attachment[${index}]`, file);
-    });
+    if (formState.attachment && formState.attachment.length) {
+      formState.attachment.forEach((file, index) => {
+        formData.append(`attachment[${index}]`, file);
+      });
+    }
 
     formData.append("phone[country_code]", formState.countryCode);
     formData.append("phone[number]", formState.phoneNumber);
@@ -410,7 +411,7 @@ const formSubmitting = async () => {
 
     const response = await POST("/tourism-visa", formData);
 
-    // Update user in store with new data
+
     authStore.updateUser({
       firstname: formState.firstName,
       middlename: formState.middleName,
