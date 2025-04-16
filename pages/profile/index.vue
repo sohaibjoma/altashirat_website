@@ -23,7 +23,7 @@
         </div>
         <div class="ms-auto me-lg-10 mb-8 mb-lg-0">
           <CustomLink
-            to="/profile/delete-account"
+            path="/profile/delete-account"
             class="profile__more-btn text-primary bg-bg-input text-decoration-none rounded-pill px-4 py-2"
           >
             {{ $t("profile.more") }}

@@ -286,6 +286,8 @@
 import { useI18n } from "#imports";
 import { onMounted, reactive, ref } from "vue";
 import { useAuthStore } from "~/stores/auth";
+import { useLocalePath } from "#imports";
+const localePath = useLocalePath();
 
 const Authenticated = useAuthStore();
 const isAuthenticated = computed(() => Authenticated.isAuthenticated);
@@ -445,7 +447,7 @@ const formSubmitting = async () => {
       t("notification.updateSuccess"),
       "success"
     );
-    router.push("/")
+    router.push(localePath("/profile/orders"))
   } catch (error) {
     notificationStore.setNotification(
       error.response?.data?.message || t("notification.updateFailed"),

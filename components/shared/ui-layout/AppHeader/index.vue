@@ -81,7 +81,7 @@
           color="primary"
           size="large"
           rounded
-          to="/tourism-visa"
+          :to="localePath('/tourism-visa')"
         >
           {{ $t("tourismVisa") }}
           <svg
@@ -112,6 +112,8 @@ import { Image } from "#components";
 import { ref } from "vue";
 import { useDisplay } from "vuetify";
 import { useI18n } from "#imports";
+import { useLocalePath } from "#imports";
+const localePath = useLocalePath();
 
 const { locale, setLocale } = useI18n();
 const { mobile } = useDisplay();
