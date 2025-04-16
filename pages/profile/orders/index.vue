@@ -9,9 +9,7 @@
         color="primary"
         size="large"
         rounded
-        to="/visa"
       >
-        {{ $t("offerViza") }}
         <svg
           width="24"
           height="23"
@@ -24,14 +22,29 @@
               fill="#FFF"
             />
             <path
-              d="m15.729 14.014-2.693 1.218.042-.577 1.744-.775a10.955 10.955 0 0 0-.764-.024c-.964 0-2.592.48-4.393 1.184l-5.777-1.5a2.045 2.045 0 0 0-1.587.238l-.284.176a.437.437 0 0 0-.006.744l3.473 2.217c-.83.417-1.617.841-2.31 1.246l-1.783-.928a1.137 1.137 0 0 0-.94-.05l-.170.067a.438.438 0 0 0-.223.626l.981 1.717c-.37.313-.58.573-.58.753 0 .539.673.673 1.267.673 1.058 0 15.041-3.15 15.041-6.005 0-.566-.393-.848-1.038-1zM9.833 19.588l3.077-1.067a.224.224 0 0 1 .297.182l.27 2.27a1.32 1.32 0 0 1-.769 1.354l-.288.132a.453.453 0 0 1-.526-.109L9.74 19.941a.22.22 0 0 1 .093-.353z"
+              d="m15.729 14.014-2.693 1.218.042-.577 1.744-.775a10.955 10.955 0 0 0-.764-.024c-.964 0-2.592.48-4.393 1.184l-5.777-1.5a2.045 2.045 0 0 0-1.587.238l-.284.176a.437.437 0 0 0-.006.744l3.473 2.217c-.83.417-1.617.841-2.31 1.246l-1.783-.928a1.137 1.137 0 0 0-.94-.05l-.17.067a.438.438 0 0 0-.223.626l.981 1.717c-.37.313-.58.573-.58.753 0 .539.673.673 1.267.673 1.058 0 15.041-3.15 15.041-6.005 0-.566-.393-.848-1.038-1zM9.833 19.588l3.077-1.067a.224.224 0 0 1 .297.182l.27 2.27a1.32 1.32 0 0 1-.769 1.354l-.288.132a.453.453 0 0 1-.526-.109L9.74 19.941a.22.22 0 0 1 .093-.353z"
               fill="#8EE7AD"
             />
           </g>
         </svg>
+        {{ $t("order.requestTourismVisa") }}
       </v-btn>
 
-      <v-table class="mt-4 text-center">
+      <div
+        v-if="isLoading"
+        class="d-flex justify-center align-center py-8"
+        style="height: 200px"
+      >
+        <v-progress-circular
+          indeterminate
+          color="primary"
+          size="60"
+        ></v-progress-circular>
+      </div>
+      <v-table
+        class="mt-4 text-center"
+        v-if="tableEntries && tableEntries.length > 0"
+      >
         <thead class="bg-bg-input my-0">
           <tr>
             <th
@@ -50,105 +63,45 @@
             <td>{{ formatDate(item.statuses[0]?.activated_at) }}</td>
             <td>{{ item.purpose_of_visit }}</td>
             <td>
-              <span :style="{ color: getStatusColor(filterStatus(item.statuses)) }">
-      {{ t(`statuses.${getStatusType(filterStatus(item.statuses))}`) }}
-    </span>
+              <span
+                :style="{ color: getStatusColor(filterStatus(item.statuses)) }"
+              >
+                {{
+                  t(`statuses.${getStatusType(filterStatus(item.statuses))}`)
+                }}
+              </span>
             </td>
             <td class="text-end">
-              <v-icon 
-    color="primary bg-bg-input pa-3 rounded-lg"
-    @click="showDetails(item)"
-    style="cursor: pointer"
-  >
-    mdi-eye
-  </v-icon>
+              <v-icon
+                color="primary bg-bg-input pa-3 rounded-lg"
+                @click="showDetails(item)"
+                style="cursor: pointer"
+              >
+                mdi-eye
+              </v-icon>
             </td>
           </tr>
         </tbody>
       </v-table>
+      <div class="d-flex flex-column align-center py-16" v-else-if="!isLoading">
+        <Image
+          name="no-orders.png"
+          alt="no orders image"
+          class="my-10"
+          height="200"
+        />
+        <h4 class="text-text mb-12">{{ $t("order.emptyOrders") }}</h4>
+      </div>
     </div>
+
+    <OrderDialogue v-model="dialog" :selected-item="selectedItem" />
   </v-card>
-
-  <!-- ----------------popup----------  -->
-  <v-dialog v-model="dialog" >
-    <v-card class="rounded-lg" max-width="800">
-        <div class="d-flex justify-center">
-        <div class="gradient-top-border"></div>
-      </div>
-
-      <div class="text-center">
-        <h4 class="font-weight-bold text-text">
-          {{ t("order.popupTitle") }}
-        </h4>
-      </div>
-
-      <div class="d-flex gap-2 flex-wrap">
-        <section class="d-flex flex-column w-full w-md-50 mb-4">
-          
-          <v-card class="w-full pb-8 ms-4">
-            <!-- ----header---- -->
-            <div class="d-flex align-center">
-              <div class="orders__cards__h--starter me-2"></div>
-              <Image
-            name="profile-form-icon.png"
-            alt="profile tile image"
-            width="25"
-          />
-              <h4 class="font-weight-bold text-text mb-3 pt-4 ps-2">{{ $t('order.personalInfo') }}</h4>
-            </div>
-            <!-- --------header end------- -->
-             <article class="ms-10 mt-3">
-              <div>
-                <v-icon color="secondary">mdi-account</v-icon>
-              <span class="ms-2">{{ selectedItem.firstname }}</span>
-              </div>
-
-              <div>
-                <v-icon color="secondary">mdi-cellphone</v-icon>
-              <span class="ms-2">{{ selectedItem.user.email }}</span>
-              </div>
-
-              <div>
-                <v-icon color="secondary">mdi-email</v-icon>
-              <span class="ms-2">{{ selectedItem.firstname }}</span>
-              </div>
-              
-             </article>
-          </v-card>
-
-          <v-card class="w-full pb-8 ms-4  mt-lg-5">
-            <!-- ----header---- -->
-            <div class="d-flex align-center">
-              <div class="orders__cards__h--starter me-2"></div>
-              <Image
-            name="orders.png"
-            alt="profile tile image"
-            width="25"
-          />
-              <h4 class="font-weight-bold text-text mb-3 pt-4 ps-2">{{ $t('order.personalInfo') }}</h4>
-            </div>
-            <!-- --------header end------- -->
-             <article class="ms-10 mt-3">
-              <div>
-                <v-icon color="secondary">mdi-account</v-icon>
-              <span class="ms-2">{{ selectedItem.firstname }}</span>
-              </div>
-              
-             </article>
-          </v-card>
-        </section>
-        <section>
-          <v-card class="w-full w-lg-50">hello</v-card>
-        </section>
-      </div>
-    </v-card>
-  </v-dialog>
 </template>
 
 <script setup>
 import { useI18n } from "#imports";
 import { useApi } from "@/composables/api";
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 
 const { GET } = useApi();
 const { t } = useI18n();
@@ -175,35 +128,38 @@ function formatDate(dateString) {
 
 // Status filtration - returns raw status name
 function filterStatus(statuses) {
+  if (!statuses || !statuses.length) return "";
+
   const latestStatus = statuses
     .filter((s) => s.activated_at)
     .sort((a, b) => new Date(b.activated_at) - new Date(a.activated_at))[0];
+
   return latestStatus?.name || "";
 }
 
 // Map status names to status types
 function getStatusType(statusName) {
   const statusMap = {
-    "قيد الانتظار": "pending",
-    "Pending": "pending",
-    "قيد المراجعة": "reviwing",
-    "Reviewing": "reviwing",
-    "تم القبول": "accepted",
-    "Accepted": "accepted",
-    "تم رفضه": "rejected",
-    "Rejected": "rejected"
+    "قيد الانتظار": "Pending",
+    Pending: "Pending",
+    "قيد المراجعة": "Reviwing",
+    Reviewing: "Reviwing",
+    "تم القبول": "Accepted",
+    Accepted: "Accepted",
+    "تم رفضه": "Rejected",
+    Rejected: "Rejected",
   };
   return statusMap[statusName] || "";
 }
 
-// Status coloring 
+// Status coloring
 const getStatusColor = (statusName) => {
   const statusType = getStatusType(statusName);
   const colorMap = {
-    "pending": "#b2aecc",
-    "reviwing": "#ffc419",
-    "accepted": "#069230",
-    "rejected": "#fb1c1f"
+    Pending: "#b2aecc",
+    Reviwing: "#ffc419",
+    Accepted: "#069230",
+    Rejected: "#fb1c1f",
   };
   return colorMap[statusType] || "#000000";
 };
@@ -225,7 +181,7 @@ const fetchTourism = async () => {
   }
 };
 
-//dialogue
+// Dialog control
 const dialog = ref(false);
 const selectedItem = ref(null);
 

@@ -53,6 +53,8 @@ export default defineNuxtPlugin((nuxtApp) => {
             nav: "#64BAF9",
             "hero-scd-sec": "#8ee7ad",
             "bg-footer": "#eaeaea80",
+            "dark-gray":"#b2aecc",
+            "light-gray":"#f1f4fb",
           },
         },
       },

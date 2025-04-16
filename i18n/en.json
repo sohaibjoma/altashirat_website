@@ -180,18 +180,23 @@
     "failedLogout": "Failed to log out. Please try again."
   },
   "order":{
+    "requestTourismVisa": "Request Tourism Visa",
     "orderNumber": "Order Number",
     "orderDate": "Order Date",
     "orderStatus": "Order Status",
     "purpose": "Purpose of Visit",
     "popupTitle":"Tourism Visa Request Form",
     "personalInfo": "Personal Information",
-    "orderInfo":"Visa Info and Qualifications Required"
+    "orderInfo":"Visa Info and Qualifications Required",
+    "noMessage":"Not existing",
+    "download":"download",
+    "emptyOrders": "Oops! you have no orders yet"
   },
   "statuses":{
-    "pending": "Pending",
-    "reviwing": "Reviewing",
-    "accepted": "Accepted",
-    "rejected": "Rejected"
+    "Pending": "Pending",
+    "Reviwing": "Reviewing",
+    "Accepted": "Accepted",
+    "Rejected": "Rejected",
+    "PendingText":"Order is Recieved"
   }
 }

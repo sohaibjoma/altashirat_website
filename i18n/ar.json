@@ -181,18 +181,23 @@
     "failedLogout": "فشل تسجيل الخروج. حاول مرة أخرى."
   },
   "order":{
+    "requestTourismVisa": "طلب فيزا سياحية",
     "orderNumber": "رقم الطلب",
     "orderDate": "تاريخ الطلب",
     "orderStatus": "حالة الطلب",
     "purpose": "غرض الزيارة",
-    "popupTitle":"إستمارة عرض فيزا سياحية",
+    "popupTitle":"إستمارة طلب فيزا سياحية",
     "personalInfo": "المعلومات الشخصية",
-    "orderInfo":"معلومات الفيزا والمؤهلات المطلوبة"
+    "orderInfo":"معلومات الفيزا والمؤهلات المطلوبة",
+    "noMessage": "لا يوجد",
+    "download": "تحميل",
+    "emptyOrders": " عفوًا لا يوجد طلبات إلى الآن  "
   },
   "statuses":{
-    "pending": "قيد الانتظار",
-    "reviwing": "قيد المراجعة",
-    "accepted": "تم القبول",
-    "rejected": "تم رفضه"
+    "Pending": "قيد الانتظار",
+    "Reviwing": "قيد المراجعة",
+    "Accepted": "تم القبول",
+    "Rejected": "تم رفضه",
+    "PendingText": "تم استقبال الطلب"
   }
 }
