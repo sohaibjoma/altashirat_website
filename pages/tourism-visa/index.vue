@@ -289,6 +289,7 @@ import { useAuthStore } from "~/stores/auth";
 
 const Authenticated = useAuthStore();
 const isAuthenticated = computed(() => Authenticated.isAuthenticated);
+const router = useRouter()
 
 const { t } = useI18n();
 
@@ -444,6 +445,7 @@ const formSubmitting = async () => {
       t("notification.updateSuccess"),
       "success"
     );
+    router.push("/")
   } catch (error) {
     notificationStore.setNotification(
       error.response?.data?.message || t("notification.updateFailed"),
