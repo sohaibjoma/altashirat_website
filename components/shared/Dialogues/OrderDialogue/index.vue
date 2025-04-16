@@ -5,7 +5,7 @@
         <div class="gradient-top-border"></div>
       </div>
 
-      <div class="text-center mb-4">
+      <div class="text-center mb-8 mt-2">
         <h4 class="font-weight-bold text-text">
           {{ $t("order.popupTitle") }}
         </h4>
@@ -13,12 +13,12 @@
 
       <div class="d-flex gap-2 pe-md-4 flex-wrap justify-center">
         <!-- ----left side---- -->
-        <section class="d-flex flex-column w-full w-md-50 mb-4">
+        <section class="d-flex flex-column w-lg-50 mb-4 popup__section">
     
           <!-- ---------------------first card----------------- -->
-          <v-card class="pb-4 ms-4 mb-4 mb-lg-0" v-if="props.selectedItem">
+          <v-card class="pb-4 ms-4 mb-4 mb-lg-0 card__popup" v-if="props.selectedItem">
             <!-- ----header---- -->
-            <div class="d-flex align-center">
+            <div class="d-flex align-center me-8 me-lg-0">
               <div class="orders__cards__h--starter me-2"></div>
               <Image
                 name="profile-form-icon.png"
@@ -57,9 +57,9 @@
 
 
           <!-- ---------------------------------second card-------------------------------- -->
-          <v-card class="w-full pb-8 ms-4 mt-lg-5 pe-10 pe-lg-0" v-if="props.selectedItem">
+          <v-card class="pb-8 ms-4 mt-lg-5 pe-10 pe-lg-0 card__popup" v-if="props.selectedItem">
             <!-- ----header---- -->
-            <div class="d-flex align-center">
+            <div class="d-flex align-center me-8 me-lg-0">
               <div class="orders__cards__h--starter me-2"></div>
               <Image name="orders.png" alt="profile tile image" width="25" />
               <h4 class="font-weight-bold text-text mb-3 pt-4 ps-2">
@@ -75,8 +75,8 @@
 
 
         <!-- -------------------------right side----------------------- -->
-        <section class="w-full w-md-50">
-          <v-card class="w-full pb-8 ms-4 pe-4 pe-md-0" v-if="props.selectedItem">
+        <section class="w-full pb-4">
+          <v-card class="w-full mb-2 ms-4 pe-4 pe-md-0 popup__section card__popup" v-if="props.selectedItem" >
             <!-- ----header---- -->
             <div class="d-flex align-center">
               <div class="orders__cards__h--starter me-2"></div>
