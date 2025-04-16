@@ -1,0 +1,75 @@
+.tourism-visa {
+    .tourism-popup {
+        z-index: 2000;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        .tourism-card {
+            z-index: 3000;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            width: 350px;
+            max-width: 100%;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50%;
+                height: 5px;
+                background: linear-gradient(135deg,
+                        rgba(68, 38, 245, 1) 0%, rgba(101, 188, 249, 1) 53%, rgba(142, 231, 173, 1) 100%);
+            }
+
+            .tourism-popup-title,
+            .tourism-popup-desc {
+                color: var(--text);
+            }
+            .tourism-popup-desc {
+                font-size: 0.7rem;
+            }
+        }
+
+        
+
+}
+
+.tourism__h--starter {
+    width: 3px;
+    height: 40px;
+    background: linear-gradient(135deg,
+            rgba(68, 38, 245, 1) 0%, rgba(101, 188, 249, 1) 53%, rgba(142, 231, 173, 1) 100%);
+}
+
+.tourism__h {
+    font-weight: bolder;
+}
+
+.tourism__more-btn {
+    font-size: 16px;
+}
+
+.tourism__small-title {
+    font-size: 12px;
+}
+
+.tourism-title {
+    color: var(--text);
+}
+}
+
+
+
+@media(max-width: 767px) {
+    .tourism-visa {
+        .tourism__h--starter {
+            height: 30px;
+        }
+    }
+
+}

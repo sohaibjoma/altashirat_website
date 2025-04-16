@@ -27,6 +27,7 @@
   "terms": "Terms and Conditions",
   "privacy-policy": "Privacy Policy",
   "offerViza": "Offer Viza",
+  "tourismVisa": "Tourism Visa",
   "profileName": "Profile",
   "backToHome": "Back to Home",
 
@@ -42,6 +43,10 @@
     "phoneNum": "The field must be between 9 and 15 digits.",
     "phoneCode": "The field must be between 3 and 5 digits.",
     "mailLength": "The field must be at most 50 characters.",
+    "passport": "The field must be between 14 and 20 digits.",
+    "perposeOfVisit": "The field must be between 5 and 255 digits.",
+    "count": "The field value must be from 0 to 10",
+    "textarea": "The field must be more than 40000 digits.",
     "min": "The field must be at least {0} characters.",
     "max": "The field must be at most {0} characters."
   },
@@ -137,7 +142,6 @@
     "confirmNewPassword": "Confirm New Password",
     "enterConfirmNewPassword": "Enter Confirm New Password",
     "enterMiddleName": "Enter Middle Name"
-
   },
 
   "aboutSection": {
@@ -178,6 +182,37 @@
     "updateFailed": "Failed to update data. Please try again.",
     "successfullLogout": "You Logged Out Successfully",
     "failedLogout": "Failed to log out. Please try again."
+  },
+  "createTourismVisa": {
+    "mainTitle": "please fill in the information for the visa offer",
+    "secondTitle": "Personal information",
+    "thirdTitle": "Required Visa and Country Information",
+    "firstName": "First Name",
+    "middleName": "Middle Name",
+    "enterMiddleName": "Enter Middle Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "enterEmail": "Enter Email",
+    "phoneNumber": "Phone Number",
+    "enterPhoneNumber": "Enter Phone Number",
+    "countryCode": "Country Code",
+    "birthdate": "Birth Date",
+    "country": "Country",
+    "gender": "Gender",
+    "genderOptions": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "passportNumber": "Passport Number",
+    "save": "Save",
+    "attachment": "Upload Documents",
+    "passportImages":"Upload passport Images" ,
+    "perposeOfVisit": "Perpose Of Visit",
+    "adultCount": "Number of adults",
+    "childCount": "Number of Childern",
+    "message": "Write a message",
+    "popupTitle": "Login for continue",
+    "popupDesc": "You must login for filling request"
   },
   "order":{
     "requestTourismVisa": "Request Tourism Visa",
