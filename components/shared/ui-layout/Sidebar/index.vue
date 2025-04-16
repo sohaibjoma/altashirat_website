@@ -176,7 +176,7 @@ const isProfilePage = computed(() => {
   return (
     route.path.startsWith(localePath("/profile")) ||
     route.path.startsWith(localePath("/profile/change-password")) ||
-    route.path.startsWith(localePath("/data")) ||
+    route.path.startsWith(localePath("/profile/orders")) ||
     route.path.startsWith(localePath("/account"))
   );
 });
@@ -218,7 +218,7 @@ const menuItems = computed(() => {
     {
       title: t("profile.orders"),
       icon: "mdi-cart",
-      to: "/data",
+      to: "/profile/orders",
     },
   ];
 });

@@ -215,5 +215,25 @@
     "message": "اكتب توضيحك",
     "popupTitle": "تسجيل الدخول للمتابعة",
     "popupDesc": "بجب عليك تسجيل الدخول للمتابعة في استكمال الطلب"
+  },
+  "order":{
+    "requestTourismVisa": "طلب فيزا سياحية",
+    "orderNumber": "رقم الطلب",
+    "orderDate": "تاريخ الطلب",
+    "orderStatus": "حالة الطلب",
+    "purpose": "غرض الزيارة",
+    "popupTitle":"إستمارة طلب فيزا سياحية",
+    "personalInfo": "المعلومات الشخصية",
+    "orderInfo":"معلومات الفيزا والمؤهلات المطلوبة",
+    "noMessage": "لا يوجد",
+    "download": "تحميل",
+    "emptyOrders": " عفوًا لا يوجد طلبات إلى الآن  "
+  },
+  "statuses":{
+    "Pending": "قيد الانتظار",
+    "Reviwing": "قيد المراجعة",
+    "Accepted": "تم القبول",
+    "Rejected": "تم رفضه",
+    "PendingText": "تم استقبال الطلب"
   }
 }

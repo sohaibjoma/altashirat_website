@@ -5,11 +5,14 @@
 @use 'components/tourism-visa/form';
 @use 'components/home';
 
+@use 'components/orders';
+@use 'components/customtable';
 @use 'components/_deleteAccount';
 @use 'components/_profile';
 @use 'components/Chips/mainChip.scss';
 @use 'components/_notifications.scss';
 @use 'components/Buttons/back.scss';
+@use 'components/_customTimeline';
 
 @font-face {
   font-family: 'Bahij';
