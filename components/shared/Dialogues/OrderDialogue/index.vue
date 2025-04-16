@@ -78,7 +78,7 @@
         <section class="w-full pb-4">
           <v-card class="w-full mb-2 ms-4 pe-4 pe-md-0 popup__section card__popup" v-if="props.selectedItem" >
             <!-- ----header---- -->
-            <div class="d-flex align-center">
+            <div class="d-flex align-center pe-4">
               <div class="orders__cards__h--starter me-2"></div>
               <Image name="tourism.png" alt="profile tile image" width="25" />
               <h4 class="font-weight-bold text-text mb-3 pt-4 ps-2">
