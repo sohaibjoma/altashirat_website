@@ -99,7 +99,9 @@ const internalDate = ref(parseDate(props.modelValue))
 watch(
   () => props.modelValue,
   (newVal) => {
-    internalDate.value = parseDate(newVal)
+    const parsed = parseDate(newVal)
+    internalDate.value = parsed
+    value.value = formatDate(parsed) // ✅ تأكد إن value.value بتتحدث
   },
   { immediate: true }
 )
