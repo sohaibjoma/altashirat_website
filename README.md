@@ -1,75 +1,64 @@
-# Nuxt Minimal Starter
+# Altashirat Website 🌐
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project is the frontend for **Altashirat**, built using **Nuxt 3** as part of a frontend internship program. The goal is to provide a responsive, multilingual, and accessible user interface using modern web technologies.
 
-## Setup
+---
 
-Make sure to install dependencies:
+## ⚙️ Tech Stack
+
+- [Nuxt 3](https://nuxt.com/)
+- [Vue 3](https://vuejs.org/)
+- [Pinia](https://pinia.vuejs.org/) – State Management
+- [Vue Router](https://router.vuejs.org/) – Routing
+- [SCSS](https://sass-lang.com/) – Styling
+- [Vuetify](https://vuetifyjs.com/) – UI Framework
+- [VeeValidate](https://vee-validate.logaretm.com/) – Form Validation
+- [Axios](https://axios-http.com/) – HTTP Client
+- [Vite](https://vite.dev/) – Build Tool
+- [i18n](https://nuxt.com/docs/guide/concepts/i18n) – Internationalization
+
+---
+
+## 📦 Project Setup
+
+Clone the repository and install dependencies:
 
 ```bash
-# npm
+git clone https://github.com/altashirat/altashirat_website_intern_team_one.git
+cd altashirat_website_intern_team_one
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## 💻 Development Server
 
-Start the development server on `http://localhost:3000`:
+To start the development server at http://localhost:3000, run:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## 🚀 Production Build
 
-Build the application for production:
+To build the app for production:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+To preview the production build locally:
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 📚 Learn More
+
+- [Nuxt Documentation](https://nuxt.com/docs)
+- [Deployment Guide](https://nuxt.com/docs/deployment)
+
+## 👥 Contributors
+
+- [Sohaib Joma](https://github.com/sohaibjoma)
+- [Neveen Abbas](https://github.com/NeveenAbbass)
+
+Feel free to contribute or open issues for feedback and improvements!
