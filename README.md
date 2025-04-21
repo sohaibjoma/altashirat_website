@@ -24,7 +24,7 @@ This project is the frontend for **Altashirat**, built using **Nuxt 3** as part 
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/altashirat/altashirat_website_intern_team_one.git
+git clone https://github.com/altashirat/altashirat_website.git
 cd altashirat_website_intern_team_one
 npm install
 ```
@@ -54,7 +54,6 @@ npm run preview
 ## 📚 Learn More
 
 - [Nuxt Documentation](https://nuxt.com/docs)
-- [Deployment Guide](https://nuxt.com/docs/deployment)
 
 ## 👥 Contributors
 
